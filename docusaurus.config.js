@@ -75,7 +75,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/Valentinusz/valentinusz.github.io',
             label: 'GitHub',
             position: 'right',
           },
@@ -124,7 +124,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Boda Bálint © ${new Date().getFullYear()}. Készült a <a href='https://docusaurus.io/'>Docusaurus</a> felhasználásával.`,
       },
       prism: {
         theme: lightCodeTheme,
