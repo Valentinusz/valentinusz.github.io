@@ -1,0 +1,131 @@
+---
+sidebar_position: 8
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Konkurens programozás
+
+A Java lehetőséget biztosít a párhuzamos programozásra. A Concurrency API központi eleme a `Thread` osztály, mely lehetővé teszi, hogy külön CPU szálakon futtassuk programunk különböző részeit.
+
+Szálat több módon is létre tudunk hozni.
+
+<Tabs>
+<TabItem value="runnable" label="Runnable átadása">
+
+```java
+public static void main(String[] args) {
+  Thread thread = new Thread(() -> System.out.println(\"asd\"));
+  thread.start();
+}
+```
+
+</TabItem>
+<TabItem value="extends" label="Thread kiterjesztése">
+
+```java
+class PlayerThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println("Player moves.");
+    }
+}
+```
+```java
+public static void main(String[] args) {
+    PlayerThread playerThread = new PlayerThread();
+    playerThread.start();
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Szál műveletek
+### Elnevezés
+A szálaknak van egy név adattagja, ami getteren keresztül lekérhető és setteren keresztül beállítható.
+
+```java
+playerThread.setName("asd");
+playerThread.getName();
+```
+
+### Stop (deprecated)
+Leállítja az adott szálat.
+
+:::danger
+Nem biztonságos, használata könnyen a program meghibásodásához vezethet.
+:::
+
+
+### `setDaemon()`
+Átállítja a szál fajtáját `user` vagy `daemon` szálra. A `daemon` szálak alacsony prioritású háttérben futó segédfolyamatok futtatására használatosak. A JVM addig fut amíg van futó `user` szál;
+
+```java
+public class DaemonTest {
+    static class Daemon extends Thread {
+        Daemon() {
+            super();
+            this.setDaemon(true);
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(3000);
+                System.out.println("asd");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Thread daemon = new Daemon();
+        daemon.start();
+    }
+}
+```
+Például ebben a kódrészletben nem kerül kiiírásra semmi, mivel a main thread a deamon szál inidítása után egyből véget ér.
+
+Az `isDaemon()` metódussal lekérhető, hogy egy adott szák daemon szál-e.
+
+### `join()`
+Felfüggeszti a szál futtatását amíg, a szál amire meg meghívjuk véget nem ér.
+Például ha az előző példát így módosítanánk:
+```java
+public static void main(String[] args) {
+  Thread daemon = new Daemon();
+  daemon.start();
+  daemon.join();
+}
+```
+Akkor a fő szál bevárja a daemon befejeződését így megtörténik az amúgy elmaradt kiíratás.
+
+Ha több szált is be akarunk várni, akkor a `join()` hívások sorrendje nem számít.
+
+### `sleep()`
+`Thread` osztály statikus metódusa, felfüggeszti a megadott szál futtatását a megadott időre (milliszekundumban).
+
+```java
+Thread.sleep(3000);
+```
+
+Extra olvashatóságért használható a `TimeUnit` felsorolás elemeinek `sleep()` metódusa
+
+```java
+TimeUnit.SECONDS.sleep(3);
+```
+Ez lényegében ekvivalens az előző `sleep(3000)` hívással.
+
+### `isAlive()`
+Visszaadja, hogy a megadott szál él-e még (el lett indítva, de még nem halt meg.)
+
+```java
+thread.isAlive();
+```
+
+
+
+
