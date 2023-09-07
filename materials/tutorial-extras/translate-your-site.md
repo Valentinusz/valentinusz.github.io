@@ -24,9 +24,9 @@ module.exports = {
 Copy the `docs/intro.md` file to the `i18n/fr` folder:
 
 ```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+mkdir -p i18n/fr/docusaurus-plugin-content-materials/current/
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
+cp materials/intro.md i18n/fr/docusaurus-plugin-content-materials/current/intro.md
 ```
 
 Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.

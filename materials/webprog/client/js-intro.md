@@ -2,14 +2,16 @@
 sidebar_position: 1
 ---
 
-# A statikus világ után
+# A JavaScript programozási nyelv
+
+Docusaurus can manage multiple versions of your docs.
 
 ## Create a docs version
 
 Release a version 1.0 of your project:
 
 ```bash
-npm run docusaurus docs:version 1.0
+npm run docusaurus materials:version 1.0
 ```
 
 The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
