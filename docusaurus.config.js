@@ -74,12 +74,12 @@ const config = {
                         position: 'left',
                         label: 'Tananyagok',
                     },
-                    {to: '/blog', label: 'Blog', position: 'left'},
-                    {
-                        href: 'https://github.com/Valentinusz/valentinusz.github.io',
-                        label: 'GitHub',
-                        position: 'right',
-                    },
+                    // {to: '/blog', label: 'Blog', position: 'left'},
+                    // {
+                    //     href: 'https://github.com/Valentinusz/valentinusz.github.io',
+                    //     label: 'GitHub',
+                    //     position: 'right',
+                    // },
                 ],
             },
             algolia: {
