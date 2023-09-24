@@ -4,7 +4,7 @@ title: "WordCount"
 ---
 
 :::info
-A feladathoz kapcsolódó kódok megtalálhatók a [GitHub repoban](https://github.com/Valentinusz/elte-ik-bsc/tree/main/5/bigdata).
+A feladathoz kapcsolódó kódok megtalálhatók a [GitHub repoban](https://github.com/Valentinusz/elte-ik-bsc/tree/main/5/bigdata/hadoop/wordCount).
 :::
 
 A MapReduce Hello World!-jeként emlegedett feladat a következő: Adott egy bemeneti fájl, számoljuk meg az egyes szavak hányszor fordulnak elő a fájlban!
@@ -13,7 +13,7 @@ A Hadoop MapReduce egy Java nyelvű implementációja a MapReduce modellnek.
 
 A főprogram, amit a `WordCountDriver` osztályban helyezünk el felel a MapReduce motor konfigurálásáért.
 
-```java showLineNumbers title="src/wordcount/WordCountDriver.java"
+```java title="src/wordcount/WordCountDriver.java"
 package wordcount;
 
 import org.apache.hadoop.conf.Configuration;
@@ -71,27 +71,32 @@ Négy típusparamétere, a bemeneti kulcs típusa, a bemeneti érték típusa, a
 típusa. A kimeneti kulcs és érték együttesen alkotják azt a párt ami, majd egy Reducer-hez el fog jutni.
 
 :::danger
+Figyeljünk arra, hogy megtartsuk a `map` metódus szignatúrája és az osztály típusparaméterei közti paritást! Azaz, ha a
+`VALEUIN` típusparaméter értéke az osztályban `A`, akkor a `map` metódus `VALUEIN` típusparamétere is `A` legyen.
+:::
+
+:::danger
 A Hadoop nem a megszokott Java típusokat használja! A típusok közti megfeleltetéseket a következő táblázatok tartalmazzák:
 
 <div className='side-2'>
 
-| Java Type        | Hadoop Type       |
-|------------------|-------------------|
-| `byte`           | `ByteWritable`    |
-| `short`          | `ShortWritable`   |
-| `int`            | `IntWritable`     |
-| `long`           | `LongWritable`    |
-| `float`          | `FloatWritable`   |
-| `double`         | `DoubleWritable`  |
+| Java típus | Hadoop típus     |
+|------------|------------------|
+| `byte`     | `ByteWritable`   |
+| `short`    | `ShortWritable`  |
+| `int`      | `IntWritable`    |
+| `long`     | `LongWritable`   |
+| `float`    | `FloatWritable`  |
+| `double`   | `DoubleWritable` |
 
-|  Java Type        | Hadoop Type        |
-| -------------------| -------------------|
-| `boolean`        | `BooleanWritable` |
-| `String`         | `Text`            |
-| `java.util.Map`  | `MapWritable`     |
-| `java.util.List` | `ArrayWritable`   |
-| `java.util.Set`  | `ArrayWritable`   |
-| `java.sql.Timestamp` | `LongWritable` (timestamp)   |
+| Java típus           | Hadoop típus    |
+|----------------------|-----------------|
+| `boolean`            | `BooleanWritable` |
+| `String`             | `Text`          |
+| `java.util.Map`      | `MapWritable`   |
+| `java.util.List`     | `ArrayWritable` |
+| `java.util.Set`      | `ArrayWritable` |
+| `java.sql.Timestamp` | `LongWritable`  |
 
 </div>
 :::
@@ -122,7 +127,21 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 
 A leképző osztály megírásával, már előálltak a reducer által feldolgozásra alkalmas kulcs-érték párok. A shuffler
 automatikusan megoldja, hogy az azonos kulcsú párok azonos reducer-hez kerüljenek, nekünk az aggregáló logikát kell
-megírni. 
+megírni.
+
+```java
+public class Reducer<KEYIN, VALUEIN, KEYOUT, VALUEOUT> { 
+    ...
+    protected void reduce(KEYIN key, Iterable<VALUEIN> values, Context context) throws IOException, InterruptedException { ... }
+    ...
+}
+```
+
+:::danger
+Mint a `map` esetében, ügyeljünk arra, hogy megtartsuk a `reduce` metódus szignatúrája és az osztály típusparaméterei
+közti paritást! Rossz típusparaméterzés esetén a `reduce` eredeti implementációja fut le, ami csak továbbadja a
+kulcs-érték párt.
+:::
 
 ```java title="src/wordcount/WordCountReducer.java"
 public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
@@ -147,7 +166,7 @@ Ha mindent jól csináltunk létrejöttek az általálunk megadott kimeneti mapp
 Combiner osztály használatával hatékonyabb megoldást is tudunk adni erre a problémára. Szerencsés helyzetben vagyunk,
 mivel a Reducer kis módosításával, felhasználható Combiner-ként is:
 
-```java title="src/wordcount_with_combiner/WordCountReducer.java"
+```java title="wordCountCombiner/src/wordcount/WordCountReducer.java"
 public void reduce(Text _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
     int count = 0;
     
@@ -160,7 +179,7 @@ public void reduce(Text _key, Iterable<IntWritable> values, Context context) thr
 }
 ```
 Továbbá be kell regisztrálnunk a Combiner-t a főprogramban:
-```java title="src/wordcount_with_combiner/WordCountDriver.java"
+```java title="wordCountCombiner/src/wordcount/WordCountDriver.java"
 public static void main(String[] args) throws Exception {
     ...
     job.setMapperClass(wordcount_with_combiner.WordCountMapper.class);
@@ -170,4 +189,6 @@ public static void main(String[] args) throws Exception {
     ...
 }
 ```
+
+A megoldás elérhető [itt](https://github.com/Valentinusz/elte-ik-bsc/tree/main/5/bigdata/hadoop/wordCountCombiner).
 :::

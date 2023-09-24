@@ -20,8 +20,8 @@ Jellemzői:
 - **pontosság** (Veracity): bizonytalanság az adat igazságtartalma felé
 - **érték** (Value): az adatból értékes információ nyerhető ki
 
-:::note
-Csak a Google kereső naponta 10 milliárd átlagosan 20 KB méretű weboldalt dolgoz fel. Ez 200TB adatot jelent ami egy 50MB/s olvasási sebességű lemez esetén 46 napba telne.
+:::tip Érdekesség
+Csak a Google kereső naponta 10 milliárd átlagosan 20 KB méretű weboldalt dolgoz fel. Ez 200TB adatot jelent, ami egy 50MB/s olvasási sebességű lemez esetén 46 napba telne.
 :::
 
 
