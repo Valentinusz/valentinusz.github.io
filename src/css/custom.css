@@ -34,3 +34,8 @@ div.side-2 {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.figure-with-caption {
+  margin-left: 0;
+  margin-right: 0;
+}
