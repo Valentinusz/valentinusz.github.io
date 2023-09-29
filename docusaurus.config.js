@@ -41,7 +41,9 @@ const config = {
                 docs: {
                     path: 'materials',
                     routeBasePath: 'materials',
-                    sidebarPath: require.resolve('./sidebars.js')
+                    sidebarPath: require.resolve('./sidebars.js'),
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true
                 },
                 blog: {
                     showReadingTime: true,
