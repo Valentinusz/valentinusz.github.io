@@ -32,7 +32,6 @@ const config = {
         defaultLocale: 'hu',
         locales: ['hu', 'en'],
     },
-
     presets: [
         [
             'classic',
