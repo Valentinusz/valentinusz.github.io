@@ -2,5 +2,4 @@
 title: "asd"
 ---
 
-asssssssdasdasdasds
-sdasdas
+A tárgyat angol nyelven végeztem ezért a jegyzet is angol nyelven készült, ha segítenél lefordítani
