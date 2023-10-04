@@ -30,7 +30,7 @@ const config = {
     // to replace "en" with "zh-Hans".
     i18n: {
         defaultLocale: 'hu',
-        locales: ['hu', 'en'],
+        locales: ['hu'],
     },
     presets: [
         [
@@ -74,10 +74,6 @@ const config = {
                         sidebarId: 'tutorialSidebar',
                         position: 'left',
                         label: 'Tananyagok',
-                    },
-                    {
-                        type: 'localeDropdown',
-                        position: 'right',
                     },
                     // {to: '/blog', label: 'Blog', position: 'left'},
                     // {
@@ -160,7 +156,7 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
-                additionalLanguages: ['java', 'python', 'agda']
+                additionalLanguages: ['java', 'python']
             },
         }),
 };
