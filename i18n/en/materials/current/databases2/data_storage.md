@@ -1,0 +1,130 @@
+---
+sidebar_position: 3
+title: Adattárolás
+---
+
+Az Oracle adatbázis-kezelő rendszerben, a lemezen lévő adatok fokozatosan egyre nagyobb logikai egységekben tárolódnak.
+
+![img.png](storage.png)
+
+## Fizikai struktúrák
+
+### Lemez blokk (OS blokk)
+A legalapvetőbb építőkövek, a fizikai lemez blokkjai.
+
+### Adatfájl
+Az adatbázis-kezelő rendszer által adattárolásra használt fájlok. Az adatfájlok információi lekérhetők a `TEMP_FILES`
+(ideiglenes adatfájlok) és `DATA_FILES` nézeteken keresztül. Minden adatfájl valamilyen táblatérhez tartozik.
+
+<details>
+    <summary>DATA_FILES nézetek legfontosabb oszlopai</summary>
+
+| Column Name           | Leírás                                                              |
+|-----------------------|---------------------------------------------------------------------|
+| **FILE_NAME**         | Az adatfájl elérési útja és neve.                                   |
+| **FILE_ID**           | Az adatfájl azonosítója.                                            |
+| **TABLESPACE_NAME**   | Az adatfájl táblatérének neve.                                      |
+| **BYTES**             | Az adatfájl mérete bájtban.                                         |
+| **BLOCKS**            | Az adatfájl mérete Oracle blokkokban.                               |
+| **STATUS**            | Az adatfájl állapota (pl. AVAILABLE, INVALID).                      |
+| **AUTOEXTENSIBLE**    | Megadja, hogy az adatfájl automatikusan bővülhet-e.                 |
+| **MAXBYTES**          | Az adatfájl maximális mérete bájtban.                               |
+| **MAXBLOCKS**         | Az adatfájl maximális mérete adatbázis blokkokban.                  |
+
+Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_DATA_FILES.html)
+</details>
+
+## Logikai struktúrák
+Az adatbázis-kezelő rendszer annak érdekében, hogy egy magas szintű interfészt biztosítson, a lemezblokkok fölé
+absztrakcióként logikai struktúrákat vezet be.
+
+### Oracle adatblokk
+A legkisebb logikai egyés tipikusan 4 kilobájtnyi (tábla terenként eltérhet) egymás mellett lefoglalt lemez blokkot
+jelent. Nincs adatszótár nézetük.
+
+![img.png](block.png)
+
+A blokk elején található **blokkfejléc** a tárolt adat kezeléséhez szükséges metaadatokat tartalmazza. A blokk végén
+helyezkedik el a tárolt sor adata. A két rész között szabad tárhely található, mely lehetővé teszi mind a fejléc
+mind a soradat rész bővülését, ha arra szükség lenne.
+
+<details>
+    <summary>EXTENTS nézetek legfontosabb oszlopai</summary>
+
+| Column Name         | Leírás                                            |
+|---------------------|---------------------------------------------------|
+| **OWNER**           | Az területet tartalmazó szegmens tulajdonosa.     |
+| **SEGMENT_NAME**    | A szegmens neve amihez a terület tartozik.        |
+| **SEGMENT_TYPE**    | A tartalmazó szegmens típusa.                     |
+| **TABLESPACE_NAME** | Az terület táblatérének neve.                     |
+| **FILE_ID**         | Az terület blokkjait tartalmazó fájl azonosítója. |
+| **BLOCK_ID**        | Az terület kezdőblokkjának sorszáma.              |
+| **BYTES**           | Az terület mérete bájtban.                        |
+| **BLOCKS**          | Az terület mérete blokkokban.                     |
+| **EXTENT_ID**       | Az terület szegmensen belüli azonosítója.         |
+
+Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_EXTENTS.html)
+</details>
+
+### Terület (extent)
+Általában 8 (megváltoztatható) egymást követő Oracle adatblokk alkotta csoport. A területek mindig egy adott táblatérhez
+tartoznak. A területek adatait a `EXTENTS` nézetek tartalmazzák. A `FREE_SPACE` nézeteken keresztül lekérdezhetőek az 
+üres területek.
+
+<details>
+    <summary>EXTENTS nézetek legfontosabb oszlopai</summary>
+
+| Column Name         | Leírás                                            |
+|---------------------|---------------------------------------------------|
+| **OWNER**           | Az területet tartalmazó szegmens tulajdonosa.     |
+| **SEGMENT_NAME**    | A szegmens neve amihez a terület tartozik.        |
+| **SEGMENT_TYPE**    | A tartalmazó szegmens típusa.                     |
+| **TABLESPACE_NAME** | Az terület táblatérének neve.                     |
+| **FILE_ID**         | Az terület blokkjait tartalmazó fájl azonosítója. |
+| **BLOCK_ID**        | Az terület kezdőblokkjának sorszáma.              |
+| **BYTES**           | Az terület mérete bájtban.                        |
+| **BLOCKS**          | Az terület mérete blokkokban.                     |
+| **EXTENT_ID**       | Az terület szegmensen belüli azonosítója.         |
+
+Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_EXTENTS.html)
+</details>
+
+### Szegmens
+Legalább egy terület alkotta csoport. Az alkotó területek méretei akár változóak is lehetnek, és nincsenek egymás
+mellett a memóriában. Konkrét adatbázis objektumot reprezentál. Egy adott táblatérhez tartozik. A szegmensek adatait a
+`SEGMENTS` nézetekből tudjuk lekérni.
+
+<details>
+    <summary>SEGMENTS nézetek legfontosabb oszlopai</summary>
+
+| Oszlop neve            | Leírás                                        |
+|------------------------|-----------------------------------------------|
+| **OWNER**              | A szegmens tulajdonosának neve.               |
+| **SEGMENT_NAME**       | A szegmens neve.                              |
+| **PARTITION_NAME**     | A szegmens partíciójának neve (ha van).       |
+| **SEGMENT_TYPE**       | A szegmens típusa (pl., TABLE, INDEX).        |
+| **TABLESPACE_NAME**    | A szegmenst tartalmazó táblatér neve.         |
+| **BYTES**              | A szegmens mérete bájtban.                    |
+| **BLOCKS**             | A szegmens mérete Oracle blokkokban.          |
+| **EXTENTS**            | A szegmens mérete területekben.               |
+
+Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_SEGMENTS.html)
+</details>
+
+### Táblatér
+A táblatér a szegmenseket foglalja össze egy közös szabályrendszerbe, ami az az objektumok tartalmát és tárolási módját
+határozza meg. Egy táblatér (és ezáltal az azt alkotó objektumok) fizikailag akár több különböző adatfájlban is
+elhelyezkedhetnek. A táblaterek nézete a `TABLESPACES`.
+
+<details>
+    <summary>TABLESPACES nézetek legfontosabb oszlopai</summary>
+
+| Oszlop neve         | Leírás                                                  |
+|---------------------|---------------------------------------------------------|
+| **TABLESPACE_NAME** | A táblatér neve.                                        |
+| **BLOCK_SIZE**      | A táblatér blokkjainak mérete bájtban.                  |
+| **CONTENTS**        | A táblatér adatainak jellege. (pl. ideiglenes, állandó) |
+| **STATUS**          | A táblatér állapota (pl., ONLINE, OFFLINE).             |
+
+Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_TABLESPACES.html)
+</details>

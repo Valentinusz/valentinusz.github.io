@@ -75,6 +75,10 @@ const config = {
                         position: 'left',
                         label: 'Tananyagok',
                     },
+                    {
+                        type: 'localeDropdown',
+                        position: 'right',
+                    },
                     // {to: '/blog', label: 'Blog', position: 'left'},
                     // {
                     //     href: 'https://github.com/Valentinusz/valentinusz.github.io',
