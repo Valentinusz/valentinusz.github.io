@@ -15,3 +15,17 @@ public class Mapper<KEYIN, VALUEIN, KEYOUT, VALUEOUT> {
 }
 ```
 
+:::danger
+Ezek a műveletek pontosan annyiszor futnak le, ahány Map/Reduce task van. Ez egygépes rendszereken nem okoz gondot, de
+egy rendles klaszteren ez akár a számítógépek száma is lehet.
+:::
+
+:::tip
+Lehetőségünk van annak garantálására, hogy csak egy Reduce task fusson le a `Driver` osztály `main` metódusában a
+következő utasítás megadásával:
+
+```java
+Job job = Job.getInstance(conf, "job-name");
+job.setNumReduceTasks(1);
+```
+:::

@@ -12,16 +12,17 @@ Adjuk meg, hogy a bemeneti fájlban mekkora a szavak átlagos hossza!
 
 A keressett adat meghatározásához két adatra van szükségünk, a **karakterek számára** és a **szavak számárá**.
 
-A feladat bemenete egy fájl, a leképező alap bemeneti típusaihoz nem kell hozzányúlnunk. Mivel a kimenetben egyetlen
-aggregált értéket akarunk, ezért fontos, hogy minden kulcs-érték pár egy Reducer-hez kerüljön. Mivel az alap hash alapú
-shuffle algoritmust használjuk, ezért csak azt kell elérnünk, hogy a `Mapper` által kiadott párok kulcsa azonos legyen.
+A feladat bemenete egy fájl, a `Mapper` alapértelmezett bemeneti típusaihoz nem kell hozzányúlnunk. Mivel a kimenetben
+egyetlen aggregált értéket akarunk, ezért fontos, hogy minden kulcs-érték pár egy *Reducer*-hez kerüljön. Mivel az alap
+hash alapú shuffle algoritmust használjuk, ezért csak azt kell elérnünk, hogy a `Mapper` által kiadott párok kulcsai
+ugyan azok legyenek.
 
 Ehhez én kulcsként, a `NullWritable` osztályt fogom használni:
 ```java title="wordMean/src/wordmean/WordMeanMapper.java"
 public class WordMeanMapper extends Mapper<LongWritable, Text, NullWritable, IntWritable> {
 	public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
 		for (String word : ivalue.toString().replaceAll("[,.?!:]", " ").split(" ")) {
-			// NullWritable singleton, ezért az, hogy nem mentjük ki változóba nem ront a teljesítményen
+			// NullWritable singleton, ezért az, hogy nem mentjük ki változóba, nem ront a teljesítményen
 			context.write(NullWritable.get(), new IntWritable(word.length()));
 		}
 	}
@@ -46,7 +47,7 @@ public class WordMeanReducer extends Reducer<NullWritable, IntWritable, NullWrit
 	}
 }
 ```
-A `Driver` osztályban minimális változtatásokat kell megtennünk:
+A `Driver` osztályban minimális, de fontos változtatásokat kell megtennünk:
 ```java
 public class WordMeanDriver {
 	public static void main(String[] args) throws Exception {

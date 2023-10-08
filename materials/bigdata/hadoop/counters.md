@@ -3,9 +3,10 @@ sidebar_position: 4
 title: "Számlálók"
 ---
 
-A Hadoop a MapReduce job futása során statisztikákat készít, melyeket úgynevezett számlálókban tárol. A számlálókat
-írásba olvasásra a Context osztály változóiból tudjuk kiolvasni. A számlálók a MapReduce job-ot futtató számítógépek
-között szinkronizálva vannak. Például:
+A Hadoop a MapReduce job futása során statisztikákat készít, melyeket úgynevezett számlálókban tárol. A számlálókra
+a Context osztály példányain keresztül tudunk hivatkozást szerezni. tudjuk kiolvasni.
+
+Például:
 
 ```java
 protected void cleanup(Context context) throws IOException, InterruptedException {
@@ -14,6 +15,13 @@ protected void cleanup(Context context) throws IOException, InterruptedException
     ...
 }
 ```
+
+:::danger
+A számlálók értékei a számítógépek között csak a job legvégén kerülnek szinkronizálásra, sőt még csak egy számítógép
+esetén is a különböző task-ok között az értékek eltérőek lehetnek.
+
+Ezért a programlogikában nem támaszkodhatunk a számlálók pontosságára.
+:::
 
 ## Beépített számlálók
 
@@ -27,6 +35,8 @@ egyes számlálók azonosítói.
 | FileInputFormat  | BYTES_READ - beolvasott bájtok száma                                |
 | FileOutputFormat | BYTES_WRITTEN - írt bájtok száma                                    | 
 | JobCounter       | Job szintű információk (pl. sikertelen mapek száma).                |
+
+
 
 ## Saját számláló 
 
@@ -47,3 +57,4 @@ protected void cleanup(Context context) throws IOException, InterruptedException
     long a = counter.getValue(); // a = 5
 }
 ```
+
