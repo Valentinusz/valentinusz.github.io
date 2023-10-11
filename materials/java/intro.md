@@ -1,7 +1,6 @@
 ---
 sidebar_position: 0
-slug: "/hjava"
-title: "Bevezetés"
+slug: "/java"
 ---
 
 # Haladó Java
@@ -10,6 +9,6 @@ A Programozási nyelvek tárgy során a hallgatók megismerkedtek a Java nyelv a
 Ezen kurzus célja, hogy bemutassa a Java nyelv további elemeit, leghasznosabb csomagjait.
 
 :::danger
-Sajnálatos módon időhiány miatt a jegyzet lett befejezve. Ha esetleg segítenél befejezni a jegyzetet nyugodtan
-nyiss a [tananyagos repository](https://github.com/Valentinusz/elte-ik-bsc)-ban egy issue-t.
+Sajnálatos módon időhiány miatt a jegyzet sosem lett befejezve. Ha esetleg segítenél befejezni nyugodtan nyiss egy
+issue-t a [tananyagos repository](https://github.com/Valentinusz/elte-ik-bsc)-ban.
 :::

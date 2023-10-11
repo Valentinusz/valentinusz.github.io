@@ -6,6 +6,6 @@ slug: "/databases2"
 # Bevezetés
 
 Az Adatbázisok I. tárgy keretein belül megismerkedtünk az adatbázis fogalmával, matematikai alapjaival, illetve a 
-relációs-adatbázis lekérdező nyelvével az SQL-el. Ezen tárgy keretein belül szeretnénk az adatbázis-kezelő rendszerek
-implementációs részleteibe betekintést nyerni.
+relációs-adatbázis lekérdező nyelvével az SQL-el. Az adatbázisok II. tárgy célja, hogy a hallgatók betekintést nyerjenek
+az adatbázis-kezelő rendszerek implementációs részleteibe.
 

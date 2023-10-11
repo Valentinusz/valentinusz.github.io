@@ -1,5 +1,9 @@
 {
   "label": "Hadoop",
   "position": 3,
-  "collapsed": true
+  "collapsed": true,
+  "link": {
+    "type":  "doc",
+    "id": "intro"
+  }
 }

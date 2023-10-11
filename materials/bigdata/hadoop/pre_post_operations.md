@@ -21,11 +21,14 @@ egy rendles klaszteren ez akár a számítógépek száma is lehet.
 :::
 
 :::tip
-Lehetőségünk van annak garantálására, hogy csak egy Reduce task fusson le a `Driver` osztály `main` metódusában a
-következő utasítás megadásával:
+A következő trükkel garantálhatjuk, hogy csak egy Reduce task fusson le:
 
-```java
-Job job = Job.getInstance(conf, "job-name");
-job.setNumReduceTasks(1);
+```java title='Driver.java'
+public static void main(String[] args) {
+    ...
+    Job job = Job.getInstance(conf, "job-name");
+    job.setNumReduceTasks(1);
+    ...
+}
 ```
 :::
