@@ -1,0 +1,9 @@
+{
+  "label": "Valószínűségszámítás és statisztika",
+  "position": 3,
+  "collapsed": true,
+  "link": {
+    "type":  "doc",
+    "id": "intro"
+  }
+}

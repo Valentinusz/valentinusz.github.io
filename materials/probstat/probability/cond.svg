@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="6.426 18.2879 478.846 295.4531" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        text {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            fill: rgb(227, 227, 227);
+            white-space: pre;
+        }
+
+        @media (prefers-color-scheme: light) {
+            text.no-bg {
+                fill: rgb(28, 30, 33);
+            }
+            path.no-bg {
+                stroke: rgb(28, 30, 33) !important;
+            }
+        }
+    </style>
+    <ellipse style="fill: rgb(218, 167, 85);" cx="148" cy="171.75" rx="142" ry="142"/>
+    <ellipse style="fill: rgb(85, 89, 218);" cx="307.8" cy="160" rx="75.16" ry="75.16"/>
+    <path style="fill: rgb(129, 115, 174);" d="M 268 95 C 291.23 139.08 296.38 185.07 277.80 230.26 C 217.33 200.92 216.74 132.96 268 96.15"/>
+    <text x="126" y="52">P(A)</text>
+    <text x="300" y="110">P(B)</text>
+    <text x="233" y="167">P(AB)</text>
+    <path style="fill: rgb(129, 115, 174); transform-origin: 440.7px 37px;" d="M 445.515 0.018 C 458.346 24.239 460.515 49.053 450.294 73.886 C 417.056 57.766 416.94 20.345 445.267 0.106" transform="matrix(0.072021998465, 0.997403025627, -0.997403025627, 0.072021998465, -0.000021885619, -0.000010655459)"/>
+    <ellipse style="fill: rgb(85, 89, 218);" cx="444" cy="114" rx="41.28" ry="41.28"/>
+    <path class="no-bg" style="stroke: white" stroke-width="2" d="M 402.7 67 L 485.27 66.55"/>
+    <text style="font-size: 18px;" x="418" y="42">P(AB)</text>
+    <text x="416" y="116">P(B)</text>
+    <text class="no-bg" x="330" y="74">P(A|B)=</text>
+</svg>
