@@ -103,6 +103,10 @@ const config = {
                 searchPagePath: 'search',
             },
 
+            metadata: [
+                {name: 'keywords', content: 'ELTE IK, ELTE IK tananyagok, Valentinusz, Boda Bálint'},
+            ],
+
             footer: {
                 style: 'dark',
                 links: [
@@ -110,8 +114,8 @@ const config = {
                     //   title: 'Docs',
                     //   items: [
                     //     {
-                    //       label: 'Tutorial',
-                    //       to: '/notes/intro',
+                    //       label: 'További tananyagok',
+                    //       to: 'https://github.com/Valentinusz/elte-ik-bsc',
                     //     },
                     //   ],
                     // },
