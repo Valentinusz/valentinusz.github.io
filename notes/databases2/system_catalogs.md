@@ -67,6 +67,4 @@ A nézet legfontosabb oszlopai:
 | COLUMN_NAME | Oszlop neve                          |
 | DATA_TYPE   | Az oszlop adattípusa                 |
 
-<figcaption>Forrás: <a href="https://docs.oracle.com/cd/E11882_01/server.112/e40402/statviews_2102.htm#REFRN20276">Oracle DBMS dokumentáció</a></figcaption>
-
-</figure>
+<figcaption>Forrás: <a href="https://docs.oracle.com/cd/E11882_01/server.112/e40402/statviews_2102.htm#REFRN20276">Oracle DBMS dokumentáció</a></figcaption></figure>

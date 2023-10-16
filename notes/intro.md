@@ -4,7 +4,7 @@ pagination_next: null
 slug: '/'
 ---
 
-# Tananyagok
+# Jegyzetek
 
 Ezen az oldalon az egyetemi éveim alatt készített összefüggő írásos segédanyagaim találhatók.
 

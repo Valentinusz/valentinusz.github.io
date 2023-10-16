@@ -38,8 +38,8 @@ const config = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
-                    path: 'materials',
-                    routeBasePath: 'materials',
+                    path: 'notes',
+                    routeBasePath: 'notes',
                     sidebarPath: require.resolve('./sidebars.js'),
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
@@ -81,7 +81,7 @@ const config = {
                         type: 'docSidebar',
                         sidebarId: 'tutorialSidebar',
                         position: 'left',
-                        label: 'Tananyagok',
+                        label: 'Jegyzetek',
                     },
                     // {to: '/blog', label: 'Blog', position: 'left'},
                     // {
@@ -97,7 +97,7 @@ const config = {
                 indexName: 'valentinuszio',
                 contextualSearch: true,
                 replaceSearchResultPathname: {
-                    from: '/materials/',
+                    from: '/notes/',
                     to: '/',
                 },
                 searchPagePath: 'search',
@@ -111,7 +111,7 @@ const config = {
                     //   items: [
                     //     {
                     //       label: 'Tutorial',
-                    //       to: '/materials/intro',
+                    //       to: '/notes/intro',
                     //     },
                     //   ],
                     // },
