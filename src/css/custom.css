@@ -39,3 +39,7 @@ div.side-2 {
   margin-left: 0;
   margin-right: 0;
 }
+
+.math {
+  overflow: auto hidden;
+}
