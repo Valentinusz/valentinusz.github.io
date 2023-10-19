@@ -1,5 +1,5 @@
 ---
-title: Bitvektor indexek
+sidebar_position: 3
 ---
 
 # Bitvektor indexek
