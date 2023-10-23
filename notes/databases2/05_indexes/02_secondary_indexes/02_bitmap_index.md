@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Bitvektor indexek
+# Bitvektor index
 
 Bitvektornak nevezünk egy $N$ hosszú (ahol $N$ a sorok száma) nullákból és egyesekből álló sorozatot. Egy bitvektor az
 tábla egy oszlopának $v$ értékéhez tartozik, $i$-edik bitje pontosan akkor $1$, ha az adott $i$-edik sor adott

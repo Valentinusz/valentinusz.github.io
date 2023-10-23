@@ -5,7 +5,7 @@ title: Adattárolás
 
 Az Oracle adatbázis-kezelő rendszerben, a lemezen lévő adatok fokozatosan egyre nagyobb logikai egységekben tárolódnak.
 
-![img.png](storage.png)
+![img.png](/img/databases2/storage.png)
 
 ## Fizikai struktúrák
 
@@ -42,7 +42,7 @@ absztrakcióként logikai struktúrákat vezet be.
 A legkisebb logikai egyés tipikusan 4 kilobájtnyi (tábla terenként eltérhet) egymás mellett lefoglalt lemez blokkot
 jelent. Nincs adatszótár nézetük.
 
-![img.png](block.png)
+![img.png](/img/databases2/block.png)
 
 A blokk elején található **blokkfejléc** a tárolt adat kezeléséhez szükséges metaadatokat tartalmazza. A blokk végén
 helyezkedik el a tárolt sor adata. A két rész között szabad tárhely található, mely lehetővé teszi mind a fejléc

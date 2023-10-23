@@ -1,0 +1,9 @@
+{
+  "label": "Másodlagos indexek",
+  "position": 2,
+  "collapsed": true,
+  "link": {
+    "type":  "doc",
+    "id": "secondary_indexes"
+  }
+}
