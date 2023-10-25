@@ -1,0 +1,26 @@
+button.react-flow__controls-button {
+  $fillColor: var(--ifm-font-color-base);
+  $hoverFillColor: var(--ifm-color-primary);
+  $background: var(--ifm-background-surface-color);
+
+  border: 0;
+  color: $fillColor;
+  background-color: $background;
+
+  svg path {
+    fill: $fillColor;
+  }
+
+  &:hover {
+    background-color: $background;
+
+    svg path {
+      color: $hoverFillColor;
+      fill: $hoverFillColor;
+    }
+  }
+}
+
+div.react-flow__attribution {
+  background: transparent;
+}
