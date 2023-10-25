@@ -1,11 +1,5 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
-const math = require('remark-math');
-const katex = require('rehype-katex');
-
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+module.exports = {
     title: 'Boda Bálint',
     favicon: 'img/favicon.ico',
 
@@ -20,10 +14,7 @@ const config = {
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
 
-    i18n: {
-        defaultLocale: 'hu',
-        locales: ['hu'],
-    },
+    i18n: {defaultLocale: 'hu', locales: ['hu']},
 
     plugins: ['docusaurus-plugin-sass'],
 
@@ -31,15 +22,15 @@ const config = {
         [
             'classic',
             /** @type {import('@docusaurus/preset-classic').Options} */
-            ({
+            {
                 docs: {
                     path: 'notes',
                     routeBasePath: 'notes',
                     sidebarPath: require.resolve('./sidebars.js'),
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
-                    remarkPlugins: [math],
-                    rehypePlugins: [katex]
+                    remarkPlugins: [require('remark-math')],
+                    rehypePlugins: [require('rehype-katex')]
                 },
                 blog: {
                     showReadingTime: true,
@@ -51,70 +42,71 @@ const config = {
                         require.resolve('./src/css/math.scss')
                     ],
                 },
-            }),
+            },
         ],
     ],
+
     stylesheets: [
         {
             href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
             type: 'text/css',
-            integrity:
-                'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+            integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
             crossorigin: 'anonymous',
-        },
+        }
     ],
 
-    themeConfig:
-        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-        ({
-            image: 'img/docusaurus-social-card.jpg',
-            navbar: {
-                title: 'Boda Bálint',
-                logo: {
-                    alt: 'My Site Logo',
-                    src: 'img/logo.svg',
-                },
-                items: [
-                    {
-                        type: 'docSidebar',
-                        sidebarId: 'tutorialSidebar',
-                        position: 'left',
-                        label: 'Jegyzetek',
-                    },
-                ],
-            },
-            docs: {
-                sidebar: {
-                    hideable: true
-                }
-            },
-            algolia: {
-                appId: 'C09RZLQGSR',
-                apiKey: '8a7a4806d9bfdfacfb3a9f7be78038b7',
-                indexName: 'valentinuszio',
-                contextualSearch: true,
-                replaceSearchResultPathname: {
-                    from: '/notes/',
-                    to: '/',
-                },
-                searchPagePath: 'search',
-            },
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    themeConfig: {
+        image: 'img/docusaurus-social-card.jpg',
 
-            metadata: [
-                {name: 'keywords', content: 'ELTE IK, ELTE IK tananyagok, Valentinusz, Boda Bálint'},
+        navbar: {
+            title: 'Boda Bálint',
+            logo: {
+                alt: 'My Site Logo',
+                src: 'img/logo.svg',
+            },
+            items: [
+                {
+                    type: 'docSidebar',
+                    sidebarId: 'tutorialSidebar',
+                    position: 'left',
+                    label: 'Jegyzetek',
+                },
             ],
+        },
 
-            footer: {
-                style: 'dark',
-                links: [],
-                copyright: `Boda Bálint © ${new Date().getFullYear()}`,
+        footer: {
+            style: 'dark',
+            links: [],
+            copyright: `Boda Bálint © ${new Date().getFullYear()}`,
+        },
+
+        docs: {
+            sidebar: {
+                hideable: true
+            }
+        },
+
+        prism: {
+            theme: require('prism-react-renderer/themes/github'),
+            darkTheme: require('prism-react-renderer/themes/dracula'),
+            additionalLanguages: ['java', 'python']
+        },
+
+        algolia: {
+            appId: 'C09RZLQGSR',
+            apiKey: '8a7a4806d9bfdfacfb3a9f7be78038b7',
+            indexName: 'valentinuszio',
+            contextualSearch: true,
+            replaceSearchResultPathname: {
+                from: '/notes/',
+                to: '/',
             },
-            prism: {
-                theme: lightCodeTheme,
-                darkTheme: darkCodeTheme,
-                additionalLanguages: ['java', 'python']
-            },
-        }),
+            searchPagePath: 'search',
+        },
+
+        metadata: [
+            {name: 'keywords', content: 'ELTE IK, ELTE IK tananyagok, Valentinusz, Boda Bálint'},
+        ]
+    }
 };
-
-module.exports = config;
