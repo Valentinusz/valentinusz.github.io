@@ -53,6 +53,8 @@ export default function SystemCatalogsFlow({initialNodes = [], initialEdges = []
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 nodeTypes={nodeTypes}
+                connectionMode="loose"
+                nodesConnectable={false}
                 fitView
             >
                 <Background color="#ccc" variant='dots' />
