@@ -1,0 +1,35 @@
+{
+    "name": "IND_EXPRESSIONS",
+    "columns": [
+        {
+            "name": "INDEX_OWNER",
+            "description": "az index tulajdonososa",
+            "type": "String"
+        },
+        {
+            "name": "INDEX_NAME",
+            "description": "az index neve",
+            "type": "String"
+        },
+        {
+            "name": "TABLE_OWNER",
+            "description": "az indexelt objektum tulajdonosa",
+            "type": "String"
+        },
+        {
+            "name": "TABLE_NAME",
+            "description": "az indexelt objektum neve",
+            "type": "String"
+        },
+        {
+            "name": "COLUMN_EXPRESSION",
+            "description": "a függvény",
+            "type": "String"
+        },
+        {
+            "name": "COLUMN_POSITION",
+            "description": "az oszlop sorszáma az indexen belül",
+            "type": "Number"
+        }
+    ]
+}

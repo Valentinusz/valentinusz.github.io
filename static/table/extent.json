@@ -1,0 +1,51 @@
+{
+    "name": "EXTENTS",
+    "columns": [
+        {
+            "name": "OWNER",
+            "description": "Az területet tartalmazó szegmens tulajdonosa.",
+            "type": "String"
+        },
+        {
+            "name": "SEGMENT_NAME",
+            "description": "A szegmens neve amihez a terület tartozik.",
+            "type": "String"
+        },
+        {
+            "name": "SEGMENT_TYPE",
+            "description": "A tartalmazó szegmens típusa.",
+            "type": "String"
+        },
+        {
+            "name": "TABLESPACE_NAME",
+            "description": "Az terület táblatérének neve.",
+            "type": "String"
+        },
+        {
+            "name": "FILE_ID",
+            "description": "Az terület blokkjait tartalmazó fájl azonosítója.",
+            "type": "Number"
+        },
+        {
+            "name": "BLOCK_ID",
+            "description": "Az terület kezdőblokkjának sorszáma.",
+            "type": "Number"
+        },
+        {
+            "name": "BYTES",
+            "description": "Az terület mérete bájtban.",
+            "type": "Number"
+        },
+        {
+            "name": "BLOCKS",
+            "description": "Az terület mérete blokkokban.",
+            "type": "Number"
+        },
+        {
+            "name": "EXTENT_ID",
+            "description": "Az terület szegmensen belüli azonosítója.",
+            "type": "Number"
+        }
+    ]
+}
+

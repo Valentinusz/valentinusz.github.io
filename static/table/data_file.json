@@ -1,0 +1,50 @@
+{
+    "name": "DATA_FILES",
+    "columns": [
+        {
+            "name": "FILE_NAME",
+            "description": "Az adatfájl elérési útja és neve.",
+            "type": "String"
+        },
+        {
+            "name": "FILE_ID",
+            "description": "Az adatfájl azonosítója.",
+            "type": "Number"
+        },
+        {
+            "name": "TABLESPACE_NAME",
+            "description": "Az adatfájl táblatérének neve.",
+            "type": "String"
+        },
+        {
+            "name": "BYTES",
+            "description": "Az adatfájl mérete bájtban.",
+            "type": "Number"
+        },
+        {
+            "name": "BLOCKS",
+            "description": "Az adatfájl mérete Oracle blokkokban.",
+            "type": "Number"
+        },
+        {
+            "name": "STATUS",
+            "description": "Az adatfájl állapota (pl. AVAILABLE, INVALID).",
+            "type": "String"
+        },
+        {
+            "name": "AUTOEXTENSIBLE",
+            "description": "Megadja, hogy az adatfájl automatikusan bővülhet-e.",
+            "type": "Boolean"
+        },
+        {
+            "name": "MAXBYTES",
+            "description": "Az adatfájl maximális mérete bájtban.",
+            "type": "Number"
+        },
+        {
+            "name": "MAXBLOCKS",
+            "description": "Az adatfájl maximális mérete adatbázis blokkokban.",
+            "type": "Number"
+        }
+    ]
+}

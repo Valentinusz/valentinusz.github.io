@@ -1,0 +1,40 @@
+{
+    "name": "IND_COLUMNS",
+    "columns": [
+        {
+            "name": "INDEX_OWNER",
+            "description": "az index tulajdonososa",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "INDEX_NAME",
+            "description": "az index neve",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "TABLE_OWNER",
+            "description": "az indexelt objektum tulajdonosa",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "TABLE_NAME",
+            "description": "az indexelt objektum neve",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "COLUMN_NAME",
+            "description": "az index oszlopának neve",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "COLUMN_POSITION",
+            "description": "az oszlop sorszáma az indexen belül",
+            "type": "NUMBER"
+        },
+        {
+            "name": "DESCEND",
+            "description": "`DESC` ha az oszlop csökkenően szerepel az indexben (különben `ASC`)",
+            "type": "VARCHAR2"
+        }
+    ]
+}
