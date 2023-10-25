@@ -1,6 +1,3 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -32,6 +29,9 @@ const config = {
         defaultLocale: 'hu',
         locales: ['hu'],
     },
+
+    plugins: ['docusaurus-plugin-sass'],
+
     presets: [
         [
             'classic',
@@ -50,7 +50,11 @@ const config = {
                     showReadingTime: true,
                 },
                 theme: {
-                    customCss: require.resolve('./src/css/custom.css'),
+                    customCss: [
+                        require.resolve('./src/css/custom.scss'),
+                        require.resolve('./src/css/react_flow.scss'),
+                        require.resolve('./src/css/math.scss')
+                    ],
                 },
             }),
         ],
@@ -68,7 +72,6 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
-            // Replace with your project's social card
             image: 'img/docusaurus-social-card.jpg',
             navbar: {
                 title: 'Boda Bálint',
@@ -83,13 +86,12 @@ const config = {
                         position: 'left',
                         label: 'Jegyzetek',
                     },
-                    // {to: '/blog', label: 'Blog', position: 'left'},
-                    // {
-                    //     href: 'https://github.com/Valentinusz/valentinusz.github.io',
-                    //     label: 'GitHub',
-                    //     position: 'right',
-                    // },
                 ],
+            },
+            docs: {
+                sidebar: {
+                    hideable: true
+                }
             },
             algolia: {
                 appId: 'C09RZLQGSR',
@@ -109,47 +111,7 @@ const config = {
 
             footer: {
                 style: 'dark',
-                links: [
-                    // {
-                    //   title: 'Docs',
-                    //   items: [
-                    //     {
-                    //       label: 'További tananyagok',
-                    //       to: 'https://github.com/Valentinusz/elte-ik-bsc',
-                    //     },
-                    //   ],
-                    // },
-                    // {
-                    //   title: 'Community',
-                    //   items: [
-                    //     {
-                    //       label: 'Stack Overflow',
-                    //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-                    //     },
-                    //     {
-                    //       label: 'Discord',
-                    //       href: 'https://discordapp.com/invite/docusaurus',
-                    //     },
-                    //     {
-                    //       label: 'Twitter',
-                    //       href: 'https://twitter.com/docusaurus',
-                    //     },
-                    //   ],
-                    // },
-                    // {
-                    //   title: 'More',
-                    //   items: [
-                    //     {
-                    //       label: 'Blog',
-                    //       to: '/blog',
-                    //     },
-                    //     {
-                    //       label: 'GitHub',
-                    //       href: 'https://github.com/facebook/docusaurus',
-                    //     },
-                    //   ],
-                    // },
-                ],
+                links: [],
                 copyright: `Boda Bálint © ${new Date().getFullYear()}`,
             },
             prism: {
