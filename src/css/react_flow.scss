@@ -1,8 +1,8 @@
-button.react-flow__controls-button {
-  $fillColor: var(--ifm-font-color-base);
-  $hoverFillColor: var(--ifm-color-primary);
-  $background: var(--ifm-background-surface-color);
+$fillColor: var(--ifm-font-color-base);
+$hoverFillColor: var(--ifm-color-primary);
+$background: var(--ifm-background-surface-color);
 
+button.react-flow__controls-button {
   border: 0;
   color: $fillColor;
   background-color: $background;
@@ -19,6 +19,14 @@ button.react-flow__controls-button {
       fill: $hoverFillColor;
     }
   }
+}
+
+rect.react-flow__edge-textbg {
+  fill: $background;
+}
+
+text.react-flow__edge-text {
+  fill: $fillColor;
 }
 
 div.react-flow__attribution {
