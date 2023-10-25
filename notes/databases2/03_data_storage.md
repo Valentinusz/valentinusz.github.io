@@ -19,17 +19,17 @@ Az adatbázis-kezelő rendszer által adattárolásra használt fájlok. Az adat
 <details>
     <summary>DATA_FILES nézetek legfontosabb oszlopai</summary>
 
-| Column Name           | Leírás                                                              |
-|-----------------------|---------------------------------------------------------------------|
-| **FILE_NAME**         | Az adatfájl elérési útja és neve.                                   |
-| **FILE_ID**           | Az adatfájl azonosítója.                                            |
-| **TABLESPACE_NAME**   | Az adatfájl táblatérének neve.                                      |
-| **BYTES**             | Az adatfájl mérete bájtban.                                         |
-| **BLOCKS**            | Az adatfájl mérete Oracle blokkokban.                               |
-| **STATUS**            | Az adatfájl állapota (pl. AVAILABLE, INVALID).                      |
-| **AUTOEXTENSIBLE**    | Megadja, hogy az adatfájl automatikusan bővülhet-e.                 |
-| **MAXBYTES**          | Az adatfájl maximális mérete bájtban.                               |
-| **MAXBLOCKS**         | Az adatfájl maximális mérete adatbázis blokkokban.                  |
+| Column Name           | Description                                         |
+|-----------------------|-----------------------------------------------------|
+| **FILE_NAME**         | Az adatfájl elérési útja és neve.                   |
+| **FILE_ID**           | Az adatfájl azonosítója.                            |
+| **TABLESPACE_NAME**   | Az adatfájl táblatérének neve.                      |
+| **BYTES**             | Az adatfájl mérete bájtban.                         |
+| **BLOCKS**            | Az adatfájl mérete Oracle blokkokban.               |
+| **STATUS**            | Az adatfájl állapota (pl. AVAILABLE, INVALID).      |
+| **AUTOEXTENSIBLE**    | Megadja, hogy az adatfájl automatikusan bővülhet-e. |
+| **MAXBYTES**          | Az adatfájl maximális mérete bájtban.               |
+| **MAXBLOCKS**         | Az adatfájl maximális mérete adatbázis blokkokban.  |
 
 Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_DATA_FILES.html)
 </details>
