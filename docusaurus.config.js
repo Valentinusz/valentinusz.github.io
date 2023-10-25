@@ -17,11 +17,6 @@ const config = {
     organizationName: 'valentinusz',
     projectName: 'valentinusz.github.io',
 
-    markdown: {
-        mermaid: true,
-    },
-    themes: ['@docusaurus/theme-mermaid'],
-
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
 
