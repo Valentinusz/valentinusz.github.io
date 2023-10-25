@@ -1,0 +1,27 @@
+{
+    "name": "TABLE_SPACE",
+    "columns": [
+        {
+            "name": "TABLESPACE_NAME",
+            "description": "A táblatér neve.",
+            "type": "String"
+        },
+        {
+            "name": "BLOCK_SIZE",
+            "description": "A táblatér blokkjainak mérete bájtban.",
+            "type": "Number"
+        },
+        {
+            "name": "CONTENTS",
+            "description": "A táblatér adatainak jellege. (pl. ideiglenes, állandó)",
+            "type": "String"
+        },
+        {
+            "name": "STATUS",
+            "description": "A táblatér állapota (pl., ONLINE, OFFLINE).",
+            "type": "String"
+        }
+    ]
+
+}
+

@@ -1,0 +1,50 @@
+{
+    "name": "INDEXES",
+    "columns": [
+        {
+            "name": "OWNER",
+            "description": "az index tulajdonososa",
+            "type": "String"
+        },
+        {
+            "name": "INDEX_NAME",
+            "description": "az index neve",
+            "type": "String"
+        },
+        {
+            "name": "TABLE_OWNER",
+            "description": "az indexelt objektum tulajdonosa",
+            "type": "String"
+        },
+        {
+            "name": "TABLE_NAME",
+            "description": "az indexelt objektum neve",
+            "type": "String"
+        },
+        {
+            "name": "TABLE_TYPE",
+            "description": "az indexelt objektum neve típusa",
+            "type": "String"
+        },
+        {
+            "name": "UNIQUENESS",
+            "description": "egyedi-e az index",
+            "type": "String"
+        },
+        {
+            "name": "COMPRESSION",
+            "description": "használ-e tömörítést",
+            "type": "String"
+        },
+        {
+            "name": "PREFIX_LENGTH",
+            "description": "tömörítésnél a prefix oszlopok száma",
+            "type": "Number"
+        },
+        {
+            "name": "TABLESPACE_NAME",
+            "description": "táblatér neve",
+            "type": "String"
+        }
+    ]
+}
