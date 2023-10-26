@@ -1,0 +1,25 @@
+{
+    "name": "TAB_COL",
+    "columns": [
+        {
+            "name": "OWNER",
+            "description": "Tulajdonos a táblának, nézetnek vagy csoportnak",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "TABLE_NAME",
+            "description": "A tábla, nézet vagy csoport neve",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "COLUMN_NAME",
+            "description": "Oszlop neve",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "DATA_TYPE",
+            "description": "Az oszlop adattípusa",
+            "type": "VARCHAR2"
+        }
+    ]
+}

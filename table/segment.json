@@ -1,0 +1,46 @@
+{
+    "name": "SEGMENT",
+    "columns": [
+        {
+            "name": "OWNER",
+            "description": "A szegmens tulajdonosának neve.",
+            "type": "field"
+        },
+        {
+            "name": "SEGMENT_NAME",
+            "description": "A szegmens neve.",
+            "type": "field"
+        },
+        {
+            "name": "PARTITION_NAME",
+            "description": "A szegmens partíciójának neve (ha van).",
+            "type": "field"
+        },
+        {
+            "name": "SEGMENT_TYPE",
+            "description": "A szegmens típusa (pl., TABLE, INDEX).",
+            "type": "field"
+        },
+        {
+            "name": "TABLESPACE_NAME",
+            "description": "A szegmenst tartalmazó táblatér neve.",
+            "type": "field"
+        },
+        {
+            "name": "BYTES",
+            "description": "A szegmens mérete bájtban.",
+            "type": "field"
+        },
+        {
+            "name": "BLOCKS",
+            "description": "A szegmens mérete Oracle blokkokban.",
+            "type": "field"
+        },
+        {
+            "name": "EXTENTS",
+            "description": "A szegmens mérete területekben.",
+            "type": "field"
+        }
+    ]
+
+}

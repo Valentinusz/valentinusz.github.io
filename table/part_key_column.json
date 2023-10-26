@@ -1,0 +1,25 @@
+{
+    "name": "PART_KEY_COLUMN",
+    "columns": [
+        {
+            "type": "VARCHAR2",
+            "name": "OWNER",
+            "description": "A partíció tulajdonosa"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "NAME",
+            "description": "A partíció neve"
+        },
+        {
+            "type": "CHAR",
+            "name": "OBJECT_TYPE",
+            "description": "TABLE vagy INDEX"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "COLUMN_NAME",
+            "description": "Oszlop neve"
+        }
+    ]
+}
