@@ -1,0 +1,37 @@
+{
+    "name": "PART_INDEX",
+    "columns": [
+        {
+            "type": "VARCHAR2",
+            "name": "OWNER",
+            "description": "az index tulajdonosa"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "INDEX_NAME",
+            "description": "az index neve"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "TABLE_NAME",
+            "description": "a partícionált tábla neve"
+        },
+        {
+            "type": "varchar2",
+            "name": "PARTITIONING_TYPE",
+            "description": "Part. stratégia"
+        },
+        {
+            "type": "varchar2",
+            "name": "SUB_PARTITIONING_TYPE",
+            "description": "Alpart. stratégia"
+        },
+        {
+            "type": "number",
+            "name": "PARTITION_COUNT",
+            "description": "Partíciók száma"
+        }
+    ]
+}
+
+

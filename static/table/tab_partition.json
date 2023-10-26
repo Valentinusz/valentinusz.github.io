@@ -1,0 +1,30 @@
+{
+    "name": "TAB_PARTITIONS",
+    "columns": [
+        {
+            "type": "VARCHAR2",
+            "name": "TABLE_OWNER",
+            "description": "Tábla tulajdonosa"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "TABLE_NAME",
+            "description": "Partícionált tábla neve"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "COMPOSITE",
+            "description": "YES, ha van alpartíció, különben NO"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "PARTITION_NAME",
+            "description": "Partíció neve"
+        },
+        {
+            "type": "NUMBER",
+            "name": "SUBPARTITION_COUNT",
+            "description": "Alpartíciók száma"
+        }
+    ]
+}

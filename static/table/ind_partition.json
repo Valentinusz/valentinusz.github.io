@@ -1,0 +1,30 @@
+{
+    "name": "IND_PARTITION",
+    "columns": [
+        {
+            "type": "VARCHAR2",
+            "name": "INDEX_OWNER",
+            "description": "az index tulajdonosa"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "INDEX_NAME",
+            "description": "az index neve"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "COMPOSITE",
+            "description": "YES, ha lokális index, különben NO"
+        },
+        {
+            "type": "VARCHAR2",
+            "name": "PARTITION_NAME",
+            "description": "Partíció neve"
+        },
+        {
+            "type": "NUMBER",
+            "name": "SUBPARTITION_COUNT",
+            "description": "Alpartíciók száma"
+        }
+    ]
+}

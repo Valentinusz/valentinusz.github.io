@@ -1,5 +1,5 @@
 {
-    "name": "IND_COLUMNS",
+    "name": "IND_COLUMN",
     "columns": [
         {
             "name": "INDEX_OWNER",
@@ -33,7 +33,7 @@
         },
         {
             "name": "DESCEND",
-            "description": "`DESC` ha az oszlop csökkenően szerepel az indexben (különben `ASC`)",
+            "description": "DESC ha az oszlop csökkenően szerepel az indexben (különben ASC)",
             "type": "VARCHAR2"
         }
     ]

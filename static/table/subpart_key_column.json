@@ -1,0 +1,25 @@
+{
+    "name": "SUBPART_KEY_COLUMN",
+    "columns": [
+        {
+            "name": "OWNER",
+            "type": "VARCHAR2 ",
+            "description": ""
+        },
+        {
+            "name": "NAME",
+            "type": "VARCHAR2 ",
+            "description": ""
+        },
+        {
+            "name": "OBJECT_TYPE",
+            "type": "CHAR",
+            "description": ""
+        },
+        {
+            "name": "COLUMN_NAME",
+            "type": "VARCHAR2 ",
+            "description": ""
+        }
+    ]
+}

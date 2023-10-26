@@ -1,0 +1,50 @@
+{
+    "name": "OBJECT",
+    "columns": [
+        {
+            "name": "OWNER",
+            "description": "Az objektum tulajdonosa",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "OBJECT_NAME",
+            "description": "Az objektum neve",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "SUBOBJECT_NAME",
+            "description": "Alobjektum neve (pl. partíció)",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "OBJECT_ID",
+            "description": "Objektum azonosítója az adatszótárban",
+            "type": "NUMBER"
+        },
+        {
+            "name": "DATA_OBJECT_ID",
+            "description": "Az objektum szegmensének azonosítója adatszótárban",
+            "type": "NUMBER"
+        },
+        {
+            "name": "OBJECT_TYPE",
+            "description": "Objektum típusa (pl. TABLE, INDEX)",
+            "type": "VARCHAR2"
+        },
+        {
+            "name": "CREATED",
+            "description": "Létrehozás időbélyege",
+            "type": "DATE"
+        },
+        {
+            "name": "LAST_DDL_TIME",
+            "description": "Utolsó módosítás időbélyege",
+            "type": "DATE"
+        },
+        {
+            "name": "GENERATED",
+            "description": "Rendszergenerált-e (Y vagy N)",
+            "type": "VARCHAR2"
+        }
+    ]
+}

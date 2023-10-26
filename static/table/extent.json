@@ -1,49 +1,49 @@
 {
-    "name": "EXTENTS",
+    "name": "EXTENT",
     "columns": [
         {
             "name": "OWNER",
-            "description": "Az területet tartalmazó szegmens tulajdonosa.",
+            "description": "a tartalmazó szegmens tulajdonosa",
             "type": "String"
         },
         {
             "name": "SEGMENT_NAME",
-            "description": "A szegmens neve amihez a terület tartozik.",
+            "description": "a tartalmazó szegmens neve",
             "type": "String"
         },
         {
             "name": "SEGMENT_TYPE",
-            "description": "A tartalmazó szegmens típusa.",
+            "description": "a tartalmazó szegmens típusa",
             "type": "String"
         },
         {
             "name": "TABLESPACE_NAME",
-            "description": "Az terület táblatérének neve.",
+            "description": "a terület táblatérének neve",
             "type": "String"
         },
         {
             "name": "FILE_ID",
-            "description": "Az terület blokkjait tartalmazó fájl azonosítója.",
+            "description": "a terület blokkjait tartalmazó fájl azonosítója",
             "type": "Number"
         },
         {
             "name": "BLOCK_ID",
-            "description": "Az terület kezdőblokkjának sorszáma.",
+            "description": "a terület kezdőblokkjának sorszáma",
             "type": "Number"
         },
         {
             "name": "BYTES",
-            "description": "Az terület mérete bájtban.",
+            "description": "a terület mérete bájtban",
             "type": "Number"
         },
         {
             "name": "BLOCKS",
-            "description": "Az terület mérete blokkokban.",
+            "description": "a terület mérete blokkokban",
             "type": "Number"
         },
         {
             "name": "EXTENT_ID",
-            "description": "Az terület szegmensen belüli azonosítója.",
+            "description": "a terület szegmensen belüli azonosítója",
             "type": "Number"
         }
     ]

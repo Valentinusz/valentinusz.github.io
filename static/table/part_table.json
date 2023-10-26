@@ -1,0 +1,30 @@
+{
+    "name": "PART_TABLE",
+    "columns": [
+        {
+            "type": "varchar2",
+            "name": "OWNER",
+            "description": "Partícionált Tábla tulajdonosa"
+        },
+        {
+            "type": "varchar2",
+            "name": "TABLE_NAME",
+            "description": "Partícionált tábla neve"
+        },
+        {
+            "type": "varchar2",
+            "name": "PARTITIONING_TYPE",
+            "description": "P. stratégia típusa"
+        },
+        {
+            "type": "varchar2",
+            "name": "SUB_PARTITIONING_TYPE",
+            "description": "Alp. stratégia típusa"
+        },
+        {
+            "type": "number",
+            "name": "PARTITION_COUNT",
+            "description": "Partíciók száma"
+        }
+    ]
+}
