@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function DatabaseTable({columns}) {
+export default function DatabaseTable({columns, className}) {
     return (
-        <table>
+        <table className={className}>
             <thead>
             <tr>
                 <th>Oszlop</th>
