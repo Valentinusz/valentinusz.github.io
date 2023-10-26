@@ -16,11 +16,7 @@
     padding: 0.25rem !important;
   }
 
-  th {
-    font-size: 0.6rem;
-  }
-
-  td {
-    font-size: 0.5rem;
+  td:nth-child(2) {
+    font-size: 0.75rem;
   }
 }
