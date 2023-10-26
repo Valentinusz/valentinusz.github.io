@@ -12,8 +12,8 @@ import DatabaseTable from "../DatabaseTable/DatabaseTable";
 export default function DatabaseTableNode({data: {name, columns}}) {
     return (
         <div className={styles.container}>
-            <Handle id='top' type="source" position={Position.Bottom} />
-            <Handle id='bottom' type="source" position={Position.Top} />
+            <Handle id='top' type="source" position={Position.Top} />
+            <Handle id='bottom' type="source" position={Position.Bottom} />
             <Handle id='left' type="source" position={Position.Left} />
             <Handle id='right' type="source" position={Position.Right} />
             <h3>{name}</h3>
