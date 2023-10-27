@@ -1,5 +1,17 @@
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import {themes} from 'prism-react-renderer'
+
 /** @type {import('@docusaurus/types').Config} */
-module.exports = {
+export default {
+    markdown: {
+        mdx1Compat: {
+            comments: false,
+            admonitions: false,
+            headingIds: false
+        }
+    },
+
     title: 'Boda Bálint',
     favicon: 'img/favicon.ico',
 
@@ -26,11 +38,11 @@ module.exports = {
                 docs: {
                     path: 'notes',
                     routeBasePath: 'notes',
-                    sidebarPath: require.resolve('./sidebars.js'),
+                    sidebarPath: './sidebars.js',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
-                    remarkPlugins: [require('remark-math')],
-                    rehypePlugins: [require('rehype-katex')]
+                    remarkPlugins: [remarkMath],
+                    rehypePlugins: [rehypeKatex]
                 },
                 blog: {
                     showReadingTime: true,
@@ -68,7 +80,7 @@ module.exports = {
             items: [
                 {
                     type: 'docSidebar',
-                    sidebarId: 'tutorialSidebar',
+                    sidebarId: 'notesSidebar',
                     position: 'left',
                     label: 'Jegyzetek',
                 },
@@ -88,9 +100,9 @@ module.exports = {
         },
 
         prism: {
-            theme: require('prism-react-renderer/themes/github'),
-            darkTheme: require('prism-react-renderer/themes/dracula'),
-            additionalLanguages: ['java', 'python']
+            theme: themes.github,
+            darkTheme: themes.vsDark,
+            additionalLanguages: ['java', 'python', 'sql']
         },
 
         algolia: {

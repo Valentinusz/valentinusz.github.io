@@ -24,8 +24,9 @@ Mivel a változók függetlenek és normális eloszlásúak, használhatjuk az e
 keresett várható érték és szórásnégyzet pontosan az $m$ és $\sigma^2$ paraméterekkel egyeznek meg.
 
 $$
-\mathrm{E}(W) = m_{3X-2Y+1} = 3 \cdot 2 + (- 2 \cdot 5) + 1 = -3
+\mathrm{E}(W) = m_{3X-2Y+1} = 3 \cdot 2 + (- 2 \cdot 5) + 1 = -3 = \d
 $$
+
 $$
 \mathrm{D}^2(W) = \sigma_{3X-2Y+1}^2 = (3 \cdot \sqrt{5})^2 + (2 \cdot 3)^2 + \mathrm{D}^2(1) = 45 + 36 + 0 = 81
 $$
@@ -34,8 +35,6 @@ $\mathrm{D}^2(1)$ azért 0, mert $\mathrm{D}^2(X) = \mathrm{E}(X^2) - \mathrm{E}
 ezért $\mathrm{D}^2(1) = 1 - 1 = 0$.
 
 ::::::
-
-:::
 
 ## Független, Poisson eloszlású változók összege
 

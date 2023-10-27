@@ -1,5 +1,4 @@
-import React from "react";
-import SystemCatalogsFlow from "./SystemCatalogsFlow/SystemCatalogsFlow";
+import SystemCatalogsFlow from './SystemCatalogsFlow/SystemCatalogsFlow';
 
 const initialNodes = [
     {id: 'OBJECT', type: 'databaseTable', position: {x: 0, y: 0}, data: require('../../static/table/object.json')},
@@ -39,14 +38,13 @@ const initialEdges = [
     {id: 'edge-16', source: 'PART_INDEX', target: 'PART_TABLE', sourceHandle: 'right', targetHandle: 'left', label: "1:N"},
     {id: 'edge-17', source: 'PART_INDEX', target: 'INDEX', sourceHandle: 'bottom', targetHandle: 'top', label: "is a"},
     {id: 'edge-18', source: 'SUB_PARTITION', target: 'SUBPART_KEY_COLUMN', sourceHandle: 'right', targetHandle: 'left', label: "1:N"},
-    {id: 'edge-19', source: 'PART_INDEX', target: 'IND_PARTITION', sourceHandle: 'top', targetHandle: 'bottom', label: "1:N"},
-
-    //{id: 'edge-1', source: '1', target: '2', sourceHandle: 'right', targetHandle: 'left', label: "(OWNER, INDEX_NAME) 1:N (INDEX_OWNER, INDEX_NAME)"},
+    {id: 'edge-19', source: 'PART_INDEX', target: 'IND_PARTITION', sourceHandle: 'top', targetHandle: 'bottom', label: "1:N"}
 ];
 
 export default function AllViewsFlow({height = '35em'}) {
-
-
-    return <div style={{width: '100%', height}}><SystemCatalogsFlow initialNodes={initialNodes}
-                                                                    initialEdges={initialEdges}/></div>;
+    return (
+        <div style={{width: '100%', height}}>
+            <SystemCatalogsFlow initialNodes={initialNodes} initialEdges={initialEdges}/>
+        </div>
+    );
 }
