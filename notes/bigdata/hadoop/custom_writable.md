@@ -47,32 +47,32 @@ Az osztály teljes kódja elérhető
 
 ```java
 public class TemperatureWritable implements WritableComparable<TemperatureWritable> {
-	public Text hour;
-	public DoubleWritable temperature;
-
+    public Text hour;
+    public DoubleWritable temperature;
+    
     public TemperatureWritable() {
-		this.hour = new Text("");
-		this.temperature = new DoubleWritable(Double.MIN_VALUE);
-	}
-
-	public TemperatureWritable(String hour, double temperature) {
-		this.hour = new Text(hour);
-		this.temperature = new DoubleWritable(temperature);
-	}
-
-	public void readFields(DataInput in) throws IOException {
-		this.hour.readFields(in);
-		this.temperature.readFields(in);
-	}
-
-	public void write(DataOutput out) throws IOException {
-		this.hour.write(out);
-		this.temperature.write(out);
-	}
-
-	public int compareTo(TemperatureWritable o) {
-		return this.temperature.compareTo(o.temperature);
-	}
+        this.hour = new Text("");
+        this.temperature = new DoubleWritable(Double.MIN_VALUE);
+    }
+    
+    public TemperatureWritable(String hour, double temperature) {
+        this.hour = new Text(hour);
+        this.temperature = new DoubleWritable(temperature);
+    }
+    
+    public void readFields(DataInput in) throws IOException {
+        this.hour.readFields(in);
+        this.temperature.readFields(in);
+    }
+    
+    public void write(DataOutput out) throws IOException {
+        this.hour.write(out);
+        this.temperature.write(out);
+    }
+    
+    public int compareTo(TemperatureWritable o) {
+        return this.temperature.compareTo(o.temperature);
+    }
 }
 ```
 :::danger

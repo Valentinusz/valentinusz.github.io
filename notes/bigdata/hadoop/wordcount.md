@@ -4,10 +4,12 @@ title: "WordCount"
 ---
 
 :::info
-A feladathoz kapcsolódó kódok megtalálhatók a [GitHub repoban](https://github.com/Valentinusz/elte-ik-bsc/tree/main/5/bigdata/hadoop/wordCount).
+A feladathoz kapcsolódó kódok megtalálhatók
+a [GitHub repoban](https://github.com/Valentinusz/elte-ik-bsc/tree/main/5/bigdata/hadoop/wordCount).
 :::
 
-A MapReduce Hello World!-jeként emlegedett feladat a következő: Adott egy bemeneti fájl, számoljuk meg az egyes szavak hányszor fordulnak elő a fájlban!
+A MapReduce Hello World!-jeként emlegedett feladat a következő: Adott egy bemeneti fájl, számoljuk meg az egyes szavak
+hányszor fordulnak elő a fájlban!
 
 A Hadoop MapReduce egy Java nyelvű implementációja a MapReduce modellnek.
 
@@ -25,48 +27,50 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class WordCountDriver {
-	public static void main(String[] args) throws Exception {
-		// HDFS itt tárolja az ideiglenes fájlokat
-		System.setProperty("hadoop.tmp.dir", "c:\\BigData\\tmp\\hadoop-xx");
-		
-		// könyvtár ahol a Hadoop telepítve van
-		System.setProperty("hadoop.home.dir", "c:\\BigData\\hadoop-3.3.6");
-		
-		Configuration conf = new Configuration();
-		
-		// job neve igazából nem számít
-		Job job = Job.getInstance(conf, "WordCount"); 
-		
-		job.setJarByClass(wordcount.WordCountDriver.class);
-		
-		// mapper osztály megadása
-		job.setMapperClass(wordcount.WordCountMapper.class);
-		
-		// reducer osztály megadása
-		job.setReducerClass(wordcount.WordCountReducer.class);
-		
-		// kimeneti kulcs érték pár típusának megadása
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
-
-		// be és kimeneti könyvtárak megadása
-		FileInputFormat.setInputPaths(job, new Path("input")); // bementi mappa
-		FileOutputFormat.setOutputPath(job, new Path("out")); // kimeneti mappa
-
-		// végrehajtja a jobot
-		if (!job.waitForCompletion(true)) return;
-	}
+    public static void main(String[] args) throws Exception {
+        // HDFS itt tárolja az ideiglenes fájlokat
+        System.setProperty("hadoop.tmp.dir", "c:\\BigData\\tmp\\hadoop-xx");
+        
+        // könyvtár ahol a Hadoop telepítve van
+        System.setProperty("hadoop.home.dir", "c:\\BigData\\hadoop-3.3.6");
+        
+        Configuration conf = new Configuration();
+        
+        // job neve igazából nem számít
+        Job job = Job.getInstance(conf, "WordCount"); 
+        
+        job.setJarByClass(wordcount.WordCountDriver.class);
+        
+        // mapper osztály megadása
+        job.setMapperClass(wordcount.WordCountMapper.class);
+        
+        // reducer osztály megadása
+        job.setReducerClass(wordcount.WordCountReducer.class);
+        
+        // kimeneti kulcs érték pár típusának megadása
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        
+        // be és kimeneti könyvtárak megadása
+        FileInputFormat.setInputPaths(job, new Path("input")); // bementi mappa
+        FileOutputFormat.setOutputPath(job, new Path("out")); // kimeneti mappa
+        
+        // végrehajtja a jobot
+        if (!job.waitForCompletion(true)) return;
+    }
 }
 ```
+
 Értelemszerűen a Mapper fázis logikája a `WordCountMapper` osztályba fog kerülni. A Mapper osztályok közös ősosztálya
 a `org.apache.hadoop.mapreduce.Mapper` generikus osztály:
 
 ```java
 public class Mapper<KEYIN, VALUEIN, KEYOUT, VALUEOUT> {
-	protected void map(KEYIN key, VALUEIN value, Context context) throws IOException, InterruptedException { ... }
-	...
+    protected void map(KEYIN key, VALUEIN value, Context context) throws IOException, InterruptedException { ... }
+    ...
 }
 ```
+
 Négy típusparamétere, a bemeneti kulcs típusa, a bemeneti érték típusa, a kimeneti kulcs típusa, a kimeneti érték
 típusa. A kimeneti kulcs és érték együttesen alkotják azt a párt ami, majd egy Reducer-hez el fog jutni.
 
@@ -76,7 +80,8 @@ Figyeljünk arra, hogy megtartsuk a `map` metódus szignatúrája és az osztál
 :::
 
 :::danger
-A Hadoop nem a megszokott Java típusokat használja! A típusok közti megfeleltetéseket a következő táblázatok tartalmazzák:
+A Hadoop nem a megszokott Java típusokat használja! A típusok közti megfeleltetéseket a következő táblázatok
+tartalmazzák:
 
 <div className='side-2'>
 
@@ -89,39 +94,39 @@ A Hadoop nem a megszokott Java típusokat használja! A típusok közti megfelel
 | `float`    | `FloatWritable`  |
 | `double`   | `DoubleWritable` |
 
-| Java típus           | Hadoop típus    |
-|----------------------|-----------------|
+| Java típus           | Hadoop típus      |
+|----------------------|-------------------|
 | `boolean`            | `BooleanWritable` |
-| `String`             | `Text`          |
-| `java.util.Map`      | `MapWritable`   |
-| `java.util.List`     | `ArrayWritable` |
-| `java.util.Set`      | `ArrayWritable` |
-| `java.sql.Timestamp` | `LongWritable`  |
+| `String`             | `Text`            |
+| `java.util.Map`      | `MapWritable`     |
+| `java.util.List`     | `ArrayWritable`   |
+| `java.util.Set`      | `ArrayWritable`   |
+| `java.sql.Timestamp` | `LongWritable`    |
 
 </div>
 :::
 
 ```java title="src/wordcount/WordCountMapper.java"
 public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
-	// érdemes így újrahasználni a változókat
-	private Text key = new Text("");
-	private IntWritable value = new IntWritable(1); // value értéke konstans 1
-
-	// ivalue tartalmazza bemeneti értéket
-	// esetünkben egy fájl egy sora
-	public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
-		// felbontjuk a stringet szóközök mentén
-		String[] words = ivalue.toString().split(" ");
-
-		for (String word : words) {
-			key.set(word); // kulcs legyen a szó
-			
-			word = word.toLowerCase();
-			
-			// kulcs érték pár létrehozása és továbbadása
-			context.write(key, value);
-		}
-	}
+    // érdemes így újrahasználni a változókat
+    private Text key = new Text("");
+    private IntWritable value = new IntWritable(1); // value értéke konstans 1
+    
+    // ivalue tartalmazza bemeneti értéket
+    // esetünkben egy fájl egy sora
+    public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
+        // felbontjuk a stringet szóközök mentén
+        String[] words = ivalue.toString().split(" ");
+    
+        for (String word : words) {
+            key.set(word); // kulcs legyen a szó
+            
+            word = word.toLowerCase();
+            
+            // kulcs érték pár létrehozása és továbbadása
+            context.write(key, value);
+        }
+    }
 }
 ```
 
@@ -145,24 +150,24 @@ kulcs-érték párt.
 
 ```java title="src/wordcount/WordCountReducer.java"
 public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
-	// _key a közös kulcs
-	// values az értékek
-	public void reduce(Text _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-		int count = 0;
-		
-		for (IntWritable entryValue : values) {
-			count++;
-		}
-		
-		context.write(_key, new IntWritable(count)); // pár továbbadása
-	}
+    // _key a közös kulcs
+    // values az értékek
+    public void reduce(Text _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+        int count = 0;
+        
+        for (IntWritable entryValue : values) {
+            count++;
+        }
+        
+        context.write(_key, new IntWritable(count)); // pár továbbadása
+    }
 }
 ```
+
 Ha mindent jól csináltunk létrejöttek az általálunk megadott kimeneti mappába a `_SUCCESS` és az eredményt tartalmazó
 `part-m-00000` fájlok.
 
 :::tip
-
 Combiner osztály használatával hatékonyabb megoldást is tudunk adni erre a problémára. Szerencsés helyzetben vagyunk,
 mivel a Reducer kis módosításával, felhasználható Combiner-ként is:
 
@@ -178,7 +183,9 @@ public void reduce(Text _key, Iterable<IntWritable> values, Context context) thr
     context.write(_key, new IntWritable(count));
 }
 ```
+
 Továbbá be kell regisztrálnunk a Combiner-t a főprogramban:
+
 ```java title="wordCountCombiner/src/wordcount/WordCountDriver.java"
 public static void main(String[] args) throws Exception {
     ...
