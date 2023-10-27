@@ -35,7 +35,7 @@ Az indexek tárhelyigényének vizsgálatához vezessük be a következő fogalm
   - $\mathrm{bf}{(R)}$: azt adja meg az $R$ reláció hány sora fér el egy blokkban
   - $\mathrm{bf}{(I)}$: azt adja meg az $I$ index hány kulcs-érték párja fér el egy blokkban
 
-:::tip Példa
+:::tip[Példa]
 Legyen $R$ táblák, sűrű $I_1$ és ritka $I_2$ indexek úgy, hogy $\mathrm{T}{(R)} = 10000$, $\mathrm{bf}{(R)} = 20$,
 $\mathrm{bf}{(I_1)} = 100$, $\mathrm{bf}{(I_2)} = 100$. Számoljuk ki hány blokk szükséges az említett struktúrák
 tárolásához.
@@ -56,7 +56,7 @@ $$
 $$
 :::
 
-:::tip Példa
+:::tip[Példa]
 Oldjuk meg az előző feladatot úh, hogy csak a blokkok $80\%$-a legyen tele!
 
 Ez pontosan azt jelenti, hogy $20\%$-al kevesebb rekord vagy kulcs-mutató pár fér egy blokkba. Így

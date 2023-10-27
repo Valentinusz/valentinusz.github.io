@@ -16,7 +16,7 @@ változó az $m_Y$ és $\sigma_Y$ paraméterekkel.
 Ha $X$ és $Y$ függetlenek, akkor $X+Y$ is normális eloszlású, melynek várható értéke ($m_X + m_Y$) szórása pedig
 $\sqrt{\sigma_X^2 + \sigma_Y^2}$.
 
-:::tip PÉLDA
+:::tip[PÉLDA]
 Legyen $X \sim N(2, \sqrt{5}^2)$ és $Y \sim N(5, 3^2)$ függetlenek és legyen $W = 3X - 2Y + 1$. Számítsuk ki
 $\mathrm{E}(W)$-t és $\mathrm{D}^2(W)$-t!
 

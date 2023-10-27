@@ -33,8 +33,8 @@ $$
 
 $$
 
-:::info FONTOS
-$\mathrm{F}(t)$ azt jelenti, hogy $\mathrm{P}(X \le t)$, azaz annak a valószínűségét, hogy a valószínűségi változó
+:::info[FONTOS]
+$\mathrm{F}(t)$ jelentése: $\mathrm{P}(X \le t)$, azaz annak a valószínűségét, hogy a valószínűségi változó
 értéke nem nagyobb $t$-nél.
 :::
 
@@ -54,7 +54,7 @@ $$
 
 $$
 
-:::tip Példa
+:::tip[PÉLDA]
 Legyen $X$ egy folytonos valószínűségi változó a $[0, c]$ intervallumon, sűrűségfüggvénye:
 
 $$
@@ -130,7 +130,7 @@ A normális eloszlás speciális esete, ahol a várható érték 0 és a szórá
 Bármely normális eloszlást követő valószínűségi változót vissza tudunk vezetni standard normális eloszlásra. Legyen 
 $X \sim \mathrm{N}(m, \sigma^2)$, ekkor $\frac{N-m}{\sigma} \sim \mathrm{N}(0,1)$.
 
-:::tip Példa
+:::tip[PÉLDA]
 Tegyük fel, hogy egy populációban az intelligenciahányados normális eloszlású $110$ várható értékkel és $10$
 szórással. Mi a valószínűsége, hogy egy véletlenszerűen kiválasztott ember IQ-ja $120$ feletti?
 

@@ -9,7 +9,7 @@ Egy valószínűségi változó **diszkrét**, ha értékkészlete megszámlálh
 Például érmedobás esetén a lehetséges kimenetelek halmaza $\left\lbrace \text{fej}, \text{írás} \right\rbrace$, illetve
 $\mathrm{P}(X = \text{fej}) = \frac{1}{2}$ és $\mathrm{P}(X = \text{írás}) = \frac{1}{2}$.
 
-:::important Fontos
+:::important[Fontos]
 A lehetséges értékek valószínűségeinek összege 1.
 :::
 

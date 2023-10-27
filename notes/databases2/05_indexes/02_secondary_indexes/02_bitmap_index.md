@@ -162,7 +162,7 @@ Ha a bitvektor **0-ás bittel ér véget, ez eddigi szakasz hossza nem kerül le
 számát ezért ezzel nem történik információvesztés.
 :::
 
-:::tip Példa
+:::tip[Példa]
 Legyen a bitvektor $00000000000001$.
 
 Az első egyesig 13 nullán iteráltunk keresztül ezért $i=13=8+4+1=2^3 + 2^2 + 2^0$, ami binárisan 1101, melynek
@@ -178,7 +178,7 @@ Legyen $i = 0$. Végigiterálunk a kódolt vektoron:
   - Kiolvassuk a következő $(i + 1)$ bitet és visszaalakítjuk tízes számrendszerbe, jelöljük ezt a számot $j$-vel.
   - A kimenethez hozzáfűzünk $j$ db nullást és egy darab egyest.
 
-:::tip Példa
+:::tip[Példa]
 Alakítsuk vissza az előző példában szereplő bitvektort (11101101):
 
 Az első nulláig 3 egyesen iteráltunk végig, így tudjuk, hogy a szakaszhossz a következő 4 biten van tárolva. Ez a
@@ -186,7 +186,7 @@ Az első nulláig 3 egyesen iteráltunk végig, így tudjuk, hogy a szakaszhossz
 vissza. 
 :::
 
-### Bonyolultabb példák
+### Bonyolultabb példa
 
 Tömörítsük a $0000000000000000000000010000000101$ (23, 7 és 1 db nulla) bitvektort!
 

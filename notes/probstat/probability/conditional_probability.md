@@ -20,7 +20,7 @@ Szemléletesen, a definíció jelentése a következő:
 
 Tehát $\mathrm{P}(A\mid B)$ nem más mint $(A \text{ és } B)$ valószínűsége $B$ valószínűségéhez viszonyítva.
 
-:::tip PÉLDA
+:::tip[PÉLDA]
 Mennyi a valószínűsége, hogy két kockadobásnál mind a két dobás 6-os, feltéve, hogy tudjuk, hogy legalább az egyik dobás
 6-os?
 
@@ -62,7 +62,7 @@ $$
 \mathrm{P}(B_i \mid A) = \frac{\mathrm{P}(A \mid B_i) \cdot \mathrm{P}(B_i)}{\sum_{i=1}^{+\infty}{\mathrm{P}(A \mid B_i)} \cdot \mathrm{P}(B_i)}.
 $$
 
-:::tip PÉLDA
+:::tip[PÉLDA]
 100 érme közül az egyik hamis (ennek mindkét oldalán fej található). Egy érmét véletlenszerűen kiválasztva és
 azzal 10-szer dobva, 10 fejet kaptunk. Ezen feltétellel mi a valószínűsége, hogy a hamis érmével dobtunk?
 

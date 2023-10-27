@@ -9,6 +9,7 @@ slug: '/'
 Ezen az oldalon az egyetemi éveim alatt készített összefüggő írásos segédanyagaim találhatók.
 
 Az egyes szekciók többnyire az adott tárgy ütemezéseit követik, de előfordulhatnak eltérések.
+
 :::tip
 Az oldal tartalma kereshető, a jobb felső sarokban lévő keresőn keresztül!
 :::

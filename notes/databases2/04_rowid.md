@@ -31,7 +31,7 @@ A sort tartalmazó blokk sorszáma.
 A sor blokkon belüli sorszáma.
 
 
-:::tip példa
+:::tip[PÉLDA]
 A NIKOVITS felhasználó CIKK táblájának adatai melyik blokkokban helyezkednek el, és hány sor van az egyes blokkokban?
 
 Fontos, hogy a tábla akár több fájlban is lehet, ezért a csoportosításnál azt is figyelembe kell vennünk.
