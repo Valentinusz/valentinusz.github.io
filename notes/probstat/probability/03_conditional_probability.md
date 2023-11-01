@@ -8,7 +8,7 @@ Szeretnénk, egy esemény valószínűségét egy másik esemény bekövetkezté
 feltételes valószínűség fogalmát.
 
 Az $A$ esemény valószínűségét azon feltétel mellett, hogy a $B$ esemény bekövetkezik, az $A$ esemény a $B$ eseményre
-vonatkozó feltételes valószínűségét $\mathrm{P}(A\mid B)$-vel jelöljük és a következő módon definiáljuk:
+vonatkozó feltételes valószínűségének nevezzük, $\mathrm{P}(A\mid B)$-vel jelöljük és a következő módon definiáljuk:
 
 $$
 \mathrm{P}(A \mid B) = \frac{\mathrm{P}(A \cap B)}{\mathrm{P}(B)}
@@ -16,7 +16,7 @@ $$
 
 Szemléletesen, a definíció jelentése a következő:
 
-![cond.svg](cond.svg)
+![cond.svg](/img/probstat/cond.svg)
 
 Tehát $\mathrm{P}(A\mid B)$ nem más mint $(A \text{ és } B)$ valószínűsége $B$ valószínűségéhez viszonyítva.
 
@@ -46,21 +46,57 @@ $$
 $$
 :::
 
-
-
 ## Teljes valószínűség tétele
-
 Tetszőleges $A$ esemény és $B_1, B_2, \dots$ teljes eseményrendszer esetén
 $$
 \mathrm{P}(A) = \sum_{i=1}^{\infty}{\mathrm{P}(A \mid B_i) \cdot P(B_i)} 
 $$
 
+<details>
+    <summary>Bizonyítás</summary>
+
+    Mivel $B_1, B_2, \dots$ teljes eseményrendszer, ezért $\bigcup_{i=1}^\infty B_i = \Omega$.
+
+    $$
+    \begin{align*}
+    \mathrm{P}(A) &= \mathrm{P}(A \cap \Omega) \quad & (A \subseteq \Omega) \\
+    &= \mathrm{P}\left(A \cap \left( \bigcup_{i=1}^\infty B_i \right) \right) & (\text{szorzás disztributív}) \\
+    &= \mathrm{P}\left((A \cap B_1 ) \cup (A \cap B_2) \cup \dots \right) & (\text{3. axióma}) \\
+    &= \sum_{i=1}^{\infty}{(A \cap B_i )} \\
+    \end{align*}
+    
+    $$
+
+    A feltételes valószínűség definíciójának átrendezéséből adódik, hogy
+    $(A \cap B_i ) = \mathrm{P}(A \mid B)\mathrm{P}(B_i)$. Elvégezve a helyettesítést a bizonyítandó tételt kapjuk.
+    
+</details>
+
 ## Bayes-tétel
 
 Tetszőleges $A$ esemény és $B_1, B_2, \dots$ teljes eseményrendszer esetén
 $$
-\mathrm{P}(B_i \mid A) = \frac{\mathrm{P}(A \mid B_i) \cdot \mathrm{P}(B_i)}{\sum_{i=1}^{+\infty}{\mathrm{P}(A \mid B_i)} \cdot \mathrm{P}(B_i)}.
+\mathrm{P}(B_i \mid A) = \frac{\mathrm{P}(A \mid B_i) \cdot \mathrm{P}(B_i)}{\sum_{i=1}^{\infty}{\mathrm{P}(A \mid B_i)} \cdot \mathrm{P}(B_i)}
 $$
+
+<details>
+    <summary>Bizonyítás</summary>
+
+    A feltételes valószínűség definícióját átalakítva és kihasználva, hogy a szorzat kommutatív:
+    
+    $$
+    \mathrm{P}(B_i \cap A) = \mathrm{P}(B_i \mid A) \cdot \mathrm{P}(A) = \mathrm{P}(A \cap B_i) = \mathrm{P}(A \mid B_i) \cdot \mathrm{P}(B_i)
+    $$
+
+    Behelyettesítve a feltételes valószínűség definíciójába:
+    $$
+    \mathrm{P}(B_i \mid A) = \frac{\mathrm{P}(B_i \cap A)}{\mathrm{P}(A)}
+    = \frac{\mathrm{P}(A \mid B_i) \cdot \mathrm{P}(B_i)}{\mathrm{P}(A)}
+    $$
+
+    Végül fejezzük ki $\pr(A)$-t a teljes valószínűség tételével. Elvégezve a helyettesítést a bizonyítandó tételt
+    kapjuk.
+</details>
 
 :::tip[PÉLDA]
 100 érme közül az egyik hamis (ennek mindkét oldalán fej található). Egy érmét véletlenszerűen kiválasztva és

@@ -39,10 +39,16 @@ export default {
                     path: 'notes',
                     routeBasePath: 'notes',
                     sidebarPath: './sidebars.js',
+                    admonitions: {
+                        keywords: ['example'],
+                        extendDefaults: true
+                    },
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
                     remarkPlugins: [remarkMath],
-                    rehypePlugins: [rehypeKatex]
+                    rehypePlugins: [
+                        [rehypeKatex, {macros: {'\\pr': '\\mathrm{P}', '\\B': '\\mathrm{B}', '\\E': '\\mathrm{E}'}}]
+                    ]
                 },
                 blog: {
                     showReadingTime: true,

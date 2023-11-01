@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 433.6 289.1">
+  <style>
+    text {
+      fill: rgb(227, 227, 227);
+    }
+
+    .line {
+      stroke: rgb(227, 227, 227);
+    }
+
+    @media (prefers-color-scheme: light) {
+      text {
+        fill: rgb(28, 30, 33);
+      }
+
+      .line {
+        stroke: rgb(28, 30, 33);
+      }
+    }
+  </style>
+  <rect width="100%" height="100%" fill="transparent"/>
+  <g fill="red" stroke="red">
+    <circle cx="40" cy="248.7" r="1.9"/>
+    <circle cx="49.3" cy="248.7" r="1.9"/>
+    <circle cx="58.6" cy="248.7" r="1.9"/>
+    <circle cx="68" cy="248.7" r="1.9"/>
+    <circle cx="77.3" cy="248.7" r="1.9"/>
+    <circle cx="86.7" cy="248.7" r="1.9"/>
+    <circle cx="96" cy="248.7" r="1.9"/>
+    <circle cx="105.3" cy="248.7" r="1.9"/>
+    <circle cx="114.7" cy="248.6" r="1.9"/>
+    <circle cx="124" cy="248.5" r="1.9"/>
+    <circle cx="133.4" cy="248" r="1.9"/>
+    <circle cx="142.7" cy="246.7" r="1.9"/>
+    <circle cx="152.1" cy="243.9" r="1.9"/>
+    <circle cx="161.4" cy="238.4" r="1.9"/>
+    <circle cx="170.8" cy="228.9" r="1.9"/>
+    <circle cx="180.1" cy="214.4" r="1.9"/>
+    <circle cx="189.4" cy="195.1" r="1.9"/>
+    <circle cx="198.8" cy="173.1" r="1.9"/>
+    <circle cx="208.1" cy="152.1" r="1.9"/>
+    <circle cx="217.5" cy="136.8" r="1.9"/>
+    <circle cx="226.8" cy="131.2" r="1.9"/>
+    <circle cx="236.2" cy="136.8" r="1.9"/>
+    <circle cx="245.5" cy="152.1" r="1.9"/>
+    <circle cx="254.8" cy="173.1" r="1.9"/>
+    <circle cx="264.2" cy="195.1" r="1.9"/>
+    <circle cx="273.5" cy="214.4" r="1.9"/>
+    <circle cx="282.9" cy="228.9" r="1.9"/>
+    <circle cx="292.2" cy="238.4" r="1.9"/>
+    <circle cx="301.6" cy="243.9" r="1.9"/>
+    <circle cx="310.9" cy="246.7" r="1.9"/>
+    <circle cx="320.2" cy="248" r="1.9"/>
+    <circle cx="329.6" cy="248.5" r="1.9"/>
+    <circle cx="338.9" cy="248.6" r="1.9"/>
+    <circle cx="348.3" cy="248.7" r="1.9"/>
+    <circle cx="357.6" cy="248.7" r="1.9"/>
+    <circle cx="367" cy="248.7" r="1.9"/>
+    <circle cx="376.3" cy="248.7" r="1.9"/>
+    <circle cx="385.6" cy="248.7" r="1.9"/>
+    <circle cx="395" cy="248.7" r="1.9"/>
+    <circle cx="404.3" cy="248.7" r="1.9"/>
+    <circle cx="413.7" cy="248.7" r="1.9"/>
+  </g>
+  <path class="line" fill="none" stroke="#000" d="M40 258.1h373.7m-373.7 0v5m93.4-5v5m93.4-5v5m93.4-5v5m93.5-5v5"/>
+  <g font-size="12">
+    <text transform="translate(37 278)">0</text>
+    <text transform="translate(126.8 278)">10</text>
+    <text transform="translate(220.2 278)">20</text>
+    <text transform="translate(313.6 278)">30</text>
+    <text transform="translate(407 278)">40</text>
+  </g>
+  <path class="line" fill="none" stroke="#000" d="M25 248.7V14.4m0 234.3h-5m5-46.9h-5m5-46.8h-5m5-46.9h-5m5-46.9h-5m5-46.8h-5"/>
+  <g font-size="12">
+    <text transform="rotate(-90 137.7 122.7)">0.00</text>
+    <text transform="rotate(-90 114.3 99.3)">0.05</text>
+    <text transform="rotate(-90 90.9 75.9)">0.10</text>
+    <text transform="rotate(-90 67.4 52.4)">0.15</text>
+    <text transform="rotate(-90 44 29)">0.20</text>
+    <text transform="rotate(-90 20.6 5.6)">0.25</text>
+  </g>
+  <path class="line" fill="none" d="M25 258.1h403.6V5H25v253.1"/>
+  <path fill="#0f0" d="M38.1 250.6h3.7v-3.8h-3.7zm9.3 0h3.8v-3.8h-3.8zm9.4 0h3.7v-3.8h-3.7zm9.3 0h3.7v-3.8h-3.7zm9.4 0h3.7v-3.8h-3.7zm9.3 0h3.7v-3.8h-3.7zm9.3-.2h3.8v-3.8h-3.8zm9.4-.8h3.7v-3.7h-3.7zm9.3-2.6h3.8v-3.8h-3.8zm9.4-7.7h3.7v-3.7h-3.7zm9.3-17.6h3.8v-3.8h-3.8zm9.3-32.4h3.8v-3.7h-3.8zm9.4-46h3.7v-3.7h-3.7zm9.3-46.7h3.8v-3.7h-3.8zm9.4-25.6h3.7v-3.8h-3.7zm9.3 11.9h3.8v-3.7h-3.8zm9.4 45.4h3.7v-3.7h-3.7zm9.3 55.2h3.8v-3.8h-3.8zm9.4 41h3.7v-3.8h-3.7zm9.3 19.7h3.7v-3.8h-3.7zm9.3 5.6h3.8v-3.7h-3.8z"/>
+  <path fill="#00f" d="m38.1 248.7 1.9-1.9 1.8 1.9-1.8 1.9zm9.3 0 1.9-1.9 1.9 1.9-1.9 1.9zm9.4-.2 1.8-1.8 1.9 1.8-1.9 1.9zm9.3-.8 1.9-1.9 1.8 1.9-1.8 1.9zm9.4-3.3 1.8-1.9 1.9 1.9-1.9 1.9zm9.3-9.6 1.9-1.8 1.8 1.8-1.8 1.9zm9.3-20.7 1.9-1.9 1.9 1.9-1.9 1.8zm9.4-34.7 1.8-1.9 1.9 1.9-1.9 1.9zm9.3-43.3 1.9-1.9 1.9 1.9-1.9 1.9zm9.4-37.5 1.8-1.9 1.9 1.9-1.9 1.8zm9.3-15.1 1.9-1.8 1.9 1.8-1.9 1.9zm9.3 15.1 1.9-1.9 1.9 1.9-1.9 1.8zm9.4 37.5 1.9-1.9 1.8 1.9-1.8 1.9zm9.3 43.3 1.9-1.9 1.9 1.9-1.9 1.9zm9.4 34.7 1.9-1.9 1.8 1.9-1.8 1.8zm9.3 20.7 1.9-1.8 1.9 1.8-1.9 1.9zm9.4 9.6 1.8-1.9 1.9 1.9-1.9 1.9zm9.3 3.3 1.9-1.9 1.9 1.9-1.9 1.9zm9.4.8 1.8-1.8 1.9 1.8-1.9 1.9zm9.3.2 1.9-1.9 1.8 1.9-1.8 1.9zm9.3 0 1.9-1.9 1.9 1.9-1.9 1.9zm84.9-221.8 1.9-1.9 1.9 1.9-1.9 1.9z"/>
+  <path fill="#0f0" d="M309.8 43.8h3.8V40h-3.8z"/>
+  <circle cx="311.7" cy="56.9" r="1.9" fill="red" stroke="red"/>
+  <g font-size="12">
+    <text transform="translate(320.7 31.9)">p=0,5 és n=20</text>
+    <text transform="translate(320.7 46.9)">p=0,7 és n=20</text>
+    <text transform="translate(320.7 61.9)">p=0,5 és n=40</text>
+  </g>
+</svg>

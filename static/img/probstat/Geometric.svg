@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330">
+    <style>@media (prefers-color-scheme:dark){text{fill:#e3e3e3} .axis{stroke:#e3e3e3}}</style>
+    <path fill="transparent" d="M0 0h501v330H0z"/>
+    <g fill="#1C1E21">
+        <text x="7" y="264">0,1</text>
+        <text x="7" y="234">0,2</text>
+        <text x="7" y="203">0,3</text>
+        <text x="7" y="173">0,4</text>
+        <text x="7" y="142">0,5</text>
+        <text x="7" y="111">0,6</text>
+        <text x="7" y="81">0,7</text>
+        <text x="7" y="50">0,8</text>
+        <text x="7" y="20">0,9</text>
+        <text x="17" y="306">0</text>
+        <text x="133" y="306">1</text>
+        <text x="238" y="306">2</text>
+        <text x="342" y="306">3</text>
+        <text x="446" y="306">4</text>
+    </g>
+    <path class="axis" stroke="#1C1E21" d="M31.5 2.5v288m0-289-4 4m4-4 4 4m-4 285h468m1 0-4-4m4 4-4 4m-465-4v3m104-3v3m105-3v3m104-3v3m104-3v3m-420-34h3m-3-30h3m-3-31h3m-3-30h3m-3-31h3m-3-31h3m-3-30h3m-3-31h3m-3-30h3"/>
+    <path fill="#2E7D32" d="M140.7 214a5 5 0 1 1-10 0 5 5 0 0 1 10 0ZM245 252.2a5 5 0 1 1-10 0 5 5 0 0 1 10 0ZM36.3 137.6a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm313.1 133.7a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm104.4 9.6a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"/>
+    <path fill="#D32F2F" d="M140.7 248a5 5 0 1 1-10 0 5 5 0 0 1 10 0ZM245 283.4a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm104.4 5.8a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm104.4 1a5 5 0 1 1-10 0 5 5 0 0 1 10 0ZM36.3 35.7a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"/>
+</svg>
