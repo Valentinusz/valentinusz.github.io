@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645 340">
+    <style>@media (prefers-color-scheme:dark){text{fill:#e3e3e3} .axis{stroke:#e3e3e3}}</style>
+    <path stroke="silver" stroke-dasharray="9 8" stroke-linejoin="round" d="M22.5 57.5h620m-620 0h620m-620 61h620m-620 60h620m-620 61h620"/>
+    <path class="axis" fill="none" stroke="#1C1E21" d="M22.5 2.5v297m0-298-4 4m4-4 4 4m-4 294h618m1 0-4-4m4 4-4 4m-615-4v3m113-3v3m112-3v3m113-3v3m113-3v3m112-3v3m-563-18h-2m-1-15h3m0-15h-2m-1-15h3m0-15h-2m-1-16h3m0-15h-2m-1-15h3m0-15h-2m-1-15h3m0-15h-2m-1-15h3m0-16h-2m-1-15h3m0-15h-2m-1-15h3m0-15h-2m-1-15h3m0-15h-2"/>
+    <path fill="#D32F2F" d="M28.5 73.8a6 6 0 1 1-12 0 6 6 0 0 1 12 0ZM141.2 230a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.6 63a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.6 6.5a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.6.2a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.7 0a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"/>
+    <path fill="#2E7D32" d="M28.5 298.5a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.7-28.8a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.6-90.1a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.6 0a6 6 0 1 1-12 0 6 6 0 0 1 12 0ZM479 269.7a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm112.7 28.8a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"/>
+    <g fill="#1C1E21">
+        <text x="624" y="295">k</text>
+        <text x="30" y="17">P(X=k)</text>
+        <text x="10" y="320">0</text>
+        <text x="131" y="320">1</text>
+        <text x="244" y="320">2</text>
+        <text x="357" y="320">3</text>
+        <text x="470" y="320">4</text>
+        <text x="582" y="320">5</text>
+        <text x="0" y="274">0,1</text>
+        <text x="0" y="244">0,2</text>
+        <text x="0" y="213">0,3</text>
+        <text x="0" y="183">0,4</text>
+        <text x="0" y="153">0,5</text>
+        <text x="0" y="123">0,6</text>
+        <text x="0" y="92">0,7</text>
+        <text x="0" y="62">0,8</text>
+        <text x="0" y="32">0,9</text>
+    </g>
+</svg>

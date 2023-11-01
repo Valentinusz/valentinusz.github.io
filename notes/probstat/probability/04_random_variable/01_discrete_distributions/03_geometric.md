@@ -14,6 +14,7 @@ $$
 
 A következő ábra az érmedobás (zöld) $X \sim \mathrm{Geo}(\frac{1}{2})$ és a 6-os dobása kockával (piros)
 $Y \sim \mathrm{Geo}(\frac{1}{6})$ valószínűségi változók sűrűségfüggvényét ábrázolja.
+
 <img src="/img/probstat/Geometric.svg" alt="drawing" width="400"/>
 
 :::info[Tétel]

@@ -1,9 +1,5 @@
 {
   "label": "Diszkrét eloszlások",
   "position": 1,
-  "collapsed": true,
-  "link": {
-    "type":  "doc",
-    "id": "discrete_distributions"
-  }
+  "collapsed": true
 }

@@ -23,18 +23,16 @@ $$
 $$
 :::
 
-## Várható érték
-
 :::info[Tétel]
 A binomiális eloszlás várható értéke:
 $$
 
 
-\E(\B(n,p)) = np
+\E(\B(n,p)) = np \qquad \mathrm{D}^2(X) = n^2 p^2
 $$
 
 <details>
-    <summary>Bizonyítás</summary>
+    <summary>Bizonyítás (várható érték)</summary>
 
     A várható érték definíciójából:
     $$
@@ -80,6 +78,3 @@ $$
 \E(\B(10000; 0,0001)) = 10000 \cdot 0,0001 = 10
 $$
 :::
-
-## Szórásnégyzet
-
