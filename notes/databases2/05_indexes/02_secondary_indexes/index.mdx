@@ -7,19 +7,19 @@ fogunk tárolni az adatra, ezért az a tárhely igény a tábla méretéhez kép
 Minden rekordot egy mutatót rendelünk, melyeket szekvenciálisan az adott oszlop(okban) szereplő értékek szerint
 rendezve tárolunk.
 
-![Sűrű index](dense_index.png)
+![Sűrű index](/img/databases2/indexes/dense_index.png)
 
 ## Ritka index
 A sűrű indexhez nagyon hasonló, de rekordok helyett blokkokra tárolunk mutatókat. A rendezés alapjául szolgáló kulcs
 az adatblokkban szereplő első rekord megadott oszlopának (esetleg oszlopainak) értéke.
 
-![Ritka index](sparse_index.png)
+![Ritka index](/img/databases2/indexes/sparse_index.png)
 
 ## Többszintű index
 
 Az indexre is tudunk indexet készítene, mellyel tovább tudjuk növelni a hatékonyságot.
 
-![Többszintű index](multilevel_index.png)
+![Többszintű index](/img/databases2/indexes/multilevel_index.png)
 
 :::info
 Többszintű index esetén csak az alsó szint lehet sűrű. Ez logikus, hiszen bármely azonos oszlopra készített sűrű index
