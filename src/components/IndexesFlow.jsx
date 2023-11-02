@@ -2,9 +2,9 @@ import React from 'react';
 import SystemCatalogsFlow from './SystemCatalogsFlow/SystemCatalogsFlow';
 
 const initialNodes = [
-    {id: '1', type: 'databaseTable', position: {x: 0, y: 0}, data: require('../../static/table/index.json')},
-    {id: '2', type: 'databaseTable', position: {x: 300, y: 0}, data: require('../../static/table/ind_column.json')},
-    {id: '3', type: 'databaseTable', position: {x: 300, y: 250}, data: require('../../static/table/ind_expression.json')},
+    {id: '1', type: 'databaseTable', position: {x: 0, y: 0}, data: require('/static/data/databases2/schema/index.json')},
+    {id: '2', type: 'databaseTable', position: {x: 300, y: 0}, data: require('/static/data/databases2/schema/ind_column.json')},
+    {id: '3', type: 'databaseTable', position: {x: 300, y: 250}, data: require('/static/data/databases2/schema/ind_expression.json')},
 ];
 
 const initialEdges = [

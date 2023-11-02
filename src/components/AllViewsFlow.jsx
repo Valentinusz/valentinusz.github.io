@@ -1,22 +1,22 @@
 import SystemCatalogsFlow from './SystemCatalogsFlow/SystemCatalogsFlow';
 
 const initialNodes = [
-    {id: 'OBJECT', type: 'databaseTable', position: {x: 0, y: 0}, data: require('../../static/table/object.json')},
-    {id: 'TAB_COL', type: 'databaseTable', position: {x: 800, y: 0}, data: require('../../static/table/tab_col.json')},
-    {id: 'DATA_FILE', type: 'databaseTable', position: {x: 0, y: 1000}, data: require('../../static/table/data_file.json')},
-    {id: 'SEGMENT', type: 'databaseTable', position: {x: 0, y: 500}, data: require('../../static/table/segment.json')},
-    {id: 'EXTENT', type: 'databaseTable', position: {x: 600, y: 500}, data: require('../../static/table/extent.json')},
-    {id: 'TABLE_SPACE', type: 'databaseTable', position: {x: 750, y: 1000}, data: require('../../static/table/tablespace.json')},
-    {id: 'INDEX', type: 'databaseTable', position: {x: -600, y: 0}, data: require('../../static/table/index.json')},
-    {id: 'IND_COLUMN', type: 'databaseTable', position: {x: -800, y: 500}, data: require('../../static/table/ind_column.json')},
-    {id: 'IND_EXPRESSION', type: 'databaseTable', position: {x: -800, y: 1000}, data: require('../../static/table/ind_expression.json')},
-    {id: 'PART_TABLE', type: 'databaseTable', position: {x: 0, y: -350}, data: require('../../static/table/part_table.json')},
-    {id: 'TAB_PARTITION', type: 'databaseTable', position: {x: 600, y: -350}, data: require('../../static/table/tab_partition.json')},
-    {id: 'PART_KEY_COLUMN', type: 'databaseTable', position: {x: 1200, y: -350}, data: require('../../static/table/part_key_column.json')},
-    {id: 'SUB_PARTITION', type: 'databaseTable', position: {x: 600, y: -700}, data: require('../../static/table/sub_partition.json')},
-    {id: 'SUBPART_KEY_COLUMN', type: 'databaseTable', position: {x: 1200, y: -700}, data: require('../../static/table/subpart_key_column.json')},
-    {id: 'PART_INDEX', type: 'databaseTable', position: {x: -600, y: -350}, data: require('../../static/table/part_index.json')},
-    {id: 'IND_PARTITION', type: 'databaseTable', position: {x: -600, y: -700}, data: require('../../static/table/ind_partition.json')},
+    {id: 'OBJECT', type: 'databaseTable', position: {x: 0, y: 0}, data: require('/data/databases2/schema/object.json')},
+    {id: 'TAB_COL', type: 'databaseTable', position: {x: 800, y: 0}, data: require('/data/databases2/schema/tab_col.json')},
+    {id: 'DATA_FILE', type: 'databaseTable', position: {x: 0, y: 1000}, data: require('/data/databases2/schema/data_file.json')},
+    {id: 'SEGMENT', type: 'databaseTable', position: {x: 0, y: 500}, data: require('/data/databases2/schema/segment.json')},
+    {id: 'EXTENT', type: 'databaseTable', position: {x: 600, y: 500}, data: require('/data/databases2/schema/extent.json')},
+    {id: 'TABLE_SPACE', type: 'databaseTable', position: {x: 750, y: 1000}, data: require('/data/databases2/schema/tablespace.json')},
+    {id: 'INDEX', type: 'databaseTable', position: {x: -600, y: 0}, data: require('/data/databases2/schema/index.json')},
+    {id: 'IND_COLUMN', type: 'databaseTable', position: {x: -800, y: 500}, data: require('/data/databases2/schema/ind_column.json')},
+    {id: 'IND_EXPRESSION', type: 'databaseTable', position: {x: -800, y: 1000}, data: require('/data/databases2/schema/ind_expression.json')},
+    {id: 'PART_TABLE', type: 'databaseTable', position: {x: 0, y: -350}, data: require('/data/databases2/schema/part_table.json')},
+    {id: 'TAB_PARTITION', type: 'databaseTable', position: {x: 600, y: -350}, data: require('/data/databases2/schema/tab_partition.json')},
+    {id: 'PART_KEY_COLUMN', type: 'databaseTable', position: {x: 1200, y: -350}, data: require('/data/databases2/schema/part_key_column.json')},
+    {id: 'SUB_PARTITION', type: 'databaseTable', position: {x: 600, y: -700}, data: require('/data/databases2/schema/sub_partition.json')},
+    {id: 'SUBPART_KEY_COLUMN', type: 'databaseTable', position: {x: 1200, y: -700}, data: require('/data/databases2/schema/subpart_key_column.json')},
+    {id: 'PART_INDEX', type: 'databaseTable', position: {x: -600, y: -350}, data: require('/data/databases2/schema/part_index.json')},
+    {id: 'IND_PARTITION', type: 'databaseTable', position: {x: -600, y: -700}, data: require('/data/databases2/schema/ind_partition.json')},
 ];
 
 const initialEdges = [
