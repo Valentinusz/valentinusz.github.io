@@ -13,7 +13,7 @@ export default {
     },
 
     title: 'Boda Bálint',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon.svg',
 
     url: 'https://valentinusz.github.io',
     baseUrl: '/',
@@ -75,12 +75,13 @@ export default {
 
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     themeConfig: {
-        image: 'img/docusaurus-social-card.jpg',
+        respectPrefersColorScheme: true,
+        image: 'img/social-card.jpg',
 
         navbar: {
             title: 'Boda Bálint',
             logo: {
-                alt: 'My Site Logo',
+                alt: 'logo',
                 src: 'img/logo.svg',
             },
             items: [
@@ -89,8 +90,14 @@ export default {
                     sidebarId: 'notesSidebar',
                     position: 'left',
                     label: 'Jegyzetek',
-                },
-            ],
+                }
+            ]
+        },
+
+        prism: {
+            theme: themes.vsLight,
+            darkTheme: themes.vsDark,
+            additionalLanguages: ['java', 'python', 'sql']
         },
 
         footer: {
@@ -103,12 +110,6 @@ export default {
             sidebar: {
                 hideable: true
             }
-        },
-
-        prism: {
-            theme: themes.github,
-            darkTheme: themes.vsDark,
-            additionalLanguages: ['java', 'python', 'sql']
         },
 
         algolia: {
