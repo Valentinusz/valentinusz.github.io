@@ -16,12 +16,18 @@ $$
 
 <figure>
 <img src="/img/probstat/Exponential_pdf.svg" alt="drawing"/>
-<figcaption>Az egyenletes eloszlás sűrűségfüggvénye</figcaption>
+<figcaption>
+az exponenciális eloszlás sűrűségfüggvénye $\lambda = 0,5$ (piros), $\lambda = 1$ (zöld) és $ \lambda = 1,5$ (kék)
+paraméterek esetén
+</figcaption>
 </figure>
 
 <figure>
 <img src="/img/probstat/Exponential_cdf.svg" alt="drawing"/>
-<figcaption>Az egyenletes eloszlás eloszlásfüggvénye</figcaption>
+<figcaption>
+az exponenciális eloszlás eloszlásfüggvénye $\lambda = 0,5$ (piros), $\lambda = 1$ (zöld) és $ \lambda = 1,5$ (kék)
+paraméterek esetén
+</figcaption>
 </figure>
 
 :::info[Definíció]
