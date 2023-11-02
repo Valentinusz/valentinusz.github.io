@@ -28,10 +28,18 @@ segédfüggvénykényként használjuk.
 :::
 ::::
 
-## Eloszlásfüggvény
 A sűrűségfüggvény önmagában nem képes valószínűségek magadására, azonban egy adott $k$ érték esetén a sűrűségfüggvény
 görbe alatti területe, az $(-\infty, k)$ intervallumon pontosan annak a valószínűségét adja meg, hogy $X$ értéke kisebb,
 mint $k$.
+
+<figure>
+<img src="/img/probstat/den_fun.svg" alt="drawing"/>
+<figcaption>A $\sigma$ szórású normális eloszlás sűrűségfüggvénye</figcaption>
+</figure>
+
+## Eloszlásfüggvény
+A görbe alatti terület meghatározását integrálással tudjuk megtenni. Ezt az integrált fogjuk eloszlásfüggvénynek
+nevezni.
 
 ::::info[Definíció]
 Legyen $f$ egy sűrűségfüggvény, ekkor az $ F(t)=P(X \le t)$ függvényt a következő módon definiáljuk:
@@ -43,6 +51,11 @@ $$
 :::danger
 Mivel az eloszlásfüggvény értelmezési tartománya végtelen halmaz, ezért $P(X = t)$ értéke szükségszerűen $0$.
 :::
+
+Az integrálás tulajdonságai miatt:
+- $P(X \le a)=P(X<a)=F(a)$
+- $P(X \ge a)=P(X>a)=1 − F(a)$
+- $P(a \le X \le b)=P(a < X \le b)=P(a \le X < b)=P(a < X < b)=F(b) − F(a)$
 ::::
 
 Az eloszlásfüggvény tulajdonságai a következők:

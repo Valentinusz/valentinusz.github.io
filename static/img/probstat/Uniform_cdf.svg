@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
+     stroke-width="28.2" baseProfile="tiny" preserveAspectRatio="xMidYMid" version="1.2"
+     viewBox="2100 1900 25200 17600">
+    <style>@media (prefers-color-scheme:dark){text{fill:#e3e3e3} .axis{stroke:#e3e3e3}}</style>
+    <path fill="none" d="M0 0h29700v21000H0z"/>
+    <path class="axis" fill="none" stroke="#1C1E21" d="M15800 16900H5800V3400h20000v13500H15800Z"/>
+    <path class="axis" fill="none" stroke="#1C1E21" stroke-width="50" d="M5800 16900v500m0-500h-500"/>
+    <path fill="none" stroke="#09F" stroke-width="100" d="M5400 16920h6500m0 100 7500-13500m0-100h6500"/>
+    <path fill="none" stroke="#09F" stroke-dasharray="508 508 508 508" stroke-width="50" d="M19500 17000V3500"/>
+    <path fill="none" d="M4591 17227h1138v1657H4591z"/>
+    <text x="4841" y="18482" font-family="Times New Roman embedded" font-size="1270" font-weight="400">0</text>
+    <text x="11580" y="18669" font-family="Times New Roman embedded" font-size="1902" font-style="italic"
+          font-weight="400">a</text>
+    <text x="19082" y="18768" font-family="Times New Roman embedded" font-size="1906" font-style="italic"
+          font-weight="400">b</text>
+    <text x="25597" y="18566" font-family="Times New Roman embedded" font-size="1906" font-style="italic"
+          font-weight="400">x</text>
+    <path fill="none" d="M4500 2500h1138v2157H4500z"/>
+    <text x="4750" y="3755" font-family="Times New Roman embedded" font-size="1270" font-weight="400">1</text>
+    <g font-size="1169" font-weight="400">
+    <text x="2746" y="5184" font-family="Times New Roman embedded" font-style="italic">F</text>
+        <text x="3701" y="5184" font-family="OpenSymbol embedded">(</text>
+        <text x="4215" y="5184" font-family="Times New Roman embedded" font-style="italic">x</text>
+        <text x="4804" y="5184" font-family="OpenSymbol embedded">)</text>
+  </g>
+</svg>

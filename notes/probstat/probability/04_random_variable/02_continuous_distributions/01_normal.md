@@ -7,12 +7,23 @@ $$
 \frac{1}{{\sigma\sqrt{2\pi}}} \cdot e^{-\frac{{(x - m)^2}}{{2\sigma^2}}}
 $$
 
-ahol $\sigma$ és $m$ tetszőleges valós számok
+ahol $\sigma$ és $m$ tetszőleges valós számok.
 :::
 
 A normális eloszlás sűrűségfüggvényé a haranggörbe:
 
+<figure>
+<img src="/img/probstat/Norm_pdf.svg" alt="drawing"/>
+<figcaption>Különböző paraméterezésű normális eloszlások sűrűségfüggvényei</figcaption>
+</figure>
+
 Eloszlásfüggvényére nincs általános képlet. Emiatt általában a standard normális eloszlásra szoktuk visszavezetni.
+
+<figure>
+<img src="/img/probstat/Norm_cdf.svg" alt="drawing"/>
+<figcaption>Különböző paraméterezésű normális eloszlások eloszlásfüggvényei</figcaption>
+</figure>
+
 
 :::info[Tétel]
 Ha $X \sim \mathrm{N}(m, \sigma^2)$, akkor

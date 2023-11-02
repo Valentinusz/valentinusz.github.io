@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round"
+     stroke-width="28.2" baseProfile="tiny" preserveAspectRatio="xMidYMid" version="1.2"
+     viewBox="2000 1400 25200 18000">
+    <style>@media (prefers-color-scheme:dark){text{fill:#e3e3e3} .axis{stroke:#e3e3e3}}</style>
+    <path class="axis" fill="none" stroke="#1C1E21" d="M15800 16900H5800V3400h20000v13500H15800Z"/>
+    <path class="axis" fill="none" stroke="#1C1E21" stroke-width="50" d="M5800 16900v500m0-500h-500m500-9000h-500"/>
+    <path fill="none" stroke="#09F" stroke-width="100" d="M5800 16900h6000"/>
+    <path fill="#FFF" stroke="#09F"
+          d="M12050 17100c-46 0-85-10-125-33-40-24-68-52-92-92-23-40-33-79-33-125s10-85 33-125c24-40 52-68 92-92 40-23 79-33 125-33s85 10 125 33c40 24 68 52 92 92 23 40 33 79 33 125s-10 85-33 125c-24 40-52 68-92 92-40 23-79 33-125 33Zm7499-1c-46 0-85-10-125-33-40-24-68-52-92-92-23-40-33-79-33-125s10-85 33-125c24-40 52-68 92-92 40-23 79-33 125-33s85 10 125 33c40 24 68 52 92 92 23 40 33 79 33 125s-10 85-33 125c-24 40-52 68-92 92-40 23-79 33-125 33Z"/>
+    <path fill="#09F" stroke="#09F"
+          d="M12049 8099c-46 0-85-10-125-33-40-24-68-52-92-92-23-40-33-79-33-125s10-85 33-125c24-40 52-68 92-92 40-23 79-33 125-33s85 10 125 33c40 24 68 52 92 92 23 40 33 79 33 125s-10 85-33 125c-24 40-52 68-92 92-40 23-79 33-125 33Zm7500 0c-46 0-85-10-125-33-40-24-68-52-92-92-23-40-33-79-33-125s10-85 33-125c24-40 52-68 92-92 40-23 79-33 125-33s85 10 125 33c40 24 68 52 92 92 23 40 33 79 33 125s-10 85-33 125c-24 40-52 68-92 92-40 23-79 33-125 33Z"/>
+    <path fill="none" stroke="#09F" stroke-width="100" d="M12300 7900h7000m500 9000h6000"/>
+    <path fill="none" stroke="#09F" stroke-dasharray="508 508 508 508" stroke-width="50"
+          d="M12100 8100v8500m7500 0V8100"/>
+    <path class="axis" fill="none" stroke="#1C1E21" stroke-dasharray="50 457" stroke-width="50" d="M5800 7900h6000"/>
+    <text x="4841" y="18482" font-family="Times New Roman embedded" font-size="1270" font-weight="400">0</text>
+    <path class="axis" stroke-width="50" d="M2666 7882h2430v59H2666z"/>
+    <g font-size="1187" font-weight="400">
+        <g font-family="Times New Roman embedded">
+            <text x="3560" y="7508">1</text>
+
+        </g>
+        <text x="2742" y="9068" font-family="Times New Roman embedded" font-style="italic">b</text>
+        <text x="3335" y="9068" font-family="OpenSymbol embedded">−</text>
+        <text x="4378" y="9068" font-family="Times New Roman embedded" font-style="italic">a</text>
+    </g>
+    <text x="11580" y="18669" font-family="Times New Roman embedded" font-size="1902" font-style="italic"
+          font-weight="400">a</text>
+    <text x="19082" y="18768" font-family="Times New Roman embedded" font-size="1906" font-style="italic"
+          font-weight="400">b</text>
+    <text x="25597" y="18566" font-family="Times New Roman embedded" font-size="1906" font-style="italic"
+          font-weight="400">x</text>
+    <g font-size="1146" font-weight="400">
+    <text x="3302" y="3101" font-family="Times New Roman embedded" font-style="italic">f</text>
+        <text x="4023" y="3101" font-family="OpenSymbol embedded">(</text>
+        <text x="4526" y="3101" font-family="Times New Roman embedded" font-style="italic">x</text>
+        <text x="5173" y="3101" font-family="OpenSymbol embedded">)</text>
+  </g>
+</svg>

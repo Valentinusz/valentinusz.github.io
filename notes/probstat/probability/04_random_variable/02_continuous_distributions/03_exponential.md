@@ -14,7 +14,15 @@ f(x) =
 $$
 :::
 
+<figure>
+<img src="/img/probstat/Exponential_pdf.svg" alt="drawing"/>
+<figcaption>Az egyenletes eloszlás sűrűségfüggvénye</figcaption>
+</figure>
 
+<figure>
+<img src="/img/probstat/Exponential_cdf.svg" alt="drawing"/>
+<figcaption>Az egyenletes eloszlás eloszlásfüggvénye</figcaption>
+</figure>
 
 :::info[Definíció]
 Az $\mathrm{Exp}(a, b)$ exponenciális eloszlás eloszlásfüggvénye:

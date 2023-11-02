@@ -16,6 +16,17 @@ f(x) =
 $$
 :::
 
+<figure>
+<img src="/img/probstat/Uniform_pdf.svg" alt="drawing"/>
+<figcaption>Az egyenletes eloszlás sűrűségfüggvénye</figcaption>
+</figure>
+
+<figure>
+<img src="/img/probstat/Uniform_cdf.svg" alt="drawing"/>
+<figcaption>Az egyenletes eloszlás eloszlásfüggvénye</figcaption>
+</figure>
+
+
 ::::info[Definíció]
 Az $\mathrm{U}(a, b)$ egyenletes eloszlás eloszlásfüggvénye:
 $$
