@@ -51,24 +51,24 @@ mind a soradat rész bővülését, ha arra szükség lenne.
 <details>
     <summary>EXTENTS nézetek legfontosabb oszlopai</summary>
 
-| Column Name         | Leírás                                            |
-|---------------------|---------------------------------------------------|
-| **OWNER**           | Az területet tartalmazó szegmens tulajdonosa.     |
-| **SEGMENT_NAME**    | A szegmens neve amihez a terület tartozik.        |
-| **SEGMENT_TYPE**    | A tartalmazó szegmens típusa.                     |
-| **TABLESPACE_NAME** | Az terület táblatérének neve.                     |
-| **FILE_ID**         | Az terület blokkjait tartalmazó fájl azonosítója. |
-| **BLOCK_ID**        | Az terület kezdőblokkjának sorszáma.              |
-| **BYTES**           | Az terület mérete bájtban.                        |
-| **BLOCKS**          | Az terület mérete blokkokban.                     |
-| **EXTENT_ID**       | Az terület szegmensen belüli azonosítója.         |
+    | Column Name         | Leírás                                            |
+    |---------------------|---------------------------------------------------|
+    | **OWNER**           | Az területet tartalmazó szegmens tulajdonosa.     |
+    | **SEGMENT_NAME**    | A szegmens neve amihez a terület tartozik.        |
+    | **SEGMENT_TYPE**    | A tartalmazó szegmens típusa.                     |
+    | **TABLESPACE_NAME** | Az terület táblatérének neve.                     |
+    | **FILE_ID**         | Az terület blokkjait tartalmazó fájl azonosítója. |
+    | **BLOCK_ID**        | Az terület kezdőblokkjának sorszáma.              |
+    | **BYTES**           | Az terület mérete bájtban.                        |
+    | **BLOCKS**          | Az terület mérete blokkokban.                     |
+    | **EXTENT_ID**       | Az terület szegmensen belüli azonosítója.         |
 
-Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_EXTENTS.html)
+    Teljes lista: [Oracle DBMS dokumentáció](https://docs.oracle.com/en/database/oracle/oracle-database/23/refrn/DBA_EXTENTS.html)
 </details>
 
 ### Terület (extent)
 Általában 8 (megváltoztatható) egymást követő Oracle adatblokk alkotta csoport. A területek mindig egy adott táblatérhez
-tartoznak. A területek adatait a `EXTENTS` nézetek tartalmazzák. A `FREE_SPACE` nézeteken keresztül lekérdezhetőek az 
+tartoznak. A területek adatait a `EXTENTS` nézetek tartalmazzák. A `FREE_SPACE` nézeteken keresztül lekérdezhetőek az
 üres területek.
 
 <details>

@@ -5,7 +5,7 @@ Lehetőségünk van a táblákat (vagy indexeket) kisebb egységekre úgynevezet
 ## Partícionálási stratégiák
 
 Az egységre osztás három stratégia (intervallum, lista, hasítófüggvény) alapján történhet.
-![img.png](partitioning_strategies.png)
+![img.png](/img/databases2/partitioning_strategies.png)
 
 :::danger
 Ha egy adott érték egyik partícióba se illene, a beszúrás meghiúsul.
@@ -25,7 +25,7 @@ A rekordokat egy hasítófüggvény alapján helyezi partíciókba.
 ## Alpartíciók
 A partíciókra lehetőségünk van alpartációkat készíteni (alpartíciókat viszont már nem tudjuk tovább partícionálni).
 
-![img.png](sub_partitions.png)
+![img.png](/img/databases2/sub_partitions.png)
 
 ## Partíció indexek
 A partíciókra is tudunk indexeket létrehozni. Ezek lokálisak (csak az adott partícióra vonatkozóak) vagy globálisak
@@ -36,6 +36,7 @@ oszlop, mely alapján a partícionálást végeztük akkor lokális indexet kül
 
 A partícionált táblák/indexek rendszerkatalógusai a következők:
 
-![mermaid-diagram-2023-10-23-151323.svg](mermaid-diagram-2023-10-23-151323.svg)
+[//]: # (![mermaid-diagram-2023-10-23-151323.svg]&#40;mermaid-diagram-2023-10-23-151323.svg&#41;)
 
-![mermaid-diagram-2023-10-23-151040.svg](mermaid-diagram-2023-10-23-151040.svg)
+[//]: # ()
+[//]: # (![mermaid-diagram-2023-10-23-151040.svg]&#40;mermaid-diagram-2023-10-23-151040.svg&#41;)

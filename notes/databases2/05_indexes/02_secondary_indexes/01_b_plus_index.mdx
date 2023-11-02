@@ -8,55 +8,55 @@ A többszintű indexekből szinte természetesen következik, egy már az Algori
 megismert adatszerkezet a B+ használata. A B+ fa egy olyan fa, melynek csúcsai $k$ kulcsot és $(k+1)$ mutatót
 tartalmaznak.
 
-![B+ fa](b_plus_tree.png)
+![B+ fa](/img/databases2/indexes/b_plus_tree.png)
 
 Egy csúcs $i$-edik mutatója által hivatkozott részfában, minden $k$ kulcsra igaz, nagyobb $(i - 1)$-edik és szigorúan
 kisebb az $i$-edik kulcsnál.
 
 Első mutató esetén az alsó határt $-\infty$-ként a felső határt $+\infty$-ként definiáljuk.
 
-![B+ fa belső csúcs](b_plus_tree_inner_node.png)
+![B+ fa belső csúcs](/img/databases2/indexes/b_plus_tree_inner_node.png)
 
-A levélszintben a mutatók a tábla konkrét rekordjaira mutatnak, ezáltal sűrű indexet alkotnak. A levelek utolsó mutatói 
+A levélszintben a mutatók a tábla konkrét rekordjaira mutatnak, ezáltal sűrű indexet alkotnak. A levelek utolsó mutatói
 a következő levélre mutatnak, ezzel biztosítva az intervallum alapú lekérdezések hatékonyságát.
 
-![B+ fa levél](b_plus_tree_leaf.png)
+![B+ fa levél](/img/databases2/indexes/b_plus_tree_leaf.png)
 ## B+ fa építése
 
 Építsünk B+ fát a következő értékekből: 39, 15, 50, 70, 79, 83, 72, 43, 75, 45. A mutatók száma csúcsonként legyen 3.
 
 A 39, 15, 50 beszúrását gond nélkül el tudjuk végezni, mivel van hely a kezdőcsúcsban:
 
-![img.png](b_plus_tree_insert/step1.png)
+![img.png](/img/databases2/indexes/b_plus_tree_insert/step1.png)
 
 A 70 beszúrásánál azonban, már nincs hely a csúcsban azért el fel kell osztanunk azt.
 Az első új csúcsba helyezzük a 15 és 39 kulcsokat, a másodikba az 50, 70 kulcsokat.
 Az eredeti csúcsban a második csúcs minimuma kerül.
 
-![img.png](b_plus_tree_insert/step2.png)
+![img.png](/img/databases2/indexes/b_plus_tree_insert/step2.png)
 
 A 79 könnyen beszúrható
 
-![img.png](b_plus_tree_insert/step3.png)
+![img.png](/img/databases2/indexes/b_plus_tree_insert/step3.png)
 
 A 83 beszúrásánál szét kell osztanunk a csúcsot. A szinten még van hely, ezért nem kell új gyökércsúcsot felvenni.
 
-![step4.png](b_plus_tree_insert/step4.png)
+![step4.png](/img/databases2/indexes/b_plus_tree_insert/step4.png)
 
 A 72 és 43 gond nélkül beszúrható:
 
-![step5.png](b_plus_tree_insert/step5.png)
+![step5.png](/img/databases2/indexes/b_plus_tree_insert/step5.png)
 
 A 75 beszúrásakor szét kell osztanunk a csúcsot:
 
-![step6.png](b_plus_tree_insert/step6.png)
+![step6.png](/img/databases2/indexes/b_plus_tree_insert/step6.png)
 
 A 45-öt a $<50$ részfába, akarjuk beszúrni, ez a részfa azonban már tele van azért két részre bontjuk a csúcsot:
 (15, 39), (43, 45) a gyökércsúcsban viszont már nincs hely ezért meg kell növelnünk a B+ fa magasságát. Ehhez két új
 csúcsot fogunk beszúrni egyet ami (15, 39), (43, 45), (50, 70) csúcsokra mutat és egyet ami a (72, 75), (79,83)
 csúcsokra mutat. Ezek a (43, 50) és (79) csúcsok lesznek. A gyökér csúcsban a (79) gyökerű részfa minimuma fog kerülni.
 
-![step7.png](b_plus_tree_insert/step7.png)
+![step7.png](/img/databases2/indexes/b_plus_tree_insert/step7.png)
 ## B+ index tárigénye
 
 Legyen az $R$ reláció sorainak száma 1 000 000. Legyen a reláció blokkolási faktora $\mathrm{bf}(R) = 20$. Készítsünk
@@ -69,7 +69,7 @@ készíteni $\frac{20000}{50} = 400$. Ezen $400$ blokkra készített ritka index
 $1$ blokkot elfoglaló ritka indexet készítünk.
 
 Így a fa összesen $20409$ blokknyi tárhelyet foglal el.
- 
+
 Mindenképpen be kell olvasni az első szint blokkját. Innen követve a megfelelő mutatót a második szint egyik blokkját
 olvassuk be, ismételve amíg el nem jutunk az adat mutatójáig. Ez esetünkben $4$ blokk olvasását jelenti.
 
