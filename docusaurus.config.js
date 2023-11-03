@@ -76,7 +76,7 @@ export default {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     themeConfig: {
         respectPrefersColorScheme: true,
-        image: 'img/social-card.jpg',
+        image: 'img/social-card.png',
 
         navbar: {
             title: 'Boda Bálint',
@@ -97,7 +97,7 @@ export default {
         prism: {
             theme: themes.vsLight,
             darkTheme: themes.vsDark,
-            additionalLanguages: ['java', 'python', 'sql']
+            additionalLanguages: ['java', 'python', 'sql', 'json']
         },
 
         footer: {
