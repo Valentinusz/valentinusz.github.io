@@ -1,7 +1,4 @@
----
-sidebar_position: 4
-title: "Számlálók"
----
+# Számlálók
 
 A Hadoop a MapReduce job futása során statisztikákat készít, melyeket úgynevezett számlálókban tárol. A számlálókra
 a Context osztály példányain keresztül tudunk hivatkozást szerezni. tudjuk kiolvasni.
@@ -33,15 +30,15 @@ egyes számlálók azonosítói.
 | TaskCounter      | Task-ok (map, reduce, shuffle stb.) statisztikái.                   |
 | FileSystem       | Fájlrendszer statisztikák például írott vagy olvasott bájtok száma. |
 | FileInputFormat  | BYTES_READ - beolvasott bájtok száma                                |
-| FileOutputFormat | BYTES_WRITTEN - írt bájtok száma                                    | 
+| FileOutputFormat | BYTES_WRITTEN - írt bájtok száma                                    |
 | JobCounter       | Job szintű információk (pl. sikertelen mapek száma).                |
 
 
 
-## Saját számláló 
+## Saját számláló
 
 Lehetőségünk van saját számlálót is definiálni, ehhez egyszerűen egy a Hadoop által még nem használt `enum` értéket kell
-átadnunk a `Context` `getCounter()` metódusának. Nyilvánvalóan ennek a kezeléséről nekünk kell gondoskodnunk. 
+átadnunk a `Context` `getCounter()` metódusának. Nyilvánvalóan ennek a kezeléséről nekünk kell gondoskodnunk.
 
 ```java
 enum CustomCounters {

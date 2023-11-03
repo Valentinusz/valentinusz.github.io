@@ -1,0 +1,17 @@
+# RDD
+
+Az RDD (Resilient Distributed Dataset - hibatűrő elosztott adathalmaz) a Spark legalacsonyabb szintű adatmanipulációs
+eszköze. Egy olyan adathalmazt reprezentál, melynek részei a klaszter különböző gépein helyezkednek el.
+
+Az adathalmaz tartalma, különböző műveleteken keresztül megváltoztatható.
+
+## Inicializálás
+
+RDD létrehozás előtt példányosítanunk kell a Spark konfiguráció és kontextus objektumait.
+
+```py
+from pyspark import SparkConf, SparkContext
+
+conf = SparkConf()
+sc = SparkContext(conf=conf)
+```

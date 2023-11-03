@@ -1,0 +1,31 @@
+# Létrehozás
+
+A kontextusobjektumon keresztül több különböző módon is létrehozhatunk RDD-ket.
+
+A kontextus `parallelize(collection[, numSlices])` metódusa egy a kódban már létező gyűjteményből készít RDD-t.
+
+```py
+numbers = [1, 2, 4, 6, 7, 2, 4, 6, 5]
+
+rdd = sc.parallelize(numbers, 3)
+```
+
+Minden létrehozó művelet esetén megadható, hogy hány partíció jöjjön létre.
+
+Sokszor azonban egy adott fájl tartalmát szeretnénk beolvasni. Erre szolgál a kontextus
+`textFile(name[, minPartitions, use_unicode])` metódusa.
+
+```py
+text = sc.textFile('alkotmany.txt')
+```
+
+További beolvasási lehetőségek (ezek mind a SparkContext példányszintű metódusai):
+```py
+range(start[, end, step, numSlices]) # intervallumból
+emptyRDD() # üres RDD lérehozása
+sequenceFile(path[, keyClass, valueClass, …]) # szekvenciális fájl
+binaryRecords(path, recordLength) # fix méretű rekordokat tartalmazó bináris fájl beolvasása
+binaryFiles(path[, minPartitions]) # bináris fájlok beolvasása
+pickleFile(name[, minPartitions]) # egy korábban fájlba mentett RDD visszatöltése
+wholeTextFiles(path[, minPartitions, …]) # egy mappa fájljainak beolvasása
+```

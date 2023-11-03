@@ -1,7 +1,4 @@
----
-sidebar_position: 3
-title: "grep"
----
+# grep
 
 :::info
 A feladathoz kapcsolódó kódok megtalálhatók a [GitHub repoban](https://github.com/Valentinusz/elte-ik-bsc/tree/main/5/bigdata/hadoop/grep).
@@ -20,16 +17,16 @@ public class GrepDriver {
         Job job = Job.getInstance(conf, "grep");
         job.setJarByClass(GrepDriver.class);
         job.setMapperClass(GrepMapper.class);
-        
+
         // highlight-next-line
         job.setNumReduceTasks(0); // reducer fázis kikapcsolása
-        
+
         job.setOutputKeyClass(LongWritable.class);
         job.setOutputValueClass(Text.class);
-        
+
         FileInputFormat.setInputPaths(job, new Path("input"));
         FileOutputFormat.setOutputPath(job, new Path("out"));
-        
+
         if (!job.waitForCompletion(true)) return;
     }
 }

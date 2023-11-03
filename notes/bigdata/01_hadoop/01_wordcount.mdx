@@ -1,7 +1,4 @@
----
-sidebar_position: 1
-title: "WordCount"
----
+# WordCount
 
 :::info
 A feladathoz kapcsolódó kódok megtalálhatók
@@ -30,31 +27,31 @@ public class WordCountDriver {
     public static void main(String[] args) throws Exception {
         // HDFS itt tárolja az ideiglenes fájlokat
         System.setProperty("hadoop.tmp.dir", "c:\\BigData\\tmp\\hadoop-xx");
-        
+
         // könyvtár ahol a Hadoop telepítve van
         System.setProperty("hadoop.home.dir", "c:\\BigData\\hadoop-3.3.6");
-        
+
         Configuration conf = new Configuration();
-        
+
         // job neve igazából nem számít
-        Job job = Job.getInstance(conf, "WordCount"); 
-        
+        Job job = Job.getInstance(conf, "WordCount");
+
         job.setJarByClass(wordcount.WordCountDriver.class);
-        
+
         // mapper osztály megadása
         job.setMapperClass(wordcount.WordCountMapper.class);
-        
+
         // reducer osztály megadása
         job.setReducerClass(wordcount.WordCountReducer.class);
-        
+
         // kimeneti kulcs érték pár típusának megadása
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        
+
         // be és kimeneti könyvtárak megadása
         FileInputFormat.setInputPaths(job, new Path("input")); // bementi mappa
         FileOutputFormat.setOutputPath(job, new Path("out")); // kimeneti mappa
-        
+
         // végrehajtja a jobot
         if (!job.waitForCompletion(true)) return;
     }
@@ -111,18 +108,18 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
     // érdemes így újrahasználni a változókat
     private Text key = new Text("");
     private IntWritable value = new IntWritable(1); // value értéke konstans 1
-    
+
     // ivalue tartalmazza bemeneti értéket
     // esetünkben egy fájl egy sora
     public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
         // felbontjuk a stringet szóközök mentén
         String[] words = ivalue.toString().split(" ");
-    
+
         for (String word : words) {
             key.set(word); // kulcs legyen a szó
-            
+
             word = word.toLowerCase();
-            
+
             // kulcs érték pár létrehozása és továbbadása
             context.write(key, value);
         }
@@ -135,7 +132,7 @@ automatikusan megoldja, hogy az azonos kulcsú párok azonos reducer-hez kerülj
 megírni.
 
 ```java
-public class Reducer<KEYIN, VALUEIN, KEYOUT, VALUEOUT> { 
+public class Reducer<KEYIN, VALUEIN, KEYOUT, VALUEOUT> {
     ...
     protected void reduce(KEYIN key, Iterable<VALUEIN> values, Context context) throws IOException, InterruptedException { ... }
     ...
@@ -154,11 +151,11 @@ public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritab
     // values az értékek
     public void reduce(Text _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         int count = 0;
-        
+
         for (IntWritable entryValue : values) {
             count++;
         }
-        
+
         context.write(_key, new IntWritable(count)); // pár továbbadása
     }
 }
@@ -174,12 +171,12 @@ mivel a Reducer kis módosításával, felhasználható Combiner-ként is:
 ```java title="wordCountCombiner/src/wordcount/WordCountReducer.java"
 public void reduce(Text _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
     int count = 0;
-    
+
     for (IntWritable entryValue : values) {
         //highlight-next-line
         count += entryValue.get();
     }
-    
+
     context.write(_key, new IntWritable(count));
 }
 ```

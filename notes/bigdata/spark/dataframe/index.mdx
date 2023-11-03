@@ -1,0 +1,32 @@
+# DataFrame
+
+A DataFrame egy az RDD-nél magasabb API, mely az adatok manipulálását ORM és SQL szerű interfészen keresztül teszi
+lehetővé.
+
+A DataFrame strukturált adatok (pl. JSON, CSV, relációs adatbázis rekordjai) feldolgozására van tervezve.
+
+:::note
+A DataFrame teljes mértékben az RDD API-ra épül.
+:::
+
+## Inicializálás
+
+A DataFrame API használatához egy `SparkSession` objektumot kell létrehozni.
+
+```py
+from pyspark.sql import  *
+from pyspark.sql.functions import *
+
+spark = SparkSession.builder.getOrCreate()
+```
+
+:::note
+A `from pyspark.sql.functions import *` utasítás a munkamenet létrehozásához nem szükséges, de a későbbiekben szükséges
+lesz csomag elemeire.
+:::
+
+A `builder` automatikusan létre fogja hozni, a spark kontextust és a spark konfigurációt, melyeket a `sparkContext` és
+`conf` adattagokon át el is tudunk érni.
+
+
+

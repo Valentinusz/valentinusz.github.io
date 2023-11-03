@@ -1,8 +1,3 @@
----
-sidebar_position: 0
-title: "Hadoop"
----
-
 # Hadoop
 
 A Apache Hadoop egy nyílt forráskódú szoftvergyűjtemény, mely nagy mennyiségű adat elosztott feldolgozását teszi lehetővé.
@@ -26,12 +21,11 @@ Alapvetően öt fázisból áll:
 5. Kimenet előállítása
 
 <figure>
-
-![MapReduce](mapreduce.png)
+<img src="/img/bigdata/mapreduce.png"/>
 <figcaption>Forrás: <a href='https://vargadaniel.web.elte.hu/'>Varga Dániel</a> </figcaption>
 </figure>
 
-Minden fázis végén hálózati adatmozgatás történik, ezért a shuffle fázis elé bevezethetünk egy opcionális combine fázist, 
+Minden fázis végén hálózati adatmozgatás történik, ezért a shuffle fázis elé bevezethetünk egy opcionális combine fázist,
 ami lokálisan elvégzi a reducer feladatának egy részét.
 
 A következő fejezetekben gyakorlati feladatokon keresztül ismerkedünk meg a Hadoop MapReduce sajátosságaival.

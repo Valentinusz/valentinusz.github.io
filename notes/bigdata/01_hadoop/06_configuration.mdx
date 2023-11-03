@@ -1,14 +1,11 @@
----
-sidebar_position: 6
-title: "Konfiguráció"
----
+# Konfiguráció
 
 A `Driver` osztályban lehetőségünk van, a `Configuration` objektumhoz kulcs-érték párokat adni.
 
 ```java
 public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
-    conf.setInt("x", 3); // típus specifikus metódusok 
+    conf.setInt("x", 3); // típus specifikus metódusok
     conf.setInt("minimumCount", 100);
     conf.set("required", "T");
 }
@@ -21,7 +18,7 @@ kulcs-érték párokat.
 public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
     Configuration conf = context.getConfiguration();
     String required = conf.get("required");
-    int k = conf.getInt("k", 3); // típus specifikus metódusok 
+    int k = conf.getInt("k", 3); // típus specifikus metódusok
 }
 ```
 

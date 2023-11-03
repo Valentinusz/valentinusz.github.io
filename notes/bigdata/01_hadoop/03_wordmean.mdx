@@ -1,7 +1,4 @@
----
-sidebar_position: 4
-title: "WordMean"
----
+# WordMean
 
 :::info
 A feladathoz kapcsolódó kódok megtalálhatók a
@@ -17,7 +14,7 @@ egyetlen aggregált értéket akarunk, ezért fontos, hogy minden kulcs-érték 
 hash alapú shuffle algoritmust használjuk, ezért csak azt kell elérnünk, hogy a `Mapper` által kiadott párok kulcsai
 ugyan azok legyenek.
 
-Ehhez én kulcsként, a `NullWritable` osztályt fogom használni:
+Ehhez kulcsként, a `NullWritable` osztályt fogjuk használni:
 ```java title="wordMean/src/wordmean/WordMeanMapper.java"
 public class WordMeanMapper extends Mapper<LongWritable, Text, NullWritable, IntWritable> {
     public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
@@ -37,12 +34,12 @@ public class WordMeanReducer extends Reducer<NullWritable, IntWritable, NullWrit
     public void reduce(NullWritable _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         int wordCount = 0;
         int wordLengthSum = 0;
-        
+
         for (IntWritable entryValue : values) {
             wordCount++;
             wordLengthSum += entryValue.get();
         }
-        
+
         context.write(NullWritable.get(), new DoubleWritable((double) wordLengthSum / wordCount));
     }
 }
@@ -53,27 +50,27 @@ public class WordMeanDriver {
     public static void main(String[] args) throws Exception {
         System.setProperty("hadoop.tmp.dir", "c:\\BigData\\tmp\\hadoop-xx");
         System.setProperty("hadoop.home.dir", "c:\\BigData\\hadoop-3.3.6");
-        
+
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "wordMean");
         job.setJarByClass(wordmean.WordMeanDriver.class);
-        
+
         job.setMapperClass(wordmean.WordMeanMapper.class);
         job.setReducerClass(wordmean.WordMeanReducer.class);
-        
+
         // highlight-start
         // alapértelmezetten a Map output típusai megegyeznek a teljes output típusaival
         // esetünkben ez nem így van ezért explicit meg kell adnunk őket
         job.setMapOutputKeyClass(NullWritable.class);
         job.setMapOutputValueClass(IntWritable.class);
         // highlight-end
-        
+
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(DoubleWritable.class);
-        
+
         FileInputFormat.setInputPaths(job, new Path("input"));
         FileOutputFormat.setOutputPath(job, new Path("out"));
-        
+
         if (!job.waitForCompletion(true)) return;
     }
 }

@@ -1,0 +1,43 @@
+# Transzformációk
+Az RDD-ben szereplő adatokat transzformációkon keresztül tudjuk megváltoztatni.
+
+:::note
+Az RDD-k nem mutálhatók, azaz a transzformációk valójában új RDD-ket adnak vissza.
+:::
+
+Ebben a bekezdésben a legfontosabb RDD transzformációkat szeretném bemutatni. A transzformációk teljes listája
+megtalálható a [spark dokumentációban](https://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations).
+
+:::info
+Minden kódrészlet esetén adottnak tekintjük a Spark inicializáló sorait.
+:::
+
+## Leképezés - `map`
+
+Egy új RDD-t ad vissza, melynek elemei az eredeti RDD elemei valamilyen logikai mentén átalakítva.
+
+```python
+numbers = sc.parallelize(range(1000))
+numbers.map(lambda number: number ** 2)
+```
+
+## Szűrés  - `filter`
+
+Egy predikátumfüggvényt vár. Egy olyan rdd-t ad vissza, melyben az
+
+```python
+numbers = sc.parallelize(range(1000))
+numbers.filter(lambda number: number % 2 == 0)
+```
+
+## Dimenziócsökkentő leképezés - `flapMap`
+
+Egy szekvencia típusú értéket (`string`, `byte`, `list`, `tuple`, `bytearray`, `buffer`, `range`) visszaadó függvényt
+vár. Egy olyan RRD-vel tér vissza, mely a függvény által visszaadott szekvenciák elemeit tartalmazza. Tehát a visszaadott
+szekvenciákat egyetlen szekvenciává lapítja.
+
+```python
+text = sc.textFile('text.txt') # rdd-be a fájl sorai lesznek
+text.map(lambda line: line.split(" ")) # rdd minden eleme egy lista melyben szavak vannak
+text.flatMap(lambda line: line.split(" ")) # rdd minden eleme egy szó
+```

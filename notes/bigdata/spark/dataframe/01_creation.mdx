@@ -1,0 +1,140 @@
+# Létrehozás
+DataFrame-et az Spark munkamenet `read` adattagjának metódusain keresztül tudunk létrehozni.
+
+## CSV
+```python
+df = spark.read.csv('dolgozo.csv')
+```
+Ezzel létrejött a következő dataframe:
+
+```
+DataFrame[_c0: string, _c1: string, _c2: string, _c3: string, _c4: string, _c5: string, _c6: string, _c7: string]
+```
+
+A dataframe tartalmát a `show([n])` metódussal tudjuk megjeleníteni.
+
+<table>
+    <thead>
+    <tr>
+        <th>_c0</th>
+        <th>_c1</th>
+        <th>_c2</th>
+        <th>_c3</th>
+        <th>_c4</th>
+        <th>_c5</th>
+        <th>_c6</th>
+        <th>_c7</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>DKOD</td>
+        <td>DNEV</td>
+        <td>FOGLALKOZAS</td>
+        <td>FONOKE</td>
+        <td>BELEPES</td>
+        <td>FIZETES</td>
+        <td>JUTALEK</td>
+        <td>OAZON</td>
+    </tr>
+    <tr>
+        <td>7839</td>
+        <td>KING</td>
+        <td>PRESIDENT</td>
+        <td>0000</td>
+        <td>81-NOV-17</td>
+        <td>5000</td>
+        <td>0</td>
+        <td>10</td>
+    </tr>
+    </tbody>
+    <caption>`df.show(2)` eredménye</caption>
+</table>
+
+Nem feltétlen ezt az eredményt vártuk. Adatként került értelmezésre a fejléc és a típusok sem megfelelőek.
+
+A betöltés előtt az `option()` metódus láncolásával tudjuk konfigurálni a fájlolvasást.
+
+```py
+df = (spark.read
+      .option('header', True) # első sor fejléc
+      .option('inferschema', True) # séma kikövetkeztetése
+      .csv('dolgozo.csv'))
+```
+
+A `df.printSchema()` metódushívással le tudjuk kérne a beolvasott adat sémáját.
+
+```
+root
+ |-- DKOD: integer (nullable = true)
+ |-- DNEV: string (nullable = true)
+ |-- FOGLALKOZAS: string (nullable = true)
+ |-- FONOKE: integer (nullable = true)
+ |-- BELEPES: string (nullable = true)
+ |-- FIZETES: integer (nullable = true)
+ |-- JUTALEK: integer (nullable = true)
+ |-- OAZON: integer (nullable = true)
+```
+
+Az `pyspark.sql.types` csomag típusaival lehetőségübk van manuálisan felépíteni a sémát.
+
+```py
+from pyspark.sql.types import StringType,StructType, StructField, IntegerType
+
+workerSchema = StructType([
+    StructField(name='DKOD', dataType=IntegerType(), nullable=False), # keyword megadás
+    StructField('DNEV', StringType()), # pozícionális megadás
+    StructField('FOGLALKOZAS', StringType()),
+    StructField('FONOKE', IntegerType()),
+    StructField('BELEPES', StringType()),
+    StructField('FIZETES', IntegerType()),
+    StructField('JUTALEK', IntegerType()),
+    StructField('OAZON', IntegerType()),
+])
+```
+
+:::note
+CSV fájlok esetén a `nullable=False`-nak nincs hatása.
+:::
+
+## JSON
+Lehetőségünk van JSON alapján beolvasni. Mivel a JSON minden rekord esetén tartalmazza a fejlécet ezért azzal sosem kell
+törődnünk.
+
+```py
+d_json = spark.read.option('multiline', True).json('dolgozo.json')
+```
+
+:::danger
+Az alap JSON beolvasási stratégia a JSON Lines formátum. Ez a JSON-nek egy olyan változata, ahol minden rekord egy sor.
+
+```json lines
+{"name":"group_1", "value":5}
+{"name":"group_1", "value":6}
+{"name":"group_3", "value":7}
+{"name":"group_2", "value":3}
+```
+
+A rendes json formátum használatához meg kell adni a `multiline` opciót, ahogy azt az előbbi kódrészlet esetén is
+láttuk.
+:::
+
+## Szövegfájl
+
+Lehetőségünk van szövegfájlokat megnyitni. Ekkor a DataFrame egyetlen oszlopból fog állni, minden rekord a szövegfájl
+adott sorát tárolja el.
+
+Például a következő kód esetén.
+```py
+df1 = spark.read.text('dolgozo.csv')
+df1.show(2)
+```
+| value                     |
+|---------------------------|
+| KOD,DNEV,FOGLALK...       |
+| "7839,""KING"",""PRES..." |
+
+## Relációs adatbázis
+
+A dataframe-et akár adatbázisból is előállíthatjuk. Ennek megmutatása nem célja a tárgynak, sőt, mivel adatbázis-kezelő
+rendszerenként a konfigurálási folyamat eltérhet én sem tudok megfelelő útmutatást adni.
