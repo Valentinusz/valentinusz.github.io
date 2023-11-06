@@ -13,6 +13,7 @@ DataFrame[_c0: string, _c1: string, _c2: string, _c3: string, _c4: string, _c5: 
 
 A dataframe tartalmát a `show([n])` metódussal tudjuk megjeleníteni.
 
+<div className='show-table'>
 <table>
     <thead>
     <tr>
@@ -50,6 +51,7 @@ A dataframe tartalmát a `show([n])` metódussal tudjuk megjeleníteni.
     </tbody>
     <caption>`df.show(2)` eredménye</caption>
 </table>
+</div>
 
 Nem feltétlen ezt az eredményt vártuk. Adatként került értelmezésre a fejléc és a típusok sem megfelelőek.
 
@@ -129,10 +131,13 @@ Például a következő kód esetén.
 df1 = spark.read.text('dolgozo.csv')
 df1.show(2)
 ```
-| value                     |
-|---------------------------|
-| KOD,DNEV,FOGLALK...       |
-| "7839,""KING"",""PRES..." |
+
+<div className='show-table'>
+    | value                     |
+    |---------------------------|
+    | KOD,DNEV,FOGLALK...       |
+    | "7839,""KING"",""PRES..." |
+</div>
 
 ## Relációs adatbázis
 

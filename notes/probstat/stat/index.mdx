@@ -1,0 +1,178 @@
+# Statisztika
+
+Adott egy $n$ elemű független elemekből $x_1,x_2,\dots,x_n$ álló mintahalmaz. A mintaelemek egy adott független
+valószínűségi változó lehetséges értékei. A valószínűségi változók azonos eloszlásúak.
+
+A statisztika arról szól, hogyan lehet ilyen mintahalmaz alapján becsléseket adni.
+
+## Momentum módszer
+
+Ha $X$ egy valószínűségi változó és $k \in \mathbb{N}+$, akkor az $X$ változó $k$-adik omomentumának nevezzük a
+
+$$
+\E(X^k)
+$$
+
+Például a második momentum $x^2$ várható értéke.
+
+Adottak $x_1 \in X_1, x_2 \in X_2, \dots x_n \in X_n$, ahol $\forall i < n X_i$ független és azonos eloszlású. Ekkor bármely
+$k \in \mathbb{N}+$ esetén
+
+$$
+\E(x_1^k) = \E(x_2^k) = \dots = \E(x_n^k)
+$$
+
+Ha az eloszlásnak, melyből a mintaelemeket vettük ismert a típusa, de vannak ismeretlen paraméterei, akkor az ismeretlen
+paraméterek az alábbi egyenletrendszer megoldásaival becsülhető:
+
+$$
+\begin{align*}
+\E(X_1) &= \frac{x_1 + \dots + x_n}{n} \\
+\E(X_1^2) &= \frac{x_1^2 + \dots + x_n^2}{n} \\
+&\dots \\
+\E(x_1^k) &= \frac{x_1^k + \dots + x_n^k}{n}
+\end{align*}
+$$
+
+ahol $k$ az ismeretlen paraméterek száma. Ezt az ismeretlen paraméterek momentum becslésének nevezzük.
+
+:::tip[Példa]
+Legyen az alábbi gyakorisági tábla egy 20 elemű minta, a következő diszkrét eloszlásból:
+$P(X_i = -1) = c; P(X_i = 1) = 3c; P(X_i = 2) = 1 - 4c$
+i = 1; 20 és c az ismeretlen paraméter, 0 < c < 1 4
+
+-1: 4
+1: 10
+2: 6
+
+Adjunk becslést a momentum módszerrel.
+
+A $c$ paraméter valószínűségét keressük.
+
+$$
+\E(X) = 4 \cdot c + 1 \cdot 3c + (1- 4c) \cdot 2 = 2 - 6c
+$$
+
+Felírva a momementum módszert:
+
+$$
+\begin{align*}
+\E(X_1) &= \frac{4 \cdot -1 + 10 \cdot 1 + 6 \cdot 2}{20} = \frac{9}{10}
+\end{align*}
+$$
+
+Ebből:
+
+$$
+2-6c = \frac{9}{10}
+$$
+
+Amiből:
+
+$$
+c \approx \frac{2 - \frac{9}{10}}{6}
+$$
+:::
+
+
+:::tip[Példa]
+Egyenletes eloszlás. Várható értékét ismerjük: $\frac{a+b}{2}$. Keressük még a második momemntumot azaz $\E(x^2)$-t.
+
+Így
+
+$$
+\begin{align*}
+\E(X_1) = \frac{a+b}{2} &= \frac{x_1 + \dots + x_n}{n} =c_1 \\
+\E(X_2) =  \frac{(b-a)^2}{12} + \left(\frac{a+b}{2} \right)^2 &=  \frac{x_1^2 + \dots + x_n^2}{n} =c_2 \\
+\end{align*}
+$$
+:::
+
+:::note
+A momentum módszert pontbecslésnek nevezzük, mivel egy konkrét közelítő értéket ad.
+:::
+
+## Maximum likelihood (ML) módszer
+
+Adott egy $n$ független elemből $x_1,x_2,\dots,x_n$ álló mintahalmaz. A mintaelemek egy adott független
+valószínűségi változó lehetséges értékei. A valószínűségi változók azonos eloszlásúak. Egyetlen ismeretlen paraméterünk
+van, amit $\lambda$-val jelölünk.
+
+Az ML becsléshez felírjuk az együttes sűrűségfüggvényt, mely független minták alapján a következő:
+
+$$
+f_\lambda(x_1, x_2, \dots x_n) = g_\lambda(x_1) \cdot g_\lambda(x_2) \cdot \ldots \cdot g_\lambda(x_n)
+$$
+
+Ezt a szorzatfüggvényt likelihood függvénynek nevezzük.
+
+Ekkor ML becslés alatt azt a $\lambda$ értéket írjük, melyre a likelihood függvény maximális.
+
+:::tip
+Célszerű a számítás során logaritmust használni, mivel így a deriválás során szorzás helyett összeadást kell végeznünk.
+Ezt a verzióját a függvénynek log likelihood függvénynek nevezzük.
+:::
+
+:::tip[Példa (4.3)]
+Annak valószínűsége, hogy pontosan ilyen kombinációtját kapjuk az értékeknek $c^4 \cdot (3c)^{10} \cdot (1-4c)^6$. Ez a
+likelihood függvényünk. Ez egyszerűbb számolás érdekében vegyük ennek a logaritmusát.
+
+Ekkor a log likelihood függvény a $\ln(c^4 \cdot (3c)^{10} \cdot (1-4c)^6)$, ami
+
+$$
+\ln{c^4} + \ln{(3c)^{10}} + \ln{(1-4c)^6}
+$$
+
+ami
+
+$$
+4\ln{c} + 10\ln{3} + 10\ln{c} + 6\ln{(1-4c)}
+$$
+
+melyet deriválva
+
+$$
+\frac{4}{c} + \frac{10}{3c} + \frac{6}{1-4c} \cdot -4
+$$
+
+melyből:
+$$
+c = \frac{7}{40}
+$$
+
+Végül még le kell ellenőrizni, hogy ez valóban maximum hely-e.
+:::
+
+
+:::tip[Példa (4.4/a)]
+Van $n$ mintánk. Adjunk ML becslést $\mathrm{Bin}(m,p)$ eloszlásra!
+
+Ekkor a log likelihood függvény:
+
+$$
+\ln \prod_{i=0}^{n}{{n \choose x_i} \cdot p^k \cdot (1-p)^{m-x_i}}
+$$
+
+ami
+
+$$
+ \sum_{i=0}^{n}{\ln {n \choose x_i}} + \sum_{i=0}^{n}\ln{p^{x_i}} + \sum_{i=0}^{n}\ln{(1-p)^{n-k}}
+$$
+
+Melynek deriváltja:
+$$
+\sum_{i=0}^{n}{\frac{x_i}{p}} + \sum_{i=0}^{n}{\frac{m-x_i}{1-p} \cdot -1}
+$$
+
+Melyből:
+$$
+\frac{1}{p} \sum_{i=0}^{n}{x_i} - \frac{1}{1-p} \sum_{i=0}^{n}{m-x_i}
+$$
+
+
+Melyet átalakítva:
+
+$$
+p = \frac{\sum x_i}{m}
+$$
+:::

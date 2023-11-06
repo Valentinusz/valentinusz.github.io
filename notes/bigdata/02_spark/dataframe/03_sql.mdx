@@ -1,0 +1,216 @@
+# Spark SQL
+
+A dataframe-ek az SQL nyelv szintaktikáját követő utasításokon keresztül is manipulálhatók.
+
+```python
+from pyspark.sql import  *
+from pyspark.sql.functions import *
+
+spark = SparkSession.builder.getOrCreate()
+
+df = spark.read.option('header', True).csv('dolgozo.csv')
+```
+
+Ahhoz, hogy egy dataframe-et lekérdezésekben használni tudjunk, egy nézetet kell létrehozni:
+
+```python
+df.createOrReplaceTempView('dolgozo')
+```
+
+A metódushívást követően a `context` objektum már ismeri milyen dataframe-et értünk `dolgozo` néven. Így már tudunk SQL
+lekérdezéseket végezni.
+
+```python
+spark.sql('SELECT * FROM dolgozo').show(3)
+```
+
+<div className='show-table'>
+    | DKOD | DNEV  | FOGLALKOZAS | FONOKE | BELEPES   | FIZETES | JUTALEK | OAZON |
+    |------|-------|-------------|--------|-----------|---------|---------|-------|
+    | 7839 | KING  | PRESIDENT   | 0000   | 81-NOV-17 | 5000    | 0       | 10    |
+    | 7698 | BLAKE | MANAGER     | 7839   | 81-MAY-01 | 2850    | 0       | 30    |
+    | 7782 | CLARK | MANAGER     | 7839   | 81-JUN-09 | 2450    | 0       | 10    |
+</div>
+
+:::info
+Fontos, hogy ezek nem tényleges SQL kérések, pusztán a szintaxis azonos.
+:::
+
+A lekérdezések tagolásához használhatunk többsoros string-eket.
+
+```python
+spark.sql(
+    '''
+    SELECT OAZON, COUNT(*)
+    FROM dolgozo
+    GROUP BY OAZON
+    '''
+).show()
+```
+
+<div className='show-table'>
+    | OAZON | count(1) |
+    |-------|----------|
+    | 30    | 6        |
+    | 20    | 6        |
+    | 10    | 4        |
+</div>
+
+A programozott és az SQL megoldás általában ekvivalens.
+
+```python
+df.groupBy(df.OAZON).agg(count('*')).sameSemantics(spark.sql('SELECT OAZON, COUNT(*) FROM dolgozo GROUP BY OAZON'))
+```
+
+```
+> True
+```
+
+## Feladatok
+
+```python
+rdf = spark.read.option('header', True).option('inferSchema', True).csv('online_retail_data.csv')
+
+rdf.createOrReplaceTempView('retail')
+
+spark.sql('SELECT * FROM retail LIMIT 5').show()
+```
+
+<div className='show-table'>
+    | InvoiceNo | StockCode | Description          | Quantity | InvoiceDate     | UnitPrice | CustomerID | Country        |
+    |-----------|-----------|----------------------|----------|-----------------|-----------|------------|----------------|
+    | 536365    | 85123A    | WHITE HANGING HEA... | 6        | 01/12/2010 8:26 | 2.55      | 17850      | United Kingdom |
+    | 536365    | 71053     | WHITE METAL LANTERN  | 6        | 01/12/2010 8:26 | 3.39      | 17850      | United Kingdom |
+    | 536365    | 84406B    | CREAM CUPID HEART... | 8        | 01/12/2010 8:26 | 2.75      | 17850      | United Kingdom |
+    | 536365    | 84029G    | KNITTED UNION FLA... | 6        | 01/12/2010 8:26 | 3.39      | 17850      | United Kingdom |
+    | 536365    | 84029E    | RED WOOLLY HOTTIE... | 6        | 01/12/2010 8:26 | 3.39      | 17850      | United Kingdom |
+</div>
+
+#### Melyik országban él a legtöbb vásárló?
+
+```py
+spark.sql(
+    """
+    SELECT Country, COUNT(DISTINCT CustomerID) as c
+    FROM retail
+    GROUP BY Country
+    ORDER BY c DESC
+    LIMIT 1
+    """
+).show()
+```
+
+<div className='show-table'>
+    | Country        | c    |
+    |----------------|------|
+    | United Kingdom | 3950 |
+</div>
+
+
+#### Adjuk meg azt az 5 országot, amelyekből a legtöbb bevétel származik!
+
+```python
+spark.sql(
+    """
+    SELECT Country, SUM(Quantity * UnitPrice) as p
+    FROM retail
+    GROUP BY Country
+    ORDER BY p DESC
+    LIMIT 5
+    """
+).show()
+```
+
+<div className='show-table'>
+    | Country        | p                  |
+    |----------------|--------------------|
+    | United Kingdom | 8208343.204000185  |
+    | Netherlands    | 284661.54000000004 |
+    | EIRE           | 263276.82000000024 |
+    | Germany        | 221698.2099999999  |
+    | France         | 197463.5900000001  |
+</div>
+
+
+#### Melyik termék termelte a legnagyobb bevételt?
+
+
+```python
+spark.sql(
+    """
+    SELECT StockCode, Description, SUM(Quantity * UnitPrice) AS p
+    FROM retail
+    GROUP BY StockCode, Description
+    ORDER BY p DESC LIMIT 1
+    """
+).show()
+```
+
+
+<div className='show-table'>
+    | StockCode | Description    | p                  |
+    |-----------|----------------|--------------------|
+    | DOT       | DOTCOM POSTAGE | 206245.47999999998 |
+</div>
+
+
+#### Melyik a legnépszerűbb termék
+
+```python
+spark.sql(
+    """
+    SELECT StockCode, Description, SUM(Quantity) AS c
+    FROM retail
+    GROUP BY StockCode, Description
+    ORDER BY c DESC LIMIT 1
+    """
+).show()
+```
+
+
+<div className='show-table'>
+    | StockCode | Description          | c     |
+    |-----------|----------------------|-------|
+    | 84077     | WORLD WAR 2 GLIDE... | 53847 |
+</div>
+
+
+#### Átlagosan hány különböző terméket vesz egy vásárló egy vásárlás során?
+
+```python
+spark.sql(
+    """
+    SELECT round(avg(c),2)
+    FROM (
+    SELECT InvoiceNo, COUNT(DISTINCT StockCode) AS c
+    FROM retail
+    GROUP BY InvoiceNo)
+    """
+).show()
+```
+
+<div className='show-table'>
+    | round(avg(c), 2) |
+    |------------------|
+    | 20.51            |
+</div>
+
+#### Melyik tranzakció során vásárolták a legtöbb különböző terméket és hányat?
+
+```python
+spark.sql(
+    """
+    SELECT InvoiceNo, COUNT(DISTINCT StockCode) AS c
+    FROM retail
+    GROUP BY InvoiceNo
+    ORDER BY c DESC
+    LIMIT 1
+    """
+).show()
+```
+
+<div className='show-table'>
+    | InvoiceNo  | c     |
+    |------------|-------|
+    | 573585     | 1110  |
+</div>
