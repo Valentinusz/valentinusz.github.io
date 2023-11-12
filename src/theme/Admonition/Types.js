@@ -1,37 +1,30 @@
-import DefaultAdmonitionTypes from '@theme-original/Admonition/Types';
-import clsx from "clsx";
-import Translate from "@docusaurus/Translate";
-import AdmonitionLayout from '@theme/Admonition/Layout';
-import IconDanger from '@theme/Admonition/Icon/Danger';
+import React from 'react';
+import AdmonitionTypeNote from '@theme/Admonition/Type/Note';
+import AdmonitionTypeTip from '@theme/Admonition/Type/Tip';
+import AdmonitionTypeInfo from '@theme/Admonition/Type/Info';
+import AdmonitionTypeWarning from '@theme/Admonition/Type/Warning';
+import AdmonitionTypeDanger from '@theme/Admonition/Type/Danger';
+import AdmonitionTypeCaution from '@theme/Admonition/Type/Caution';
+import AdmonitionTypeExample from "./Type/Example";
 
-const defaultProps = {
-    icon: <IconDanger />,
-    title: (
-        <Translate
-            id="theme.admonition.danger"
-            description="The default label used for the Danger admonition (:::danger)">
-            danger
-        </Translate>
-    ),
+const admonitionTypes = {
+  note: AdmonitionTypeNote,
+  tip: AdmonitionTypeTip,
+  info: AdmonitionTypeInfo,
+  warning: AdmonitionTypeWarning,
+  danger: AdmonitionTypeDanger,
+  example: AdmonitionTypeExample
 };
-
-
-const infimaClassName = 'alert alert--example';
-
-function Example(props) {
-    return (
-        <AdmonitionLayout
-            {...defaultProps}
-            {...props}
-            className={clsx(infimaClassName, props.className)}>
-            {props.children}
-        </AdmonitionLayout>
-    );
-}
-
-const AdmonitionTypes = {
-    ...DefaultAdmonitionTypes,
-    'example': Example,
+// Undocumented legacy admonition type aliases
+// Provide hardcoded/untranslated retrocompatible label
+// See also https://github.com/facebook/docusaurus/issues/7767
+const admonitionAliases = {
+  secondary: (props) => <AdmonitionTypeNote title="secondary" {...props} />,
+  important: (props) => <AdmonitionTypeInfo title="important" {...props} />,
+  success: (props) => <AdmonitionTypeTip title="success" {...props} />,
+  caution: AdmonitionTypeCaution,
 };
-
-export default AdmonitionTypes;
+export default {
+  ...admonitionTypes,
+  ...admonitionAliases,
+};

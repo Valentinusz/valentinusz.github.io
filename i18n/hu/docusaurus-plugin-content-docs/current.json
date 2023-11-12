@@ -1,0 +1,66 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.notesSidebar.category.Haladó Java": {
+    "message": "Haladó Java",
+    "description": "The label for category Haladó Java in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Big Data": {
+    "message": "Big Data",
+    "description": "The label for category Big Data in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Hadoop": {
+    "message": "Hadoop",
+    "description": "The label for category Hadoop in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Spark": {
+    "message": "Spark",
+    "description": "The label for category Spark in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.RDD": {
+    "message": "RDD",
+    "description": "The label for category RDD in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.DataFrame": {
+    "message": "DataFrame",
+    "description": "The label for category DataFrame in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Adatbázisok II.": {
+    "message": "Adatbázisok II.",
+    "description": "The label for category Adatbázisok II. in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Indexek": {
+    "message": "Indexek",
+    "description": "The label for category Indexek in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Másodlagos indexek": {
+    "message": "Másodlagos indexek",
+    "description": "The label for category Másodlagos indexek in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Valószínűségszámítás és statisztika": {
+    "message": "Valószínűségszámítás és statisztika",
+    "description": "The label for category Valószínűségszámítás és statisztika in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Valószínűségszámítás": {
+    "message": "Valószínűségszámítás",
+    "description": "The label for category Valószínűségszámítás in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Valószínűségi változó": {
+    "message": "Valószínűségi változó",
+    "description": "The label for category Valószínűségi változó in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Diszkrét eloszlások": {
+    "message": "Diszkrét eloszlások",
+    "description": "The label for category Diszkrét eloszlások in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Folytonos eloszlások": {
+    "message": "Folytonos eloszlások",
+    "description": "The label for category Folytonos eloszlások in sidebar notesSidebar"
+  },
+  "sidebar.notesSidebar.category.Statisztika": {
+    "message": "Statisztika",
+    "description": "The label for category Statisztika in sidebar notesSidebar"
+  }
+}

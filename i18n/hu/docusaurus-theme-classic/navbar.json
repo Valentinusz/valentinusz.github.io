@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Boda Bálint",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Jegyzetek": {
+    "message": "Jegyzetek",
+    "description": "Navbar item with label Jegyzetek"
+  }
+}
