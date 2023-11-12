@@ -47,7 +47,7 @@ export default {
                     showLastUpdateTime: true,
                     remarkPlugins: [remarkMath],
                     rehypePlugins: [
-                        [rehypeKatex, {macros: {'\\pr': '\\mathrm{P}', '\\B': '\\mathrm{B}', '\\E': '\\mathrm{E}'}}]
+                        [rehypeKatex, {macros: {'\\pr': '\\mathrm{P}', '\\B': '\\mathrm{B}', '\\E': '\\mathrm{E}', '\\D': '\\mathrm{D}'}}]
                     ]
                 },
                 blog: {
