@@ -1,0 +1,118 @@
+# Maximum likelihood módszer
+
+Adott egy $n$ független elemből $x_1,x_2,\dots,x_n$ álló mintahalmaz. A mintaelemek egy adott független
+valószínűségi változó lehetséges értékei. Egyetlen ismeretlen paraméterünk van, amit $\lambda$-val jelölünk.
+
+:::info[Definíció (likelihood függvény)]
+Az $x_1,x_2,\dots,x_n$ elemek együttes sűrűségfüggvénye
+
+$$
+f_\lambda(x_1, x_2, \dots x_n) = g_\lambda(x_1) \cdot g_\lambda(x_2) \cdot \ldots \cdot g_\lambda(x_n)
+$$
+:::
+
+:::info[Definíció (ML becslés)]
+Egy mintahalmazra vonatkozó ML becslés alatt azt a $\lambda$ értéket írjük, melyre a mintahalmaz likelihood függvénye
+maximális.
+:::
+
+Ezt a maximális értéket nyilvánvalóan a likelihood függvény deriválásával tudjuk meghatározni. A likelihood függvény
+egy sok tagból álló szorzatfüggvény így deriválása nehéz.
+
+:::tip
+A becslés során célszerű a függvény logaritmusát az ún. log-likelihood függvényt venni. Így a logaritmus azonosságait
+kihasználva, jelentősen le tudjuk egyszerűsíteni a számításokat.
+:::
+
+:::example[Példa (4.3)]
+Annak valószínűsége, hogy pontosan ilyen kombinációtját kapjuk az értékeknek $c^4 \cdot (3c)^{10} \cdot (1-4c)^6$. Ez a
+likelihood függvényünk. Ez egyszerűbb számolás érdekében vegyük ennek a logaritmusát.
+
+Ekkor a log-likelihood függvény:
+
+$$
+\begin{align*}
+\ln(c^4 \cdot (3c)^{10} \cdot (1-4c)^6) &= \ln{c^4} + \ln{(3c)^{10}} + \ln{(1-4c)^6} \\
+&= 4\ln{} + 10\ln{(3c)} + 6\ln{(1-4c)} \\
+&= 4\ln{c} + 10\ln{3} + 10\ln{c} + 6\ln{(1-4c)}
+\end{align*}
+$$
+
+A lokális szélsőértékre vonatkozó elsődleges feltétel miatt:
+
+$$
+\begin{align*}
+0 &= \frac{4}{c} + 0 + \frac{10}{c} + \left(\frac{6}{1-4c} \cdot -4 \right) \\
+&= \frac{14}{c} - \frac{24}{1-4c}  \\
+&= \frac{14-56c - 24c}{c(1-4c)} \\
+&= \frac{14-80c}{c(1-4c)}
+\end{align*}
+$$
+
+Ez pontosan akkor nulla, ha a számláló nulla, azaz:
+$$
+14-80c = 0
+$$
+
+Így:
+$$
+c = \frac{7}{40}
+$$
+
+(Még le kéne ellenőrizni, hogy $c$ valóban maximum hely-e ($f'$ pozitívból negatívba vált $c$-ben), de ez nem ennek a
+tárgynak célja.)
+:::
+
+
+:::example[Példa (4.4/a)]
+Van $n$ mintánk. Adjunk ML becslést $\mathrm{Bin}(m,p)$ eloszlás $p$ paraméterére!
+
+Ekkor a log-likelihood függvény:
+
+$$
+\ln \prod_{i=0}^{n}{{m \choose x_i} \cdot p^{x_i} \cdot (1-p)^{m-x_i}}
+$$
+
+Ami a logaritmus tulajdonságai alapján:
+
+$$
+\begin{align*}
+\ln \mathrm{L}(m, p, x) &=
+   \sum_{i=0}^{n}{\ln{m \choose x_i}} + \sum_{i=0}^{n}{\ln{p^{x_i}}}     + \sum_{i=0}^{n}{\ln{(1-p)^{m-x_i}}} \\
+&= \sum_{i=0}^{n}{\ln{m \choose x_i}} + \sum_{i=0}^{n}{x_i \cdot \ln{p}} + \sum_{i=0}^{n}{(m-x_i) \cdot \ln{(1-p)}} \\
+&= \sum_{i=0}^{n}{\ln{m \choose x_i}} + \ln{p} \cdot \sum_{i=0}^{n}{x_i} + \ln{(1-p)} \cdot \sum_{i=0}^{n}{(m-x_i)}
+\end{align*}
+$$
+
+
+Mivel $x_i$ adott minden $i < n$ esetén, illetve ismerjük $m$-et, ezért csak $p$ szerint kell deriválni:
+
+$$
+\begin{align*}
+(\ln \mathrm{L}(m, p, x))'
+&= 0 + \frac{1}{p} \sum_{i=0}^{n}{x_i} + \frac{-1}{1-p} \sum_{i=0}^{n}{(m-x_i)} \\
+&= \frac{1}{p} \sum_{i=0}^{n}{x_i} - \frac{1}{1-p} \cdot \left( nm - \sum_{i=0}^{n}{x_i} \right)
+\end{align*}
+$$
+
+Legyen $\bar{x} = \frac{1}{n} \sum_{i=0}^{n}{x_i}$\, ekkor $p$ becsléséhez a következő egyenletet kell megoldanunk:
+
+$$
+\begin{align*}
+\frac{1}{p} n \bar{x} &= \frac{1}{1-p} \cdot (nm - n\bar{x}) \\
+(1-p) \cdot n \bar{x} &= p \cdot (nm - n\bar{x}) \\
+n \cdot \bar{x} - p \cdot n\bar{x} &= p \cdot nm - p \cdot n\bar{x} \\
+n \cdot \bar{x} &= p \cdot nm \\
+\bar{x} &= pm \\
+p &= \frac{\bar{x}}{m} \\
+\end{align*}
+$$
+
+Tehát $p$-re az
+
+$$
+p = \frac{1}{n} \cdot \frac{\sum x_i}{m}
+$$
+
+becslést tudjuk adni.
+:::

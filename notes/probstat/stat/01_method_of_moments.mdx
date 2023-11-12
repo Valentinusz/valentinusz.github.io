@@ -1,0 +1,116 @@
+# Momentum módszer
+
+Legyen $X$ egy valószínűségi változó és $k \in \mathbb{N}+$, akkor az $X$ változó $k$-adik momentuma:
+$$
+\E(X^k)
+$$
+
+Például a második momentum $\E(X^2)$.
+
+:::tip
+$\E(x^2)$-et könnyen kifejezhetjük szórásnégyzet definíciójából:
+
+$$
+\E(X^2) = \D^2(X) + \E^2(X)
+$$
+:::
+
+:::info[Definíció (momentum becslés)]
+
+Adottak az, $X_1, X_2, \dots, X_n$ független és azonos eloszlású valószínűségi változók. Mivel azonos eloszlásúak minden
+$k \in \mathbb{N}+$ esetén
+
+$$
+\E(x_1^k) = \E(x_2^k) = \dots = \E(x_n^k)
+$$
+
+Ekkor az eloszlás $k$ db paraméterére az alábbi egyenletrendszer megoldásával adhatunk becslést
+
+$$
+\left\lbrace\begin{align*}
+\E(X_1) & = \frac{x_1 + \dots + x_n}{n} \\
+\E(X_1^2) & = \frac{x_1^2 + \dots + x_n^2}{n} \\
+& \,\,\, \vdots \\
+\E(x_1^k) & = \frac{x_1^k + \dots + x_n^k}{n}
+\end{align*}\right.
+$$
+:::
+
+Az eddig tanult eloszlások (a Hipergeometriai kivételével) maximum két paraméterrel rendelkeznek ezért könnyű
+
+:::example
+Adott a következő diszkrét eloszlás:
+
+$$
+\pr(X_i = -1) = c, \quad \pr(X_i = 1) = 3c, \quad \pr(X_i = 2) = 1 - 4c
+$$
+
+Az eloszlásból egy 20 elemű mintát veszünk
+
+<div className="show-table">
+    | Érték | Gyakoriság |
+    |:-----:|:----------:|
+    | -1    | 4          |
+    | 1     | 10         |
+    | 2     | 6          |
+</div>
+
+Adjunk becslést a $c$ paraméterre momentum módszerrel!
+
+Tudjuk, hogy diszkrét eloszlás esetén a várható érték:
+$$
+\E(X) = 4 \cdot c + 1 \cdot 3c + (1- 4c) \cdot 2 = 2 - 6c
+$$
+
+Mivel csak egy ismeretlenünk van, egy elsőfokú egyenletet kell megoldanunk.
+
+$$
+\begin{align*}
+\E(X_1) = 2 - 6c &= \frac{4 \cdot (-1) + 10 \cdot 1 + 6 \cdot 2}{20} = \frac{9}{10} \\
+6c &= 2 - \frac{9}{10} \\
+c &= \frac{2 - \frac{9}{10}}{6} = \frac{11}{60}
+\end{align*}
+$$
+
+Így tehát $c$-re a $\frac{11}{60}$ becslést tudjuk adni.
+:::
+
+
+:::example
+Adott $n$ darab ugyan azt az egyenletes eloszlást követő valószínűségi változó. Adjunk az eloszlásra momentum becslést!
+
+Az egyenletes eloszlásnak két paramétere $a$ és $b$, ezért az $\E(X_1)$ és $\E(X_1^2)$ momentumokból alkotott
+egyenletrendszert kell megoldanunk.
+
+Az egyenletes eloszlás várható értékének és varianciájának képletéből:
+
+$$
+\left\lbrace \begin{align*}
+\E(X_1) &= \frac{a+b}{2}  \\
+\E(X_1^2) &= \D^2(X) + \E^2(X) = \frac{(b-a)^2}{12} + \left(\frac{a+b}{2} \right)^2 \\
+\end{align*} \right.
+$$
+
+Rendezve a második egyenletet:
+
+$$
+\begin{align*}
+\frac{(b-a)^2}{12} + \left(\frac{a+b}{2} \right)^2
+&= \frac{b^2-2ab+a^2}{12} + \frac{a^2+2ab+b^2}{4} \\
+&= \frac{b^2-2ab+a^2 + 3a^2+6ab+3b^2}{12} \\
+&= \frac{4b^2+4ab+4a^2}{12}
+\end{align*}
+$$
+
+Az első egyenlet alapján: $a = 2 \E(X) - b$.
+
+$$
+\begin{align*}
+ \frac{b^2+ab+a^2}{3}
+=& \frac{b^2 -  2\E(X)b - b^2 + 4\E^2(X) - 4\E(X)b + b^2}{3} \\
+=&\frac{b^2 -  6\E(X)b + 4\E^2(X)}{3}
+\end{align*}
+$$
+
+Ami egy másodfokú egyenlet.
+:::
