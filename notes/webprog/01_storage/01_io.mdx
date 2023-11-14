@@ -1,0 +1,107 @@
+# IO
+
+## `IFileIO`
+
+Az `IFileIo` interfész a fájlból írás és betöltés műveletét definiálja.
+
+```php
+interface IFileIO {
+    function save($data);
+    function load();
+}
+```
+
+
+***
+
+
+## `FileIO`
+
+A `FileIO` absztrakt ősosztály, mely egy fájl létezésének vizsgálatát végzi el konstruktorában.
+```php
+abstract class FileIO implements IFileIO {
+    protected string $filepath;
+
+    public function __construct($filename) {
+        if (!is_readable($filename) || !is_writable($filename)) {
+            throw new Exception("Data source $filename is invalid.");
+        }
+
+        $this->filepath = realpath($filename);
+    }
+}
+```
+
+### Konstruktor
+Egyetlen kötelező paramétere egy fájlnév. A konstruktor hibát dob, ha a fájl nem feleltethető megy egy olyan fájlnak ami
+létezik és tudjuk írni és olvasni.
+
+
+***
+
+
+## `JsonIO`
+JSON formátumú adatok olvasását írását teszi lehetővé.
+
+```php
+class JsonIO extends FileIO {
+    public function load(bool $assoc = true): mixed {
+        $file_content = file_get_contents($this->filepath);
+        return json_decode($file_content, $assoc) ?? [];
+    }
+
+    public function save(mixed $data): void {
+        $json_content = json_encode($data, JSON_PRETTY_PRINT);
+        file_put_contents($this->filepath, $json_content);
+    }
+}
+```
+
+### `load`
+Betölti a megadott JSON fájlban szereplő adatokat.
+
+#### Paraméterek
+- `bool $assoc = True`: asszociatív tömbbe történjen-e az adatok beolvasása
+
+#### Visszatérés
+- `mixed`: általában egy tömb
+
+
+### `save`
+JSON formátumban kiírja a megadott adatokat.
+
+#### Paraméterek
+- `mixed $data`: a sorosítandó adat
+
+
+***
+
+
+## `SerializeIO`
+
+```php
+class SerializeIO extends FileIO {
+    public function load(): array {
+        $file_content = file_get_contents($this->filepath);
+        return unserialize($file_content) ?? [];
+    }
+
+    public function save(mixed $data): void {
+        $serialized_content = serialize($data);
+        file_put_contents($this->filepath, $serialized_content);
+    }
+}
+```
+
+### `load`
+Betölti a megadott PHP sorosítást tartalmazó fájlban szereplő adatokat.
+
+#### Visszatérés
+- `mixed`: általában egy tömb
+
+
+### `save`
+PHP sorosítás formátumban kiírja a megadott adatokat.
+
+#### Paraméterek
+- `mixed $data`: a sorosítandó adat

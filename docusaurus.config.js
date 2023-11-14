@@ -97,7 +97,7 @@ export default {
         prism: {
             theme: themes.vsLight,
             darkTheme: themes.vsDark,
-            additionalLanguages: ['java', 'python', 'sql', 'json']
+            additionalLanguages: ['java', 'python', 'sql', 'json', 'php']
         },
 
         footer: {

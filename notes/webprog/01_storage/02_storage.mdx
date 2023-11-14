@@ -1,0 +1,232 @@
+# Storage
+
+## `IStorage`
+
+A `IStorage` interfész alapvető lekérdező és módosító műveleteket definiál.
+
+```php
+interface IStorage {
+    function add(mixed $record): string;
+    function findById(string $id);
+    function findAll(array $params = []);
+    function findMany(callable $condition);
+    function findOne(array $params = []);
+    function update(string $id, mixed $record);
+    function updateMany(callable $condition, callable $updater);
+    function delete(string $id);
+    function deleteMany(callable $condition);
+}
+```
+
+| Művelet                                              | Leírás                                                                                    |
+|------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| `add($record)`                                       | Beszúrja a `$record` rekordot tárolóba. Visszaadja az rekordhoz rendelt kulcsot.          |
+| `findById(string $id)`                               | Visszaadja az `$id` kulcsú rekordot.                                                      |
+| `findAll(array $params = [])`                        | Visszaadja az összes elemet.                                                              |
+| `findMany(callable $condition)`                      | Visszaadja az összes `$condition` feltételnek megfelelő elemet.                           |
+| `findOne(array $params = [])`                        | Visszaad egy elemet.                                                                      |
+| `update(string $id, mixed $record)`                  | Felülírja az `$id` kulcsú rekordot a `$record` rekorddal.                                 |
+| `updateMany(callable $condition, callable $updater)` | Frissíti a `$condition` feltételnek megfelelő rekordokat, az `$updater` függvény alapján. |
+| `delete(string $id)`                                 | Törli az `$id` kulcsú rekordot.                                                           |
+| `deleteMany(callable $condition)`                    | Törli a `$condition` feltételnek megfelelő rekordokat.                                    |
+
+### `$condition`, `$updater`
+Ezeket a függvényeket mindig úgy kell definiálni, hogy egyetlen paraméterük rekord legyen.
+
+### `$params`
+
+Néhány művelet rendelkezik egy `array $params` paraméterrel. Ez egy olyan asszociatív tömböt vár ami adattag-érték
+párokat tartalmaz.
+
+## `Storage`
+
+Az `IStorage` osztály megvalósítása.
+
+:::info
+A Storage elemeinek nem kell azonosnak lennie, ez azonban erősen ajánlott, mert ennek feltevése nélkül nem tudnánk a
+névtelen függvényeket használó metódusokat normálisan használni.
+
+Innentől `T` alatt az adott `Storage` példány elemeinek típusát értjük.
+:::
+
+```php
+/**
+ * Class representing a queryable collection of elements.
+ * @template T
+ * @implements IStorage<T>
+ */
+class Storage implements IStorage {
+    /** @var T[] array of records */
+    protected array $contents;
+
+    /** @var IFileIO FileIO implementation to use for reading and writing records */
+    protected IFileIO $io;
+
+    public function __construct(IFileIO $io, $assoc = true) {
+        $this->io = $io;
+        $this->contents = (array)$this->io->load($assoc);
+    }
+
+    public function __destruct() {
+        $this->io->save($this->contents);
+    }
+    ...
+}
+```
+
+:::note
+A PHP nem támogatja a generikus programozást ezért a legjobb amit tudunk, hogy a különböző statikus elemző programoknak
+(amik például a fejlesztő környezetünkben is fut) dokumentációs kommenteket írunk.
+
+Ezek megismerése nem célja a tárgynak, mindenesetre szerintem hasznos tudni.
+:::
+
+***
+
+### `add(T $record): string`
+Beszúrja a `Storage`-be a megadott rekordot.
+
+#### Paraméterek
+- `T $record`: a beszúrandó rekord
+
+#### Visszatérés
+- `string`: a beszúrt rekordhoz rendelt azonosító
+
+***
+
+### `findById(string $id)`
+Visszaadja a megadott kulcsú rekordot.
+
+#### Paraméterek
+- `string $id`: a keresendő rekord kulcsa.
+
+#### Visszatérés
+- `T`: a keresett rekord
+- `null`: ha nem létezik rekord a megadott kulccsal
+
+***
+
+### `findAll(array $params = []): array`
+Visszaadja az összes rekordot.
+
+Ha a `$params` asszociatív tömb nem üres csak azokat az `$r` rekordokat adja vissza, ahol minden `$params`-beli
+`$key => $value` kulcs érték pár esetén `$r[$key] === value`.
+
+:::danger
+Ha a `Storage` nem **csak** azonos felépítésű asszociatív tömböket tartalmaz és `$params` nem üres, szinte biztosan
+kivételt dob a metódus.
+:::
+
+#### Paraméterek
+- `array $params = []`: az adattagok értékére vonatkozó feltételek asszociatív tömbje, ahol a kulcs az adattag neve
+értéke pedig az adott adattag elvárt értéke.
+
+#### Visszatérés
+- `T[]`: az összes rekord (vagy `$params` esetén a feltételnek megfelelő rekordok)
+
+:::example
+
+```php title='data.json'
+{
+    "1": {"a": 5, "b": "A"},
+    "2": {"a": 4, "b": "A"},
+    "3": {"a": 4, "b": "B"},
+    "4": {"a": 3, "b": "B"}
+}
+```
+
+```php
+$storage = new Storage(new JsonIO('data.json'), true);
+
+$storage->findAll();
+```
+
+```
+array (size=4) ...
+```
+
+`$params`:
+
+```php
+$storage->findAll(["b" => "B"]);
+```
+
+```
+array (size=2)
+  3 =>
+    array (size=2)
+      'a' => int 4
+      'b' => string 'B' (length=1)
+  4 =>
+    array (size=2)
+      'a' => int 3
+      'b' => string 'B' (length=1)
+```
+:::
+
+***
+
+### `findMany(callable $condition): array`
+Visszaadja az összes feltételnek megfelelő elemet.
+
+#### Paraméterek
+- `callable(T): bool $condition`: egy `T`-ből `bool`-ba képező függvény
+
+#### Visszatérés
+- `T[]`: a feltételnek megfelelő rekordok
+
+***
+
+### `findOne(array $params = []): mixed`
+Visszaad egy rekordot.
+
+:::danger
+Nem random!
+:::
+
+#### Paraméterek
+- `array $params = []`: az adattagok értékére vonatkozó feltételek asszociatív tömbje, ahol a kulcs az adattag neve
+értéke pedig az adott adattag elvárt értéke.
+
+#### Visszatérés
+- `T`: egy elem
+- `null`: ha nincs egy (a feltételnek megfelelő) rekord sem
+
+***
+
+### `update(string $id, mixed $record)`
+Felülírja a megadott kulcsú rekordot a megadott rekorddal.
+
+#### Paraméterek
+- `string $id`: a lecserélendő rekord kulcsa
+- `T $record`˙: az új rekord
+
+***
+
+### `updateMany(callable $condition, callable $updater)`
+Frissíti a megadott feltételnek megfelelő rekordokat, a megadott függvény alapján.
+
+#### Paraméterek
+- `callable(T): bool $condition`: egy `T`-ből `bool`-ba képező függvény
+- `callable(T): T $updater`: egy `T`-ből `T`-be képező függvény
+
+#### Visszatérés
+- `T`: egy elem
+- `null`: ha nincs egy (a feltételnek megfelelő) rekord sem
+
+***
+
+### `delete(string $id)`
+Törli a megadott kulcsú rekordot.
+
+#### Paraméterek
+- `string $id`: a törlendő rekord kulcsa
+
+***
+
+### `deleteMany(callable $condition)`
+
+Törli az összes predikátumnak megfelelő kulcsot.
+
+#### Paraméterek
+- `callable(T): bool $condition`: egy `T`-ből `bool`-ba képező függvény
