@@ -25,7 +25,7 @@ kihasználva, jelentősen le tudjuk egyszerűsíteni a számításokat.
 :::
 
 :::example[Példa (4.3)]
-Annak valószínűsége, hogy pontosan ilyen kombinációtját kapjuk az értékeknek $c^4 \cdot (3c)^{10} \cdot (1-4c)^6$. Ez a
+Annak valószínűsége, hogy pontosan ilyen kombinációját kapjuk az értékeknek $c^4 \cdot (3c)^{10} \cdot (1-4c)^6$. Ez a
 likelihood függvényünk. Ez egyszerűbb számolás érdekében vegyük ennek a logaritmusát.
 
 Ekkor a log-likelihood függvény:
@@ -33,8 +33,8 @@ Ekkor a log-likelihood függvény:
 $$
 \begin{align*}
 \ln(c^4 \cdot (3c)^{10} \cdot (1-4c)^6) &= \ln{c^4} + \ln{(3c)^{10}} + \ln{(1-4c)^6} \\
-&= 4\ln{c} + 10\ln{(3c)} + 6\ln{(1-4c)} \\
-&= 4\ln{c} + 10\ln{3} + 10\ln{c} + 6\ln{(1-4c)}
+&= 4 \ln{c} + 10 \ln{(3c)}          + 6 \ln{(1-4c)} \\
+&= 4 \ln{c} + 10 \ln{3} + 10 \ln{c} + 6 \ln{(1-4c)}
 \end{align*}
 $$
 
@@ -77,8 +77,8 @@ Ami a logaritmus tulajdonságai alapján:
 
 $$
 \begin{align*}
-\ln \mathrm{L}(m, p, x) &=
-   \sum_{i=0}^{n}{\ln{m \choose x_i}} + \sum_{i=0}^{n}{\ln{p^{x_i}}}     + \sum_{i=0}^{n}{\ln{(1-p)^{m-x_i}}} \\
+\ln \mathrm{L}(m, p, x) 
+&= \sum_{i=0}^{n}{\ln{m \choose x_i}} + \sum_{i=0}^{n}{\ln{p^{x_i}}}     + \sum_{i=0}^{n}{\ln{(1-p)^{m-x_i}}} \\
 &= \sum_{i=0}^{n}{\ln{m \choose x_i}} + \sum_{i=0}^{n}{x_i \cdot \ln{p}} + \sum_{i=0}^{n}{(m-x_i) \cdot \ln{(1-p)}} \\
 &= \sum_{i=0}^{n}{\ln{m \choose x_i}} + \ln{p} \cdot \sum_{i=0}^{n}{x_i} + \ln{(1-p)} \cdot \sum_{i=0}^{n}{(m-x_i)}
 \end{align*}
@@ -105,6 +105,9 @@ n \cdot \bar{x} - p \cdot n\bar{x} &= p \cdot nm - p \cdot n\bar{x} \\
 n \cdot \bar{x} &= p \cdot nm \\
 \bar{x} &= pm \\
 p &= \frac{\bar{x}}{m} \\
+
+\frac{}{}
+
 \end{align*}
 $$
 

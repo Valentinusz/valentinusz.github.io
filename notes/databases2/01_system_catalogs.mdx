@@ -8,7 +8,7 @@ A kapcsolódó gyakorlati feladatok megoldásai elérhetőek a GitHub repo-ban.
 
 Az adatbázis-kezelő rendszerek számos olyan táblát és nézetet tartalmaznak, melyek az adatbázis különböző elemiről
 tartalmaznak adatokat. Ezeket az Oracle adatbázis-kezelő rendszerben **rendszerkatalógus**oknak
-(illetve **adatszótár nézet**eknek) nevezzük.
+(illetve **adatszótár nézeteknek**) nevezzük.
 
 A rendszerkatalógusok nevei jellemzően két tagból állnak: egy láthatósági halmaz prefixumból
 (az első aláhúzásjelig tart) és az adatszótár nevéből.
@@ -32,13 +32,13 @@ az egyik legfontosabb katalógussal (és annak speciális változataival) fogunk
 
 Ez az `OBJECTS`, mely az adatbázisban szereplő objektumokról tárol általános információkat.
 
-Az összes adatbázisbeli objektumot például `DBA_OBJECTS` katalóguson keresztül érhetjük el.
+Az összes adatbázisban található objektumot, például a `DBA_OBJECTS` katalóguson keresztül érhetjük el.
 
 | Column Name     | Data Type    | Nullable | Description                                                                                                     |
 |-----------------|--------------|----------|-----------------------------------------------------------------------------------------------------------------|
 | **OWNER**       | VARCHAR2(30) | NOT NULL | Owner of the object                                                                                             |
 | **OBJECT_NAME** | VARCHAR2(30) | NOT NULL | Name of the object                                                                                              |
-| SUBOBJECT_NAME  | VARCHAR2(30) |          | Name of the subobject (for example, partition)                                                                  |
+| SUBOBJECT_NAME  | VARCHAR2(30) |          | Name of the sub object (for example, partition)                                                                  |
 | **OBJECT_ID**   | NUMBER       | NOT NULL | Dictionary object number of the object                                                                          |
 | DATA_OBJECT_ID  | NUMBER       |          | Dictionary object number of the segment that contains the object                                                |
 | **OBJECT_TYPE** | VARCHAR2(19) |          | Type of the object (such as TABLE, INDEX)                                                                       |
