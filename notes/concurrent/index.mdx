@@ -1,0 +1,24 @@
+# Konkurens programozás
+
+## Konkurencia vagy párhuzamosság?
+
+A konkurens és párhuzamos programozás két egymáshoz erősen kapcsolódó, mégis kis mértékben eltérő fogalom.
+
+Egy program konkurens, ha több egymással kommunikáló (rész)folyamatból áll, melyeket (szoftveres) **szálaknak**
+nevezünk.
+
+Egy program párhuzamos, ha egyszerre több műveletet is végez. Ehhez nyilvánvalóan szükség van több folyamatra tehát
+a párhuzamosság a konkurencia speciális esetének tekinthető, ahol ténylegesen egy időben történnek a folyamatok.
+
+A párhuzamosság csak nagyon kis mértékben valósítható meg, hiszen a processzornak ennél sokkal több folyamatot kell
+végrehajtania mint ahány fizikai szállal az rendelkezik.
+
+:::note
+Például egy 8 magos, 16 szálas processzor párhuzamosan 16 folyamat futtatására képes.
+:::
+
+Ezért a processzornak ütemezést kell végezni, azaz el kell döntenie az egyes folyamatot mennyi végrehajtási időt
+kaphatnak. Tehét a párhuzamosságnak a legtöbb esetben csak a látszata áll fenn.
+
+Ezzel szemben az elosztott modell esetében a folyamatoknak saját memóriaterülete van. Ekkor a folyamatok közti
+kommunikáció bonyolultabb. (Például: [Hadoop](bigdata/hadoop))

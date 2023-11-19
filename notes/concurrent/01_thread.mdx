@@ -1,0 +1,67 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Szálak
+
+A Java nyelv egyik fontos tervezése szempontja a többszálúság volt.
+
+A Java nyelven a szálak leírására a `java.lang.Thread` osztályt használjuk. A szálak a `start()` metódus segítségével
+indíthatóak el.
+
+```java
+public class Main {
+    public static void main(String args[]) {
+        Thread t = new Thread();
+        t.start();
+    }
+}
+```
+
+Ez önmagában nem csinál semmit mivel a `start()` hívást követően a szál objektum `run()` metódusa kerül végrehajtásra,
+ami a `Thread` osztályban alapból üres törzzsel rendelkezik.
+
+```java
+public class MyThread extends Thread {
+    @Override
+    public void run() {
+        ...
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+        (new MyThread()).start();
+    }
+}
+```
+
+Ennek a megoldásnak a hátránya, hogy elhasználja a Java által biztosított egyetlen származtatási lehetőségét. Sokszor
+azonban csak a `run()` metódust akarjuk felüldefiniálni így akár be is injektálhatnánk egy ilyen metódust tartalmazó
+objektumot a szál példányosításakor.
+
+A Java erre a `Runnable` funkcionális interfészt használja, melyet akár lambda kifejezéssel is leírhatunk.
+
+<Tabs>
+    <TabItem value={'implementáció'}>
+        ```java
+        public class Hello {
+            public static void main(String args[]) {
+                new Thread(new MyRunnable()).start();
+            }
+        }
+
+        public class MyRunnable implements Runnable {
+            @Override public void run() {
+                ...
+            }
+        }
+        ```
+    </TabItem>
+    <TabItem value={'anonim osztály'}>
+
+    </TabItem>
+    <TabItem value={'lambda'}>
+
+    </TabItem>
+</Tabs>
+
