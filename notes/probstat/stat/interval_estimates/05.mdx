@@ -1,0 +1,244 @@
+# Kétmintás próbák
+
+A kétmintás próbák két minta kapcsolatát vizsgálják.
+
+Adottak a $X \sim \mathrm{N}{\left(m_1, \sigma_1^2\right)}$  és $Y \sim \mathrm{N}{\left( m_2, \sigma_2^2 \right)}$
+független normális eloszlású valószínűsége változók, melyekből $n$ pár mintát veszünk.
+
+Tekintsünk a $m_1=m_2$, $m1 \le m_2$, $m1 \ge m_2$ hipotézisek egyikét mint nullhipotézis, ekkor elfogadásáról a
+mintákt függetlenségétől és a szórások ismeretétől függően eltérő módon döntünk a hipotézis elfogadásáról.
+
+<div class='center-table'>
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Minták függetlenek</th>
+        <th>Minták nem függetelenek</th>
+    </tr>
+    </thead>
+    <tr>
+        <th>$\mathbf{\sigma_1, \sigma_2}$ ismert</th>
+        <td>kétmintás $u$-próba</td>
+        <td>egymintás $u$-próba a minták különbségére</td>
+    </tr>
+    <tr>
+        <th>$\mathbf{\sigma_1, \sigma_2}$ ismeretlen</th>
+        <td>
+            Előzetes $F$-próba, majd
+            $$
+            \begin{cases}
+                \text{kétmintás } t\text{-próba}, &\quad \text{ha } \sigma_1 = \sigma_2 \\
+                \text{Welch-próba},               &\quad \text{ha } \sigma_1 \ne \sigma_2
+            \end{cases}
+            $$
+        </td>
+        <td>egymintás $t$-próba a minták különbségére</td>
+    </tr>
+</table>
+</div>
+
+A minták különbsége alatt azt a mintát értjük, melynek elemei a másik két minta elemeinek páronkénti különbsége.
+
+
+## Kétmintás $u$-próba
+
+Szinte azonos az egymintás $u$-próbával.
+
+Legyenek $X$ egy $n$ és $Y$ egy $m$ elemű normális eloszlást követő minták. Ha, a nullhipotézis teljesül
+
+$$
+\mathrm{T}(X, Y) = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}}}
+$$
+
+próbastatisztika standard normális eloszlást követ.
+
+Ezt követően a hipotézisvizsgálat megegyezik az egymintás $u$-próbánál tanulttal.
+
+## $F$-próba
+
+Mivel a szórások ismeretlenek a [korrigált tapasztalati szórással](../#korrig%C3%A1lt-tapasztalati-sz%C3%B3r%C3%A1s)
+becsüljük őket. Ha teljesül a nullhipotézis:
+
+$$
+F = 
+\begin{cases}
+
+\frac{(S_1^*)^2}{(S_2^*)^2} \; F\text{-eloszlást követ } (n-1), (m-1) \text{ paraméterekkel, ha } (S_1^*)^2 > (S_2^*)^2 \\
+\frac{(S_2^*)^2}{(S_1^*)^2} \; F\text{-eloszlást követ } (m-1), (n-1) \text{ paraméterekkel, ha } (S_1^*)^2 < (S_2^*)^2
+\end{cases}
+$$
+
+Értékeit [táblázatból](http://www.socr.ucla.edu/Applets.dir/F_Table.html) olvassuk ki.
+
+
+## Kétmintás $t$-próba
+
+Tegyük fel, hogy a két minta szórása megegyezik, azaz $\sigma_1 = \sigma_2$. Ekkor, ha a nullhipotézis igaz a
+
+$$
+\mathrm{T}(X,Y) =
+\sqrt{ \frac{nm}{n+m} } \cdot
+\frac{ \overline{X} - \overline{Y} }{ \sqrt{\frac{ (n-1) \cdot (S_1^*)^2 + (m-1) \cdot (S_2^*)^2 } {n-1+m-1} } }
+$$
+
+próbastatisztika, $(n+m-2)$ paraméterű Student-féle $t$-eloszlást követ.
+
+:::note
+$S_i^*$ a korrigált tapasztalati szórás.
+:::
+
+Ezt követően a hipotézisvizsgálat megegyezik az egymintás $t$-próbánál tanulttal.
+
+## Welch-próba
+
+Ha a nullhipotézis igaz,
+
+$$
+\frac{\overline{X} - \overline{Y}}{\sqrt{\frac{(S_1^*)^2}{n} + \frac{(S_2^*)^2}{m}}}
+$$
+
+próbastatisztika $f$ paraméterű Student-féle $t$ eloszlást követ, ahol $f$:
+
+$$
+f =
+\frac
+{\left(\frac{(S_1^*)^2}{n} + \frac{(S_2^*)^2}{m}\right)^2}
+{\frac{\left(\frac{(S_1^*)^2}{n}\right)^2}{n - 1} + \frac{\left(\frac{(S_2^*)^2}{m}\right)^2}{m - 1}}
+$$
+
+## Feladatok
+
+
+
+:::example
+### 5.3
+
+Adott két minta két különböző gyáregység selejtárányáról. ELmondható-e, hogy az első egység jobban dolgozott mint
+a második?
+
+```py
+A = [11.9, 12.1, 12.8, 12.2, 12.5, 11.9, 12.5, 11.8, 12.4, 12.9]
+B = [12.1, 12.0, 12.9, 12.2, 12.7, 12.6, 12.6, 12.8, 12.0, 13.1]
+```
+
+Mivel a szórások ismeretlenek és a két gyáregység különbözik, $F$-próbát kell végeznünk. Jelölje $m_A$ az A és $m_B$ a
+B gyáregység selejtárányát.
+
+$H_0: m_A \ge m_B$ \
+$H_1: m_B <   m_A$
+
+Először meg kell határozni az átlagokat $\overline{X} = 12,3$ és $\overline{Y} = 12,5$ és a tapasztalati szórásokat:
+
+$$
+(S_1^*)^2 = \frac{(0,4)^2+\dots+(0,6)^2}{9} = 0,147
+$$
+
+$$
+(S_2^*)^2 = \frac{(0,41)^2+\dots+(0,6)^2}{9} = 0,158
+$$
+
+***
+
+#### $F$-próba
+$H_{f_0}: \sigma_1 = \sigma_2$ \
+$H_{f_1}: \sigma_1 \ne \sigma_2$
+
+Ha a nullhipotézis teljesül és $(S_1^*)^2 < (S_2^*)^2$, akkor a $\frac{(S_2^*)^2}{(S_1^*)^2}$ próbastatisztika 
+$F_{m-1,n-1} = F_{9,9}$ eloszlást követ.
+
+$$
+f = \frac{(S_2^*)^2}{(S_1^*)^2} = \frac{0,147}{0,158} = 1,075
+$$
+
+Mivel az $F$ eloszlás nem szimmetrikus,  külön kell meghatároznunk a két kritikus tartományt. Az $F$-eloszlás baloldali
+kritikus tartományának vége nagyon közel van nullához, ezért azt ki sem kell számolnunk.
+
+Így elfogadjuk a nullhipotézist, ha
+$$
+f = 1,075 < 4,026 = F_{9; \, 9; \, 0.025}
+$$
+
+Ami nyilván teljesül, így elfogadjuk az $F$-próba nullhipotézisét. Ezért az eredeti hipotézisünk vizsgálatához egy
+kétmintás $t$-próbát végzünk.
+
+***
+
+#### Kétmintás $t$-próba
+
+Az eredeti hipotézisünket vizsgáljuk: \
+$H_0: m_A \ge m_B$ \
+$H_1: m_B <   m_A$
+
+Ha a nullhipotézis teljesül
+$$
+\mathrm{T}(X,Y) =
+\sqrt{ \frac{nm}{n+m} } \cdot
+\frac{ \overline{X} - \overline{Y} }{ \sqrt{\frac{ (n-1) \cdot (S_1^*)^2 + (m-1) \cdot (S_2^*)^2 } {n-1+m-1} } }
+$$
+próbastatisztika, Student-féle $t_{n+m-2}=t_{18}$ eloszlást követ. Elvégezve a behelyettesítést $t = -1,146$. Mivel
+$\ge$ relációt tekintünk a túl kicsi értékeket kell elutasítanunk. Mivel
+
+$$
+t_{18; 0,05} = -1,734 < -1,146 = t
+$$
+
+teljesül, ezért nem utasítjuk el a nullhipotézist, tehát nincs bizonyítékunk arra hogy az $A$ gyáregység jobban
+dolgozna.
+:::
+
+
+
+:::example
+### 5.4
+Mivel a szórások ismertek és a mintahalmazok függetlenek ezért kétmintás $u$-próbát hajtunk végre:
+
+$$
+
+\frac{6,7 - 7,2}{\sqrt{\frac{0,5^2}{30} + \frac{0,5^2}{20}}} \approx -3,46
+
+$$
+
+Mivel $u_{0,975} = 1,96$. Azt feltételezhetjük, hogy szignifikáns különbség van a két szerver között, mert -3,46 kívül
+esik az elfogadási tartományon.
+:::
+
+
+
+:::example
+### 5.5
+Két különböző napon megmértük két forgalmas közelekedési csomópontnál a levegőben  található szennyezőanyag
+koncentrációját.
+
+```py
+nov15 = [20.9, 17.1, 15.8, 18.8, 20.1, 15.6, 14.8, 24.1, 18.9, 12.5]
+nov29 = [21.4, 16.7, 16.4, 19.2, 19.9, 16.6, 15.0, 24.0, 19.2, 13.2]
+```
+
+Szignifikánsan változott-e a légszennyezés?
+
+$H_0: m_{15} =   m_{29}$ \
+$H_1: m_{15} \ne m_{29}$
+
+Mivel a mérések ugyan ott készültek a minták nem függetlenek, ezért egy olyan mintát kell nézni mely a két minta
+elemeinek páronkénti különbségét tartalmazza:
+
+```py
+S = [0.5, -0.4, 0.6, 0.4, -0.2, 1.0, 0.2, -0.1, 0.3, 0.7]
+```
+
+Erre egy egymintás $t$-próbát kell végrehajtani. Jelölje $m_k$ a minták várható értékeinek különbségét:
+
+$H_{t_0}: m_{k} =   0$ \
+$H_{t_1}: m_{k} \ne 0$
+
+Ha a H_{t_0} nullhipotézis igaz, a próbastatisztika $t$-eloszlást követ.
+
+$ \overline{S} = 0,3$, így
+
+$$
+\frac{0.3 - 0}{\frac{\sqrt{\frac{1}{9} \cdot \sum{(X_i-0.3^2)}}}{\sqrt{10}}} \approx 2,038
+$$
+
+A $t_{9,1-\frac{\alpha}{2}} = 2,262$. Mivel $-2,262 < 2,038 < 2,262 $, ezért feltételezhető, hogy a légszeenyezés
+nem változott.

@@ -1,0 +1,197 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Egymintás próbák
+
+Az egymintás próbák, egyetlen mintából tesznek következtetést a eloszlás hiányzó paramétereire.
+
+
+## $u$-próba
+
+Adott $X$ egy $n$ elemű minta, melynek szórása ($\sigma$) ismert. Tegyük fel hogy,
+$X \sim \mathrm{N}{\left( m, \sigma^2 \right)} $.
+
+Az $u$ próba **nullhipotézise** ($H_0$), hogy az eloszlás **várható értéke valamilyen ellentétes relációban áll**
+($\ne, <, >$) egy általunk **választott $m_0$ értékkel**.
+
+**Ellenhipotézise** ($H_1$), hogy az eloszlás várható értéke, **a nullhipotézis relációjával ellentétes** ($=, \le, \ge$), 
+**relációban áll az $m_0$ értékkel**.
+
+Ha a nullhipotézis teljesül, a
+
+$$
+\mathrm{T}(X) = \sqrt{n} \cdot \frac{\overline{X} - m_0}{\sigma}
+$$
+
+**próbastatisztika standard normális eloszlású**.
+
+Ezt követően az általunk definiált szignifikanciaszint alapján meghatározzuk **kritikus tartományokat**. Ehhez a 
+**sűrűségfüggvény inverze**, azaz $\Phi^{-1}$ szükséges, ami egy bonyolult függvény, értékeit
+[**táblázatból**](https://en.wikipedia.org/wiki/Standard_normal_table#Table_examples) olvassuk ki.
+
+Ehhez meg kell találnunk az $(1-\alpha)$-hoz legközelebbi értéket, ekkor $u_{(1-\alpha)}$ a cella oszlopának és sorának
+fejléccelláiban szereplő számok összege.
+
+:::example[Példa (5.2)]
+Ismerjük, az elmúlt négy évben, hány fok volt az október 18.-i középhőmérséklet Budapesten:
+$$
+14,8; \; 12,2; \; 16,8; \; 11,1
+$$
+
+A középhőmérséklet szórása: $\sigma = 2$.
+
+Legyen a szignifikanciaszint: $\alpha = 0,05$.
+
+<Tabs>
+    <TabItem value="b) kisebb mint 15°C">
+        Október 18-án 15°C alatt volt-e Budapesten a napi középhőmérséklet?
+
+        Ekkor nullhipotézisként azt tesszük fel, hogy a napi középhőmérséklet 15°C fölött volt azaz
+        $H_0: m \ge 15 = m_0$.
+
+        Ekkor ellenhipotézisünk $H_1$: $m < 15$
+
+        Mivel ismerjük a szórást, $u$-próbát fogunk használni. Meg kell határozni a [mintaátlagot](../#mintaátlag):
+
+        $$
+        \overline{X} = \frac{14,8 + 12,2 + 16,8 + 11,1}{4} = 13,725
+        $$
+
+        $$
+        u = \sqrt{4} \cdot \frac{13,725 - 15}{2} = -1,275
+        $$
+
+        A nullhipotézist akkor utasítjuk el, ha a próbastatisztika ($u$) értéke kisebb mint $u_{0,05}$.
+
+        Az $u$ értéket $\Phi$ [táblázatból](https://en.wikipedia.org/wiki/Standard_normal_table#Table_examples) tudjuk
+        kiolvasni:
+
+        <div class='center-table'>
+        |      | 0.00   | 0.02   | 0.04       | 0.05       |
+        | ---- | ------ | ---    | -          | -          |
+        | -1,6 | 0,0548 | 0,0526 | **0,0505** | **0,0495** |
+        </div>
+
+        A keresett érték nem szerepel a táblázatban. Mivel $0,0495 < 0,05 < 0,0505$, ezért $u_{0,05}$ értéke valahol
+        $-1,604$ és $-1,605$ között van. Az egyszerűség kedvért válasszuk értékül a két szám átlagát.
+
+        Mivel $-1,275 > -1,6045$, ezért nem utasítjuk el a nullhipotézist. Így nincs bizonyítékunk arra, hogy a
+        középhőmérséklet 15°C alatti lenne.
+    </TabItem>
+    <TabItem value="d) nem 15°C">
+        Különbözni fog-e az október 18-i középhőmerséklet Budapesten a 15°C-tól.
+
+        Ekkor nullhipotézisünk $H_0: m = 15$, ellenhipotézisünk $H_1: m \ne 15$.
+
+        A próbastaszisztikát már ismerjük az előző feladatból: $u = -1,275$.
+
+        A kritikus tartományok azonban az eloszlás két végén találhatóak., ezért a konfidenciaintervallum:
+
+        $$
+        \left(-u_{1-\frac{\alpha}{2}};  u_{1-\frac{\alpha}{2}} \right) = \left(-u_{0,975};  u_{0,975} \right)
+        $$
+
+        A $\Phi$ táblázatból: $u_{0,975} = 1,96$. Tehát a konfidenciaintervallum:
+
+        $$
+        \left(-1,96; \, 1,96 \right)
+        $$
+
+        Mivel $ -1,96 < -1,275 < 1,96 $, ezért elfogadjuk a nullhipotézist. Tehát nincs elég bizonyítékunk arra, hogy
+        nem 15°C lesz a középhőmérséklet.
+    </TabItem>
+</Tabs>
+:::
+
+## $t$-próba
+
+Az $u$ próbához hasonló, de **$\mathbf{\sigma}$ ismeretlen** ezért egy torzítatlan becsléssel, az $X$ minta
+**[korrigált tapasztalati szórásával](../#korrig%C3%A1lt-tapasztalati-sz%C3%B3r%C3%A1s) fogjuk helyettesíteni**.
+
+Egy null és ellenhipotézist teszünk.
+
+Ha a nullhipotézis teljesül, akkor a
+
+$$
+\mathrm{T}(X)
+= \sqrt{n} \cdot \frac{ \overline{X} - m_0 }{ S_n^* }
+= \sqrt{n} \cdot \frac{ \overline{X} - m_0 }{ \sqrt{ \frac{1}{n-1} \cdot \sum_{i=0}^n{ \left( X_i-\overline{X}  \right)^2} } }
+$$
+
+statisztikai próba $(n-1)$ paraméterű **Student-féle $t $-eloszlást követ**. Ennek **értékeit
+[táblázatból](https://en.wikipedia.org/wiki/Student's_t-distribution#Table_of_selected_values) olvassuk ki**.
+
+:::danger
+Ez a táblázat nem ekvivalens a standard normális eloszlás táblázatával!
+:::
+
+Ezt követően a nullhipotézis vizsgálatánál az $u$-próbával azonos módon járunk el.
+
+::::example[Példa 5.2/c]
+Oldjuk meg az 5.2/B feladatot úgy, hogy nem ismerjük $\sigma$ értékét. Mivel $\sigma$ ismeretlen egyértelműen $t$-próbát
+kell végeznünk. Hipotéziseink változatlanok: $H_0: m \ge 15, \; H_1: m < 15$.
+
+Becsüljük először $\sigma$-t:
+
+$$
+S_n^* = \sqrt{\frac{1}{3} \cdot (1,075^2 + 1,525^2 + 3,075^2 + 2,625^2)}
+\approx 2,57
+$$
+
+Ezt felhasználva:
+
+$$
+u = \sqrt{4} \cdot \frac{13,725 - 15}{ S_n^* } \approx -0,991 
+$$
+
+Ami Student $t$ eloszlást követ, melynek paramétere $3$. Szignifikanciaszintünk továbbra is $0,05$, ezért a
+$t_{3; 0,05}$ értéket keressük, amit
+[táblázatból](https://en.wikipedia.org/wiki/Student's_t-distribution#Table_of_selected_values) tudunk kiolvasni.
+
+<div class='center-table'>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="4">szignifikanciaszint ($\alpha$)</th>
+        </tr>
+        <tr>
+            <th>Eloszlás paramétere</th>
+            <th>0,10</th>
+            <th><u>0,05</u></th>
+            <th>0,025</th>
+            <th>0,01</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>3,078</td>
+            <td>6,314</td>
+            <td>12,71</td>
+            <td>31,82</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>1,886</td>
+            <td>2,920</td>
+            <td>4,303</td>
+            <td>6,965</td>
+        </tr>
+        <tr>
+            <th><u>3</u></th>
+            <td>1,638</td>
+            <td><u>2,353</u></td>
+            <td>3,182</td>
+            <td>4,541</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+:::info
+A Student-féle $t$ eloszlás szimmetrikus ezért $t_{x; \, \alpha} = -t_{x; \, 1-\alpha}$.
+:::
+
+Mivel $t = -0,991 < -2,353$, ezért $t$ a konfidenciaintervallumba esik, így elfogadjuk a nullhipotézist.
+::::

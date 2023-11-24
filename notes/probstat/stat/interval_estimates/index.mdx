@@ -1,0 +1,73 @@
+# Intervallumbecslések
+
+Az eddig látott becsléseink mindegyike ún. pontbecslés volt, hiszen egyetlen értékkel közelítettük az ismeretlen
+paraméter értékét. Most viszont olyan becsléseket fogunk alkalmazni, amik elég nagy valószínűséggel beszorítják egy zárt
+intervallumra az ismeretlen paraméter értékét.
+
+Adott, véges sok, ugyanazon eloszlásból származó, független elemekből álló minta. Célunk az **eloszlás** egy vagy több
+**ismeretlen paramétereinek becslése** a minta alapján.
+
+## Hipotézisvizsgálat
+
+Egy $H_0$ **nullhipotézist** állítunk fel az ismeretlen paraméterekre, melynek **igazságtartalmát** egy **statisztikai
+próbán keresztül vizsgáljuk**.
+
+Emelett felállítunk egy $H_1$ **ellenhipotézist**, amit akkor fogadunk el, ha a nullhipotézist elutasítjuk.
+
+A **próbák eredménye** valamilyen érték lesz, melynek **segítségével eldönthetjük** elfogadjuk, vagy elutasítjuk a
+nullhipotézist.
+
+Ehhez szükséges annak a definiálása is, hogy milyen értékek esetén fogadjuk el a nullhipotézist, amit 
+**szignifikanciaszint**nek nevezünk és $\alpha$-val jelölünk.
+
+Az $\alpha$ szignifikanciaszint azt fejezi ki, hogy a lehetséges értékek $(1-\alpha) \cdot 100\%$-át fogadjuk el. Azt,
+hogy az eloszlás melyik kvantilisét (az eloszlás felosztása úgy, hogy kiválasztáskor minden partícióból azonos
+valószínűséggel választhatunk ki elemet) fogadjuk el a nullhipotézis-ben szereplő relációtól függ.
+
+Ezt elfogadott értékek invervallumát **konfidenciaintervallumnak**, az **ezen kívüli** értékek halmazát
+**kritikus tartományoknak** nevezzük.
+
+### Egyenlőség
+
+Egyenlőség esetén akkor fogadjuk el a nullhipotézist, ha az $x$ **próbastasztika** értéke **egyik oldalon se lépi túl az
+általunk elvárt szintet**. Ezt úgy is megfogalmazhatjuk hogy $x$ értéke a kritikus kvantilisek között
+helyezkedik el:
+
+$$
+x \in \left( -x_{ \frac{\alpha}{2} }, \;  x_{ 1 - \frac{\alpha}{2} } \right)
+$$
+
+:::info
+Ha az eloszlás szimmetrikus
+$
+\left( -x_{ 1 - \frac{\alpha}{2} }, \;  x_{ 1 - \frac{\alpha}{2} } \right) =
+\left(x_{\frac{\alpha}{2}},  x_{1-\frac{\alpha}{2}} \right)
+$.
+:::
+
+<figure>
+    <img src="/img/probstat/u_test_equality.svg" alt="drawing"/>
+    <figcaption>Az $m=m_0$ nullhipotézis kritikus tartományai </figcaption>
+</figure>
+
+
+### Kisebb, nagyobb
+
+:::danger
+$\ge$ és $\le$ nullhipotézisek esetén **csak az eloszlás egyik oldala esik a kritikus tartományba**, Emiatt nem az
+$1-\frac{\alpha}{2}$, hanem csak simán az $1-\alpha$ kvartiliseket határozzuk meg.
+:::
+
+Nagyobb reláció esetén a túl kicsi értékeket alkotják a kritikus tartományt.
+
+<figure>
+    <img src="/img/probstat/u_test_greater.svg" alt="drawing"/>
+    <figcaption>Az $m \ge m_0$ nullhipotézis kritikus tartományai </figcaption>
+</figure>
+
+Értelemszerűen kisebb esetén pedig a túl nagy értékek.
+
+<figure>
+    <img src="/img/probstat/u_test_less.svg" alt="drawing"/>
+    <figcaption>Az $m \le m_0$ nullhipotézis kritikus tartományai </figcaption>
+</figure>

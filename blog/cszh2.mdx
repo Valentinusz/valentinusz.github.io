@@ -1,0 +1,64 @@
+# Menetrendek
+
+Feladatod egy vasúti menetrend szerkesztő alkalmazás egy részének elkészítése.
+
+:::tip
+A feladatok megoldásához nyugodtan használd a `Storage.php` osztályt!
+:::
+
+:::danger
+HTML generáláshoz minden esetben a PHP sablon szintaxisát használd. `echo` semmiképp ne szerepeljen a kódban. Ügyelj
+arra, hogy a generált oldal valid legyen.
+:::
+
+Egy vonatok egy menetrendi bejegyzése a következő módon épülnek fel:
+
+```php
+[
+    'station' => 'Siófok', #string
+    'arrivesAt' => '13:55', #string
+    'departsAt' => '13:57', #string
+]
+```
+
+
+***
+
+## 1. Megjelenítés (3,5 pont)
+
+1. Töltsd be, majd jelenítsd meg az `schedule.json` fájl tartalmát táblázatos formában! Ha nem sikerült betöltened a
+fájlt égess be egy a megadott formátumú adatokat tartalmazó tömböt. (1,5 pont)
+2. A menetrendi adatokat rendezd az `arrivesAt` adattag szerint növekvő sorrendbe! (1 pont)
+3. A táblázat minden sorában szerepeljen egy űrlapot tartalmazó cella, ami `POST` kérést küld a
+`delete.php?id=...` oldalra (ahol `...` az adott bejegyzés azonosítója)! (1 pont)
+
+
+
+***
+
+## 2. Felvétel (5 pont)
+
+:::info
+Potenciális HTML vagy SQL befecskendezésre nem kell a validálásnál figyelni!
+:::
+
+1. A `create.php` oldalon tedd lehetővé új menetrendi bejegyzés felvételét! Ehhez készíts egy űrlapot ami `POST` kérést
+küld ugyan erre az oldalra! Az űrlapon ne végezz kliensoldali validációt! (0,5 pont)
+2. Az űrlapon legyen lehetőség megadni a menetrendi bejegyzés állomását (`station`), az állomásra érkezés időpontját
+(`arrivesAt`) és indulási időpontját (`departsAt`)! (0,5 pont)
+3. Ha a `create.php` oldalra `POST` kérés érkezik ellenőrizd annak tartalmát a következő módon:
+    1. `station` kötelező, nem üres, maximum 32 karakterből áll (0,5 pont)
+    2. `arrivesAt` és `departsAt` kötelező, nem üres, a `"/^\d{2}:\d{2}$/"` reguláris kifejezésnek megfelel. (0,5 pont)\
+        Segítség: `filter_var()`, `FILTER_VALIDATE_REGEXR`
+4. Hiba esetén a megfelelő hibaüzenet az adott input mellett (vagy közvetlenül utána) jelenítsd meg! (1 pont)
+5. Gondoskodj arról, hogy hiba esetén az űrlap megtartsa állapotát! (1 pont)
+6. Ha nem következik be hiba, hozz létre egy új rekordot és mentsd el a `schedule.json` fájlba. (0,5 pont)
+
+
+***
+
+## 3. Törlés (1,5 pont)
+
+1. A `delete` oldalon, ha a kérés típusa nem 'POST' vagy nem került átadásra az `id` paraméter irányítsd át a
+felhasználót a listázó oldalra! (0,5 pont)
+2. A `delete.php`-ban töröld az `id` paraméterű rekordot a `schedule.json` fájlból! (1 pont)

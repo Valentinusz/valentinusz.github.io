@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+	<style>
+		@media (prefers-color-scheme:dark) {
+			text {
+				fill: #e3e3e3
+			}
+
+			.axis {
+				stroke: #e3e3e3
+			}
+		}
+	</style>
+	<path fill="red" d="M101.7 157a96.7 96.7 0 0 1-27.1 6.3v1.5h46v-19.5a72 72 0 0 1-19 11.7zM53.5 164.5c-8.3.2-16.6.3-25 .3h46v-1.5c-7 .7-14 1-21 1.2z" />
+	<g class="axis" fill="none" stroke="#1C1E21" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".8">
+		<path d="M120.5,135V164.9"/>
+		<path d="M28.5 164.8V20.4m0 144.4h-6.9m6.9-36.1h-6.9m6.9-36.1h-6.9m6.9-36.1h-6.9m6.9-36.1h-6.9" />
+		<path d="M28.4 164.8h367.9m-367.7 0 24.9-.3c8-.2 15.9-.6 23.8-1.6a74.8 74.8 0 0 0 45.5-19.6c6.2-5.4 11.6-12.1 16.4-19 5-7 9.5-14.2 13.8-21.7A923 923 0 0 0 165.6 79L178 56c4.1-7.4 8.6-14.8 13.8-21.4 2.7-3.5 5.7-6.6 9-9.3a20 20 0 0 1 11.3-4.6c4.2-.3 8.1 1.8 11.5 4.1a48 48 0 0 1 9 9c5.4 6.6 9.8 14.2 14 21.7 4.3 7.3 8.1 14.7 12 22.2 4.1 7.8 8.3 15.6 12.6 23.3 4.2 7.5 8.6 14.8 13.5 21.8 5 7.2 10.6 14 16.9 20a74.3 74.3 0 0 0 44.5 19.8c8.2 1 16.4 1.5 24.6 1.8 8.2.2 16.3.3 24.5.3h1.2" />
+		<path d="M74.6 170.6v-5.8m45.9 5.8v-5.8m46 5.8v-5.8m46 5.8v-5.8m46 5.8v-5.8m45.9 5.8v-5.8m46 5.8v-5.8" />
+	</g>
+	<g font-size="12">
+		<text transform="rotate(-90 94.2 79)">0,0</text>
+		<text transform="rotate(-90 76.1 61)">0,1</text>
+		<text transform="rotate(-90 58 42.9)">0,2</text>
+		<text transform="rotate(-90 40 24.8)">0,3</text>
+		<text transform="rotate(-90 22 6.8)">0,4</text>
+		<g font-style="italic">
+			<text x="108" y="185">-x<tspan dy="4" font-size=".5rem">1-α</tspan></text>
+			<text x="90" y="143">α</text>
+		</g>
+	</g>
+</svg>

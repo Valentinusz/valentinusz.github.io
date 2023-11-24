@@ -1,0 +1,53 @@
+# Incidensek
+
+Feladatod egy vasúti incidensek rögzítésére és megjelenítésére alkalmas weboldal elkészítése.
+
+A feladatok megoldásához nyugodtan használd a `Storage.php` osztályt!
+
+HTML generáláshoz minden esetben a PHP sablon szintaxisát használd. `echo` semmiképp ne szerepeljen a kódban. Ügyelj
+arra, hogy a generált oldal valid legyen.
+
+Egy incidens felépítése a következő:
+
+```php
+[
+    'date' => 1700507445, #időbélyeg
+    'description' => 'Felsővezetékszakadás', #string
+    'lat' => 52.2, #float
+    'lon' => 11.2  #float
+]
+```
+
+## 1. Megjelenítés (3,5 pont)
+
+1. Töltsd be, majd jelenítsd meg az `incidents.json` fájl tartalmát táblázatos formában! (1,5 pont)
+2. A `date` mező értékét, kiírásnál formázd a `date()` függvény segítségével a `Y. m. d. H:i:s` formátumra! (1 pont)
+3. A táblázat minden sorában szerepeljen egy űrlapot tartalmazó cella, ami `POST` kérést küld a
+`delete.php?id=...` oldalra (ahol `...` az adott incidens azonosítója)! (1 pont)
+
+## 2. Felvétel (5 pont)
+
+Potenciális HTML vagy SQL befecskendezésre nem kell a validálásnál figyelni!
+
+1. A `create.php` oldalon tedd lehetővé új incidens felvételét! Ehhez készíts egy űrlapot ami `POST` kérést küld
+ugyan erre az oldalra! Az űrlapon ne végezz kliensoldali validációt! (0,5 pont)
+2. Az űrlapon legyen lehetőség megadni az incidens leírását (`description`), helyének szélességi (`lan`)
+és hosszúsági fokát (`lon`)! (0,5 pont)
+3. Ha a `create.php` oldalra `POST` kérés érkezik ellenőrizd annak tartalmát a következő módon:
+    1. `description` kötelező, nem üres, maximum 32 karakterből áll (0,5 pont)
+    2. `lat` és `lon` kötelező, nem üres, lebegőpontos szám (0,5 pont) \
+        Segítség: `filter_var()`, `FILTER_VALIDATE_FLOAT`
+4. Hiba esetén a megfelelő hibaüzenet az adott input mellett (vagy közvetlenül utána) jelenítsd meg! (1 pont)
+5. Gondoskodj arról, hogy hiba esetén az űrlap megtartsa állapotát! (1 pont)
+6. Ha nem következik be hiba, hozz létre egy új rekordot (a korábban megadott formátum alapján) és mentsd
+el az `incidents.json` fájlba.
+    1. a date mező értéke legyen a jelenlegi időbélyeg! (0,5 pont) \
+        Segítség: `time()`
+    2. a `lat` és `lon` mezőket lebegőpontos számként tárold el. (0,5 pont) \
+        Segítség: `floatval()`
+
+## 3. Törlés (1,5 pont)
+
+1. A `delete` oldalon, ha a kérés típusa nem 'POST' vagy nem került átadásra az `id` paraméter irányítsd át a
+felhasználót a listázó oldalra! (0,5 pont)
+2. A `delete.php`-ban töröld az `id` paraméterű rekordot az `incidents.json` fájlból! (1 pont)

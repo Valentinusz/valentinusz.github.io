@@ -1,6 +1,72 @@
 # Statisztika
 
-Adott egy $n$ elemű független elemekből $x_1,x_2,\dots,x_n$ álló mintahalmaz. A mintaelemek egy adott független
-valószínűségi változó lehetséges értékei. A valószínűségi változók azonos eloszlásúak.
 
-A statisztika arról szól, hogyan lehet ilyen mintahalmazok alapján becsléseket adni.
+:::info[Definíció]
+Független azonos eloszlású, **valószínűségi változók** egy $X_1, X_2, \dots X_n$ **sorozatát** mintának nevezzük. A
+valószínűségi változók egy konkrét $\omega$ eseményre való kiértékelését azaz a
+$X_1(\omega) = x_1 , \dots, X_n(\omega) = x_n$ sorozatot pedig a minta **realizáció**jának nevezzük.
+:::
+
+A statisztika célja, az adathalmaz leírása és az adathalmaz forrását képező jelenség viselkedésének becslése.
+
+:::info[Definíció (Statisztikai függvény)]
+Statisztika függvénynek (vagy röviden csak statisztikának) nevezzük az olyan **többváltozós függvény**eket, melyekbe egy
+**minta elemeit helyettesítjük**.
+:::
+
+Ilyen például a jól ismert **mintaátlag**:
+
+$$
+T(X_1, X_2) = \frac{X_1+X_2}{2}
+$$
+
+## Nevezetes statisztikák
+
+Tekintsük adottnak az $X$ mintát, ekkor a statisztikai függvények a következők. 
+
+
+### (Minta)átlag
+
+$$
+\overline{X} = \frac{1}{n} \sum_{i=1}^{n}{X_i}
+$$
+
+
+### Tapasztalati szórás
+
+Az átlag való átlagos abszolút eltérés.
+
+$$
+S_n = \sqrt{\frac{1}{n} \sum_{i=1}^{n}{\left( X_i - \overline{X} \right)^2}}
+$$
+
+
+### Korrigált tapasztalati szórás
+
+$$
+S_n^* = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}{\left( X_i - \overline{X} \right)^2}}
+$$
+
+
+### Tapasztalati módusz
+
+A leggyakrabban előfordulú elem.
+
+
+### Rendezett minta
+
+Az $X = X_1, \dots, X_n$ minta rendezése: $X_1^* \le \dots \le X_n^*$.
+
+
+### Tapasztalati módusz
+
+A rendezett minta középső eleme (vagy páros elemszám esetén a két középső elem átlaga), azaz.
+
+
+### Terjedelem
+
+A rendezett minta utolsó és első elemének különbsége.
+
+$$
+R = X_n^* - X_1^*
+$$
