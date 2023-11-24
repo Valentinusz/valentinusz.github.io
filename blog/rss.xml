@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Boda Bálint Blog</title>
+        <link>https://valentinusz.github.io/blog</link>
+        <description>Boda Bálint Blog</description>
+        <lastBuildDate>Fri, 24 Nov 2023 12:34:47 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>hu</language>
+        <item>
+            <title><![CDATA[Menetrendek]]></title>
+            <link>https://valentinusz.github.io/blog/cszh2</link>
+            <guid>https://valentinusz.github.io/blog/cszh2</guid>
+            <pubDate>Fri, 24 Nov 2023 12:34:47 GMT</pubDate>
+            <description><![CDATA[Feladatod egy vasúti menetrend szerkesztő alkalmazás egy részének elkészítése.]]></description>
+            <content:encoded><![CDATA[<p>Feladatod egy vasúti menetrend szerkesztő alkalmazás egy részének elkészítése.</p>
+<div class="theme-admonition theme-admonition-tip admonition_Gfwi alert alert--success"><div class="admonitionHeading_f1Ed"><span class="admonitionIcon_kpSf"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tanács</div><div class="admonitionContent_UjKb"><p>A feladatok megoldásához nyugodtan használd a <code>Storage.php</code> osztályt!</p></div></div>
+<div class="theme-admonition theme-admonition-danger admonition_Gfwi alert alert--danger"><div class="admonitionHeading_f1Ed"><span class="admonitionIcon_kpSf"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>veszély</div><div class="admonitionContent_UjKb"><p>HTML generáláshoz minden esetben a PHP sablon szintaxisát használd. <code>echo</code> semmiképp ne szerepeljen a kódban. Ügyelj
+arra, hogy a generált oldal valid legyen.</p></div></div>
+<p>Egy vonatok egy menetrendi bejegyzése a következő módon épülnek fel:</p>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#000000;--prism-background-color:#ffffff"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#000000;background-color:#ffffff"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#000000"><span class="token punctuation" style="color:rgb(4, 81, 165)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'station'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'Siófok'</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(0, 128, 0)">#string</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'arrivesAt'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'13:55'</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(0, 128, 0)">#string</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'departsAt'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'13:57'</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(0, 128, 0)">#string</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain"></span><span class="token punctuation" style="color:rgb(4, 81, 165)">]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Másolás a vágólapra" title="Másolás" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-megjelenítés-35-pont">1. Megjelenítés (3,5 pont)<a href="https://valentinusz.github.io/blog/cszh2#1-megjelen%C3%ADt%C3%A9s-35-pont" class="hash-link" aria-label="Közvetlen hivatkozás erre: 1. Megjelenítés (3,5 pont)" title="Közvetlen hivatkozás erre: 1. Megjelenítés (3,5 pont)">​</a></h2>
+<ol>
+<li>Töltsd be, majd jelenítsd meg az <code>schedule.json</code> fájl tartalmát táblázatos formában! Ha nem sikerült betöltened a
+fájlt égess be egy a megadott formátumú adatokat tartalmazó tömböt. (1,5 pont)</li>
+<li>A menetrendi adatokat rendezd az <code>arrivesAt</code> adattag szerint növekvő sorrendbe! (1 pont)</li>
+<li>A táblázat minden sorában szerepeljen egy űrlapot tartalmazó cella, ami <code>POST</code> kérést küld a
+<code>delete.php?id=...</code> oldalra (ahol <code>...</code> az adott bejegyzés azonosítója)! (1 pont)</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-felvétel-5-pont">2. Felvétel (5 pont)<a href="https://valentinusz.github.io/blog/cszh2#2-felv%C3%A9tel-5-pont" class="hash-link" aria-label="Közvetlen hivatkozás erre: 2. Felvétel (5 pont)" title="Közvetlen hivatkozás erre: 2. Felvétel (5 pont)">​</a></h2>
+<div class="theme-admonition theme-admonition-info admonition_Gfwi alert alert--info"><div class="admonitionHeading_f1Ed"><span class="admonitionIcon_kpSf"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>információ</div><div class="admonitionContent_UjKb"><p>Potenciális HTML vagy SQL befecskendezésre nem kell a validálásnál figyelni!</p></div></div>
+<ol>
+<li>A <code>create.php</code> oldalon tedd lehetővé új menetrendi bejegyzés felvételét! Ehhez készíts egy űrlapot ami <code>POST</code> kérést
+küld ugyan erre az oldalra! Az űrlapon ne végezz kliensoldali validációt! (0,5 pont)</li>
+<li>Az űrlapon legyen lehetőség megadni a menetrendi bejegyzés állomását (<code>station</code>), az állomásra érkezés időpontját
+(<code>arrivesAt</code>) és indulási időpontját (<code>departsAt</code>)! (0,5 pont)</li>
+<li>Ha a <code>create.php</code> oldalra <code>POST</code> kérés érkezik ellenőrizd annak tartalmát a következő módon:<!-- -->
+<ol>
+<li><code>station</code> kötelező, nem üres, maximum 32 karakterből áll (0,5 pont)</li>
+<li><code>arrivesAt</code> és <code>departsAt</code> kötelező, nem üres, a <code>"/^\d{2}:\d{2}$/"</code> reguláris kifejezésnek megfelel. (0,5 pont)<br>
+<!-- -->Segítség: <code>filter_var()</code>, <code>FILTER_VALIDATE_REGEXR</code></li>
+</ol>
+</li>
+<li>Hiba esetén a megfelelő hibaüzenet az adott input mellett (vagy közvetlenül utána) jelenítsd meg! (1 pont)</li>
+<li>Gondoskodj arról, hogy hiba esetén az űrlap megtartsa állapotát! (1 pont)</li>
+<li>Ha nem következik be hiba, hozz létre egy új rekordot és mentsd el a <code>schedule.json</code> fájlba. (0,5 pont)</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-törlés-15-pont">3. Törlés (1,5 pont)<a href="https://valentinusz.github.io/blog/cszh2#3-t%C3%B6rl%C3%A9s-15-pont" class="hash-link" aria-label="Közvetlen hivatkozás erre: 3. Törlés (1,5 pont)" title="Közvetlen hivatkozás erre: 3. Törlés (1,5 pont)">​</a></h2>
+<ol>
+<li>A <code>delete</code> oldalon, ha a kérés típusa nem 'POST' vagy nem került átadásra az <code>id</code> paraméter irányítsd át a
+felhasználót a listázó oldalra! (0,5 pont)</li>
+<li>A <code>delete.php</code>-ban töröld az <code>id</code> paraméterű rekordot a <code>schedule.json</code> fájlból! (1 pont)</li>
+</ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Incidensek]]></title>
+            <link>https://valentinusz.github.io/blog/feladat</link>
+            <guid>https://valentinusz.github.io/blog/feladat</guid>
+            <pubDate>Fri, 24 Nov 2023 12:34:47 GMT</pubDate>
+            <description><![CDATA[Feladatod egy vasúti incidensek rögzítésére és megjelenítésére alkalmas weboldal elkészítése.]]></description>
+            <content:encoded><![CDATA[<p>Feladatod egy vasúti incidensek rögzítésére és megjelenítésére alkalmas weboldal elkészítése.</p>
+<div class="theme-admonition theme-admonition-tip admonition_Gfwi alert alert--success"><div class="admonitionHeading_f1Ed"><span class="admonitionIcon_kpSf"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tanács</div><div class="admonitionContent_UjKb"><p>A feladatok megoldásához nyugodtan használd a <code>Storage.php</code> osztályt!</p></div></div>
+<div class="theme-admonition theme-admonition-danger admonition_Gfwi alert alert--danger"><div class="admonitionHeading_f1Ed"><span class="admonitionIcon_kpSf"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>veszély</div><div class="admonitionContent_UjKb"><p>HTML generáláshoz minden esetben a PHP sablon szintaxisát használd. <code>echo</code> semmiképp ne szerepeljen a kódban. Ügyelj
+arra, hogy a generált oldal valid legyen.</p></div></div>
+<p>Egy incidens felépítése a következő:</p>
+<div class="language-php codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#000000;--prism-background-color:#ffffff"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-php codeBlock_bY9V thin-scrollbar" style="color:#000000;background-color:#ffffff"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#000000"><span class="token punctuation" style="color:rgb(4, 81, 165)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'date'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token number" style="color:rgb(9, 134, 88)">1700507445</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(0, 128, 0)">#időbélyeg</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'description'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'Felsővezetékszakadás'</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(0, 128, 0)">#string</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'lat'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token number" style="color:rgb(9, 134, 88)">52.2</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"> </span><span class="token comment" style="color:rgb(0, 128, 0)">#float</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string single-quoted-string" style="color:rgb(163, 21, 21)">'lon'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(0, 0, 0)">=&gt;</span><span class="token plain"> </span><span class="token number" style="color:rgb(9, 134, 88)">11.2</span><span class="token plain">  </span><span class="token comment" style="color:rgb(0, 128, 0)">#float</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain"></span><span class="token punctuation" style="color:rgb(4, 81, 165)">]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Másolás a vágólapra" title="Másolás" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-megjelenítés-35-pont">1. Megjelenítés (3,5 pont)<a href="https://valentinusz.github.io/blog/feladat#1-megjelen%C3%ADt%C3%A9s-35-pont" class="hash-link" aria-label="Közvetlen hivatkozás erre: 1. Megjelenítés (3,5 pont)" title="Közvetlen hivatkozás erre: 1. Megjelenítés (3,5 pont)">​</a></h2>
+<ol>
+<li>Töltsd be, majd jelenítsd meg az <code>incidents.json</code> fájl tartalmát táblázatos formában! (1,5 pont)</li>
+<li>A <code>date</code> mező értékét, kiírásnál formázd a <code>date()</code> függvény segítségével a `Y. m. d. H:i<!-- -->:s<!-- -->` formátumra! (1 pont)</li>
+<li>A táblázat minden sorában szerepeljen egy űrlapot tartalmazó cella, ami <code>POST</code> kérést küld a <code>delete.php?id=...</code>
+oldalra (ahol <code>...</code> az adott incidens azonosítója)! (1 pont)</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-felvétel-5-pont">2. Felvétel (5 pont)<a href="https://valentinusz.github.io/blog/feladat#2-felv%C3%A9tel-5-pont" class="hash-link" aria-label="Közvetlen hivatkozás erre: 2. Felvétel (5 pont)" title="Közvetlen hivatkozás erre: 2. Felvétel (5 pont)">​</a></h2>
+<div class="theme-admonition theme-admonition-info admonition_Gfwi alert alert--info"><div class="admonitionHeading_f1Ed"><span class="admonitionIcon_kpSf"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>információ</div><div class="admonitionContent_UjKb"><p>Potenciális HTML vagy SQL befecskendezésre nem kell a validálásnál figyelni!</p></div></div>
+<ol>
+<li>A <code>create.php</code> oldalon tedd lehetővé új incidens felvételét! Ehhez készíts egy űrlapot ami <code>POST</code> kérést küld
+ugyan erre az oldalra! Az űrlapon ne végezz kliensoldali validációt! (0,5 pont)</li>
+<li>Az űrlapon legyen lehetőség megadni az incidens leírását (<code>description</code>), helyének szélességi (<code>lan</code>) és
+hosszúsági fokát (<code>lon</code>)! (0,5 pont)</li>
+<li>Ha a <code>create.php</code> oldalra <code>POST</code> kérés érkezik ellenőrizd annak tartalmát a következő módon:<!-- -->
+<ol>
+<li><code>description</code> kötelező, nem üres, maximum 32 karakterből áll (0,5 pont)</li>
+<li><code>lat</code> és <code>lon</code> kötelező, nem üres, lebegőpontos szám (0,5 pont) <br>
+<!-- -->Segítség: <code>filter_var()</code>, <code>FILTER_VALIDATE_FLOAT</code></li>
+</ol>
+</li>
+<li>Hiba esetén a megfelelő hibaüzenet az adott input mellett (vagy közvetlenül utána) jelenítsd meg! (1 pont)</li>
+<li>Gondoskodj arról, hogy hiba esetén az űrlap megtartsa állapotát! (1 pont)</li>
+<li>Ha nem következik be hiba, hozz létre egy új rekordot (a korábban megadott formátum alapján) és mentsd el az
+<code>incidents.json</code> fájlba.<!-- -->
+<ol>
+<li>a date mező értéke legyen a jelenlegi időbélyeg! (0,5 pont) <br>
+<!-- -->Segítség: <code>time()</code></li>
+<li>a <code>lat</code> és <code>lon</code> mezőket lebegőpontos számként tárold el. (0,5 pont) <br>
+<!-- -->Segítség: <code>floatval()</code></li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-törlés-15-pont">3. Törlés (1,5 pont)<a href="https://valentinusz.github.io/blog/feladat#3-t%C3%B6rl%C3%A9s-15-pont" class="hash-link" aria-label="Közvetlen hivatkozás erre: 3. Törlés (1,5 pont)" title="Közvetlen hivatkozás erre: 3. Törlés (1,5 pont)">​</a></h2>
+<ol>
+<li>A <code>delete</code> oldalon, ha a kérés típusa nem 'POST' vagy nem került átadásra az <code>id</code> paraméter irányítsd át a
+felhasználót a listázó oldalra! (0,5 pont)</li>
+<li>A <code>delete.php</code>-ban töröld az <code>id</code> paraméterű rekordot az <code>incidents.json</code> fájlból! (1 pont)</li>
+</ol>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
