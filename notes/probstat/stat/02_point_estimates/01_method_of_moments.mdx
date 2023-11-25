@@ -1,21 +1,6 @@
 # Momentum módszer
 
-Legyen $X$ egy valószínűségi változó és $k \in \mathbb{N}+$, akkor az $X$ változó $k$-adik momentuma:
-$$
-\E(X^k)
-$$
-
-Például a második momentum $\E(X^2)$.
-
-:::tip
-$\E(x^2)$-et könnyen kifejezhetjük szórásnégyzet definíciójából:
-
-$$
-\E(X^2) = \D^2(X) + \E^2(X)
-$$
-:::
-
-:::info[Definíció (momentum becslés)]
+::::info[Definíció (momentum becslés)]
 
 Adottak az, $X_1, X_2, \dots, X_n$ független és azonos eloszlású valószínűségi változók. Mivel azonos eloszlásúak minden
 $k \in \mathbb{N}+$ esetén
@@ -34,9 +19,16 @@ $$
 \E(x_1^k) & = \frac{x_1^k + \dots + x_n^k}{n}
 \end{align*}\right.
 $$
-:::
 
-Az eddig tanult eloszlások (a Hipergeometriai kivételével) maximum két paraméterrel rendelkeznek ezért könnyű
+:::tip
+Az elszolások nagy része maximum két paraméterrel rendelkezik, ezért sokszor csak egy kétismeretlenes egyenletrendszert
+kell megoldanunk, melyben $\E(x^2)$-et könnyen kifejezhetjük szórásnégyzet definíciójából:
+
+$$
+\E(X^2) = \D^2(X) + \E^2(X)
+$$
+:::
+::::
 
 :::example
 Adott a következő diszkrét eloszlás:
@@ -57,7 +49,7 @@ Az eloszlásból egy 20 elemű mintát veszünk
 
 Adjunk becslést a $c$ paraméterre momentum módszerrel!
 
-Tudjuk, hogy diszkrét eloszlás esetén a várható érték:
+Tudjuk, hogy diszkrét eloszlás esetén a várható értéke:
 $$
 \E(X) = 4 \cdot c + 1 \cdot 3c + (1- 4c) \cdot 2 = 2 - 6c
 $$

@@ -191,16 +191,29 @@ dolgozna.
 
 :::example
 ### 5.4
+Adott két szervergép. Az elsőn 30 futtatás átlagos ideje 6,7 másodperc a másikon 20 futtatás esetén ez az átlag 7,2
+másodperc. A futási idők szórása mindkét gépen 0,5 másodperc.
+
+Van-e szignifikáns különbség a két szerver sebessége között?
+
+$H_0: m_1 = m_2$\
+$H_1: m_1 \ne m_2$ 
+
 Mivel a szórások ismertek és a mintahalmazok függetlenek ezért kétmintás $u$-próbát hajtunk végre:
 
 $$
-
+\mathrm{T}(X, Y) = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{\sigma_1^2}{n} + \frac{\sigma_2^2}{m}}} = 
 \frac{6,7 - 7,2}{\sqrt{\frac{0,5^2}{30} + \frac{0,5^2}{20}}} \approx -3,46
 
 $$
 
-Mivel $u_{0,975} = 1,96$. Azt feltételezhetjük, hogy szignifikáns különbség van a két szerver között, mert -3,46 kívül
-esik az elfogadási tartományon.
+$u_{0,025} = -1,96$. Így, mivel
+
+$$
+-3,46 \notin \left( -1,96; 1,96 \right)
+$$
+
+ezért az ellenhipotézist fogadjuk el. Így azt feltételezhetjük, hogy szignifikáns különbség van a két szerver között.
 :::
 
 
@@ -232,13 +245,19 @@ Erre egy egymintás $t$-próbát kell végrehajtani. Jelölje $m_k$ a minták v�
 $H_{t_0}: m_{k} =   0$ \
 $H_{t_1}: m_{k} \ne 0$
 
-Ha a $H_{t_0}$ nullhipotézis igaz, a próbastatisztika $t$-eloszlást követ.
+Ha a $H_{t_0}$ nullhipotézis igaz, a próbastatisztika $t_{9}$-eloszlást követ.
 
-$ \overline{S} = 0,3$, így
+$ \overline{S} = 0,3$, így elvégezve a behelyettesítést:
+
+
 
 $$
-\frac{0.3 - 0}{\frac{\sqrt{\frac{1}{9} \cdot \sum{(X_i-0.3^2)}}}{\sqrt{10}}} \approx 2,038
+\sqrt{n} \cdot \frac{ \overline{X} - m_0 }{ S_n^* } =
+\sqrt{10} \cdot \frac{ 0,3 - 0 }{ \sqrt{\frac{1}{9} \cdot \sum{(X_i-0.3^2)}} } \approx 2,038
 $$
 
-A $t_{9,1-\frac{\alpha}{2}} = 2,262$. Mivel $-2,262 < 2,038 < 2,262 $, ezért feltételezhető, hogy a légszeenyezés
-nem változott.
+Egyenlőséget vizsgálunk ezért a lehetséges értékek két szélét kell kritikus tartománynak venni.
+
+$t_{9;0,025} = -2,262$. Mivel $-2,262 < 2,038 < 2,262 $, ezért elfogadjuk a nullhipotézist, tehát kimondhatjuk, hogy a
+legszennyezés nem változott.
+:::

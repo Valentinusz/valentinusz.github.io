@@ -1,67 +1,104 @@
 # Statisztika
 
+> A statisztika a valóság számszerű információinak megfigyelésére, összegzésére, elemzésére és modellezésére irányuló
+> gyakorlati tevékenység és tudomány.
+>
+> — Wikipédia
+
 
 :::info[Definíció]
-Független azonos eloszlású, **valószínűségi változók** egy $X_1, X_2, \dots X_n$ **sorozatát** mintának nevezzük. A
-valószínűségi változók egy konkrét $\omega$ eseményre való kiértékelését azaz a
-$X_1(\omega) = x_1 , \dots, X_n(\omega) = x_n$ sorozatot pedig a minta **realizáció**jának nevezzük.
+Független azonos eloszlású, **valószínűségi változók** egy $X_1, X_2, \dots X_n$ **sorozatát** mintának nevezzük.
+
+A valószínűségi változók egy konkrét $\omega$ **eseményre való kiértékelését** azaz a
+$X_1(\omega) = x_1 , X_2(\omega) = x_2 , \dots, X_n(\omega) = x_n$ sorozatot a minta **realizáció**jának nevezzük.
+
+Az $(n-1)$ számot a minta **szabadsági fok**ának nevezzük.
 :::
 
-A statisztika célja, az adathalmaz leírása és az adathalmaz forrását képező jelenség viselkedésének becslése.
+Minta például:
+- egy hét napi középhőmérsékletei
+- egy osztály testmagasságai
+- egy részvény napi árfolyama
+
+
+A statisztika, mint tudományág minták elemzésével foglalkozik.
 
 :::info[Definíció (Statisztikai függvény)]
-Statisztika függvénynek (vagy röviden csak statisztikának) nevezzük az olyan **többváltozós függvény**eket, melyekbe egy
-**minta elemeit helyettesítjük**.
+Statisztika függvénynek (vagy röviden csak **statisztikának**) nevezzük az olyan **többváltozós függvény**eket, melyek
+értelmezési tartománya **minta elemeit helyettesítjük**.
 :::
 
-Ilyen például a jól ismert **mintaátlag**:
+Ez a definíció lehetővé teszi számunkra, az adathalmaz leírását, illetve következtetéséket felállísát is.
 
-$$
-T(X_1, X_2) = \frac{X_1+X_2}{2}
-$$
+Statisztika például a jól ismert és gyakran előforduló átlag, szórás, módusz és medián.
+
+
 
 ## Nevezetes statisztikák
 
-Tekintsük adottnak az $X$ mintát, ekkor a statisztikai függvények a következők. 
+Tekintsük adottnak az $X = X_1, X_2, \dots X_n$ mintát, ekkor statisztikák a következők. 
 
 
-### (Minta)átlag
+### Mintaátlag
+A minta elemeinek összege osztva a minta számosságával.
 
 $$
 \overline{X} = \frac{1}{n} \sum_{i=1}^{n}{X_i}
 $$
 
+:::note
+Ez éppen a várható érték $\E(X)$.
+:::
+
 
 ### Tapasztalati szórás
 
-Az átlag való átlagos abszolút eltérés.
+Az mintaelemek átlagtól való átlagos abszolút eltérés.
 
 $$
-S_n = \sqrt{\frac{1}{n} \sum_{i=1}^{n}{\left( X_i - \overline{X} \right)^2}}
+s_n = \sqrt{\frac{1}{n} \sum_{i=1}^{n}{\left( X_i - \overline{X} \right)^2}}
 $$
+
+:::note
+A tapasztalati elnevezés arra utal, hogy a minta elemei alapján áll elő.
+:::
 
 
 ### Korrigált tapasztalati szórás
 
 $$
-S_n^* = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}{\left( X_i - \overline{X} \right)^2}}
+s_n^* = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n}{\left( X_i - \overline{X} \right)^2}}
+$$
+
+:::note
+Tehát nem az elemszámmal hanem a minta szabadsági fokával osztunk.
+:::
+
+
+### Tapasztalati momentum
+
+Legyen $k \in \mathbb{N}^+$, ekkor a $k$-adik tapasztalati momentum:
+
+$$
+m_k = \frac{1}{n} \sum_{i=1}^{n}{X_i^k}
 $$
 
 
 ### Tapasztalati módusz
 
-A leggyakrabban előfordulú elem.
+A leggyakrabban előfordulú érték.
 
 
 ### Rendezett minta
 
-Az $X = X_1, \dots, X_n$ minta rendezése: $X_1^* \le \dots \le X_n^*$.
+Az $X = X_1, \dots, X_n$ minta rendezése nem csökkenő sorrendben: $X_1^* \le \dots \le X_n^*$.
 
 
 ### Tapasztalati módusz
 
-A rendezett minta középső eleme (vagy páros elemszám esetén a két középső elem átlaga), azaz.
-
+A rendezett minta
+- középső ($X^*_{\frac{n+1}{2}}$) eleme, ha a minta számossága páratlan
+- a két középső elemek ($X^*_{\frac{n}{2}}$ és $X^*_{\frac{n+1}{2}}$) átlaga, ha a minta számossága páros
 
 ### Terjedelem
 
@@ -70,3 +107,28 @@ A rendezett minta utolsó és első elemének különbsége.
 $$
 R = X_n^* - X_1^*
 $$
+
+
+### Kvantilis
+
+A $q_z$ kvantilis alatt a minta egy olyan feloszlását értjük, ahol a mintaelemek $z$-ed része legfeljebb a további
+$(1-z)$-ed része pedig legalább a $q_z$ értéket veszi fel.
+
+#### Kvartilis
+
+Kvartilisnek nevezzük a
+- $Q_1 = q_{\frac{1}{4}}$: alsó (vagy első) kvartilis
+- $Q_2 = q_{\frac{1}{2}}$: medián
+- $Q_3 = q_{\frac{3}{4}}$: felső kvartilis
+
+kvantiliseket.
+
+A Big Data tárgyról ismert Pokémon adathalmaz `HP` értékeinek kvartilisei:
+
+<div className='show-table'>
+    | Kvartilis | Érték |
+    |:---------:|:-----:|
+    |$Q_1$      |50     |
+    |$Q_2$      |65     |
+    |$Q_3$      |80     |
+</div>

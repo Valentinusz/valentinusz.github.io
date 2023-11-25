@@ -1,0 +1,95 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Becslések
+
+A statisztika egy fontos területe a becslés.
+
+Tiszta matematikai szempontból a valószínűségszámításnál szerencsénk volt, hiszen mindig olyan eloszlásokról beszéltünk,
+melyeknek paramétereit ismertük.
+
+Valós minták esetén azonban sokszor nem ismerjük az eloszlások paramétereit ezért azokra becsléseket kell adnunk.
+
+::::info[Definíció (torzítatlan becslés)]
+A $T(X_1, X_2, \dots, X_n)$ statisztikai függvény torzítatlanul becsli a $g(p)$ függvényt, ha a tetszőleges $p$
+paraméter esetén:
+
+$$
+\E_p(T(X_1, X_2, \dots, X_n)) = g(p)
+$$
+
+:::note
+$g$ általában az identitásfüggvény.
+:::
+::::
+
+Torzítatlan becslés például a mintaátlag:
+$X_1, X_2, \dots, X_n$ azonos eloszlású valószínűségi változók. Legyen
+
+$$
+\begin{align*}
+T(X_1, X_2, \dots, X_n) &= \frac{X_1 + X_2 + \dots + X_n}{n} \\
+E(X_i) &= p
+\end{align*}
+$$
+
+Ekkor:
+$$
+E_p(T(X_1, X_2, \dots, X_n)) = \E_p \left( {\frac{X_1 + X_2 + \dots + X_n}{n}} \right)
+$$
+
+Ami
+
+$$
+\begin{align*}
+\E_p\left( \frac{1}{n} \cdot \sum_{i=0}^{n}{(X_i)} \right) &= \text{(várható érték additív)} \\
+&= \frac{1}{n} \cdot \sum_{i=0}^{n}{\E_p(X_i)} \\
+&= \frac{1}{n} \cdot n \cdot p \\
+&= p
+\end{align*}
+$$
+
+***
+
+Torzítatlan becslés még a relatív gyakoriság is. Legyen adott egy $p$ valószínűségű esemény, ekkor az eseményeket
+egy-egy indikátor változóval tudjuk reprezentálni.
+
+$$
+\begin{cases}
+X_i = \frac{1}{n}, \quad &\text{ha sikeres az } i \text{-edik kísérlet} \\
+X_i = 0, \quad &\text{különben}
+\end{cases}
+$$
+
+Ekkor $\underbrace{X_1 + X_2 + \dots + X_k}_{k}$ éppen $\frac{k}{n}$, ami a relatív gyakoriság, így
+
+$$
+\E(X_1 + X_2 + \dots + X_k) = \sum_{i=1}^{n}\E(X_i) = n \cdot p \cdot \frac{1}{n} = p
+$$
+
+:::example[Példa (4.1)]
+Legyenek $X_1, X_2, \dots, X_n$ azonos eloszlású valószínűségi változók, $m$ várható értékkel.
+
+<Tabs>
+    <TabItem value='a)'>
+        Torzítatlan becslés-e $T(X) = X_8$?
+
+        $$
+        \E_m(T(X_1, \dots, X_n)) = \E_m(X_8) = m
+        $$
+    </TabItem>
+    <TabItem value='b)'>
+        Torzítatlan becslés-e $\frac{X_9 + X_{19}}{9}$?
+
+        $$
+        \E_m(T(X_1, \dots, X_n)) =
+        \E_m\left(\frac{X_9 + X_{19}}{9}\right) =
+        \frac{1}{9} \cdot \left(\E_m(X_9) + \E_m(X_{19}) \right) =
+        \frac{1}{9} \cdot 2m
+        \frac{2}{9}m
+        $$
+        
+        Tehát a becslés torzított, de ha $\frac{9}{2}$-el szorozzuk torzítatlan becslést kapunk.
+    </TabItem>
+</Tabs>
+:::

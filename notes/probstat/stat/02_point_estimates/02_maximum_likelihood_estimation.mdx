@@ -1,7 +1,7 @@
 # Maximum likelihood módszer
 
-Adott egy $n$ független elemből $x_1,x_2,\dots,x_n$ álló mintahalmaz. A mintaelemek egy adott független
-valószínűségi változó lehetséges értékei. Egyetlen ismeretlen paraméterünk van, amit $\lambda$-val jelölünk.
+Adott egy $n$ független, azonos eloszlású elemből $X_1,X_2,\dots,X_n$ álló minta. Egyetlen ismeretlen paraméterünk van,
+amit $\lambda$-val jelölünk.
 
 :::info[Definíció (likelihood függvény)]
 Az $x_1,x_2,\dots,x_n$ elemek együttes sűrűségfüggvénye
@@ -20,8 +20,16 @@ Ezt a maximális értéket nyilvánvalóan a likelihood függvény deriválásá
 egy sok tagból álló szorzatfüggvény így deriválása nehéz.
 
 :::tip
-A becslés során célszerű a függvény logaritmusát az ún. log-likelihood függvényt venni. Így a logaritmus azonosságait
-kihasználva, jelentősen le tudjuk egyszerűsíteni a számításokat.
+A becslés során **célszerű a függvény logaritmusát** az ún. **log-likelihood** függvényt venni. Így a **logaritmus
+azonosságait kihasználva**, jelentősen le tudjuk egyszerűsíteni a számításokat.
+
+$$
+\begin{align*}
+\log_a(xy)                     &= \log_a(x) + \log_a(y) \\
+\log_a\left(\frac{x}{y}\right) &= \log_a(x) - \log_a(y) \\
+\log_a(x^n)                    &= n \cdot \log_a(x)
+\end{align*}
+$$
 :::
 
 :::example[Példa (4.3)]
@@ -59,8 +67,7 @@ $$
 c = \frac{7}{40}
 $$
 
-(Még le kéne ellenőrizni, hogy $c$ valóban maximum hely-e ($f'$ pozitívból negatívba vált $c$-ben), de ez nem ennek a
-tárgynak célja.)
+(Még le kéne ellenőrizni, hogy $c$ valóban maximum hely-e de ez már az analízis feladata.)
 :::
 
 
