@@ -1,0 +1,98 @@
+# Khí négyzet próba
+
+## Diszkrét illeszkedés
+
+Adott egy $n$ elemű minta, ahol $r$-féle értéket vesznek fel a minták. Jelölje ezeket $x_1, x_2, \dots x_r$.
+
+Az $x_i$ elem előfordulása (multiplicitása) legyen: $v_i (i=1,2,\dots,r)$. Ekkor nullhipotézisként tegyük fel, hogy ez
+illeszkedik valamilyen diszkrét eloszlásra. Azaz
+
+$$
+\Pr(X_j = x_j) \quad (j=1,\dots,r)
+$$
+
+Ellenhipotézis, hogy van olyan $j$, amire az előző feltétel nem teljesül.
+
+Ha a nullhipotézis teljesül, a
+
+$$
+\sum_{j=1}^{r}{\frac{\left( v_j - n \cdot p_j \right)^2}{n \cdot p_j}}
+$$
+
+próbastasztika $\chi^2$ eloszlást követ $(r-1)$ paraméterrel.
+
+## Függetlenségvizsgálat
+
+Adott egy $n$-elemű független elemekből álló minta, melynek elemeit két szempont szerint osztályozzuk.
+
+Az 1. szempont szerint legyen $r$ kategóriánk (pl. szín), a 2. szempont szerint pedig $s$ (pl. tömeg). Ebből egy
+$r \times s$ mátrixot konstruálunk, ahol mátrix egy adott eleme $v_{ij}$, azt adja meg hány olyan mintaelem van, ami az
+első szempont szerint az $i$-edik a második szempont szerint a $j$-edik kategóriába esik.
+
+Annak (elméleti) valószínűsége, hogy egy elem az $i$-edik és $j$-edik kategóriába esik legyen $p_{ij}$.
+
+Legyen 
+
+$$
+v_{i\circ} = \sum_{j=1}^{s}{v_{ij}} \qquad \text{és} \qquad v_{\circ j} = \sum_{i=1}^{r}{v_{ij}}
+$$
+
+valamint
+
+$$
+p_{i\circ} = \sum_{j=1}^{s}{p_{ij}} \qquad \text{és} \qquad p_{\circ j} = \sum_{i=1}^{r}{p_{ij}}
+$$
+
+Ekkor nullhipotézisünk, hogy a két szempont független, azaz $p_{ij} = p_{i\circ} \cdot p_{\circ j}$.
+
+Ekkor, ha teljesül a nullhipotézis a
+
+$$
+T_n = \sum_{i=1}^{r}{\sum_{j=1}^{s}{\frac{\left( v_{ij} - \frac{v_{i\circ} \cdot v_{\circ j}}{n} \right)^2}{\frac{v_{i\circ} \cdot v_{\circ j}}{n}}}}
+$$
+
+próbastasztika $\chi^2$ eloszlást követ $(r-1) \cdot (s-1)$ paraméterrel.
+
+
+:::example[Példa 6.1]
+Egy gyárban egy termék min˝oségét 4 elem˝u mintákat véve ellen˝orzik, havonta 300 mintavétellel. Megszámolták,
+hogy a legutóbbi hónapban hányszor volt selejtes a minta, melynek eredményiet az alábbi táblázat tartalmazza:
+
+Selejtesek száma 0 1 2 3 4
+Darabszám 80 113 77 27 3
+
+Modellezhet˝o a mintákban lev˝o selejtesek száma
+a) (4; 0; 25), ill.
+b) (4; p) paraméter˝u binomiális eloszlással (alfa) = 0; 05)?
+
+$H_0: \mathrm{Bin}{(4, \frac{1}{4})}$ eloszlású
+
+Ellenőriznünk, kell, hogy valóban megfelelnek-e az adatok a megadott eloszlásnak:
+
+$$
+\begin{align*}
+\Pr(X = 0) &= {4 \choose 0} \cdot \left(\frac{1}{4}\right)^0 \cdot \left(\frac{3}{4}\right)^4 = \left(\frac{3}{4}\right)^4 \\
+\Pr(X = 1) &= {4 \choose 1} \cdot \left(\frac{1}{4}\right)^1 \cdot \left(\frac{3}{4}\right)^3 = 4 \cdot \frac{1}{4} \cdot \left(\frac{3}{4}\right)^3\\
+\Pr(X = 2) &= {4 \choose 2} \cdot \left(\frac{1}{4}\right)^2 \cdot \left(\frac{3}{4}\right)^2 \\
+\Pr(X = 3) &= {4 \choose 3} \cdot \left(\frac{1}{4}\right)^3 \cdot \left(\frac{3}{4}\right)^1 \\
+\Pr(X = 4) &= {4 \choose 4} \cdot \left(\frac{1}{4}\right)^4 \cdot \left(\frac{3}{4}\right)^0 = \left(\frac{1}{4}\right)^4
+\end{align*}
+$$
+:::
+
+$$
+\frac{81}{256} + \frac{108}{256} + \frac{54}{256} + \frac{12}{256} + \frac{1}{256}
+$$
+
+Ekkor a próbastasztika:
+
+$$
+\begin{align*}
+\sum_{j=1}^{r}{\frac{\left( v_j - n \cdot p_j \right)^2}{n \cdot p_j}} =
+\frac{\left( 80 - 300 \cdot \frac{81}{256} \right)^2}{300 \cdot \frac{81}{256}} + \ldots +
+\frac{\left( 3 - 300 \cdot \frac{1}{256} \right)^2}{300 \cdot \frac{1}{256}} = 21,176
+\end{align*}
+$$
+
+$\chi^2$ eloszlást követ $4$ paraméterrel. Ezt az eddigiekkel megegyező módon vizsgáljuk.
+[táblázat](https://people.richland.edu/james/lecture/m170/tbl-chi.html)
