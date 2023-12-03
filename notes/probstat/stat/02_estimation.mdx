@@ -8,7 +8,7 @@ A statisztika egy fontos területe a becslés.
 Tiszta matematikai szempontból a valószínűségszámításnál szerencsénk volt, hiszen mindig olyan eloszlásokról beszéltünk,
 melyeknek paramétereit ismertük.
 
-Valós minták esetén azonban sokszor nem ismerjük az eloszlások paramétereit ezért azokra becsléseket kell adnunk.
+A valóságban azonban sokszor nem ismerjük az eloszlások paramétereit, így azokat becslülnünk kell.
 
 ::::info[Definíció (torzítatlan becslés)]
 A $T(X_1, X_2, \dots, X_n)$ statisztikai függvény torzítatlanul becsli a $g(p)$ függvényt, ha a tetszőleges $p$
@@ -42,8 +42,8 @@ Ami
 
 $$
 \begin{align*}
-\E_p\left( \frac{1}{n} \cdot \sum_{i=0}^{n}{(X_i)} \right) &= \text{(várható érték additív)} \\
-&= \frac{1}{n} \cdot \sum_{i=0}^{n}{\E_p(X_i)} \\
+\E_p\left( \frac{1}{n} \cdot \sum_{i=0}^{n}{(X_i)} \right)
+&= \frac{1}{n} \cdot \sum_{i=0}^{n}{\E_p(X_i)} \quad \text{(várható érték additív)} \\
 &= \frac{1}{n} \cdot n \cdot p \\
 &= p
 \end{align*}

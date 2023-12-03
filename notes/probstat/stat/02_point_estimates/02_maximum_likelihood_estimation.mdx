@@ -3,18 +3,17 @@
 Adott egy $n$ független, azonos eloszlású elemből $X_1,X_2,\dots,X_n$ álló minta. Egyetlen ismeretlen paraméterünk van,
 amit $\lambda$-val jelölünk.
 
-:::info[Definíció (likelihood függvény)]
-Az $x_1,x_2,\dots,x_n$ elemek együttes sűrűségfüggvénye
+Az $x_1,x_2,\dots,x_n$ elemek likelihood függvényének nevezük, és $\mathrm{L}(\lambda; x)$-el
+jelöljük az
 
 $$
-f_\lambda(x_1, x_2, \dots x_n) = g_\lambda(x_1) \cdot g_\lambda(x_2) \cdot \ldots \cdot g_\lambda(x_n)
+f_\lambda(x) = g_\lambda(x_1) \cdot g_\lambda(x_2) \cdot \ldots \cdot g_\lambda(x_n)
 $$
-:::
 
-:::info[Definíció (ML becslés)]
+függvényt.
+
 Egy mintahalmazra vonatkozó ML becslés alatt azt a $\lambda$ értéket írjük, melyre a mintahalmaz likelihood függvénye
 maximális.
-:::
 
 Ezt a maximális értéket nyilvánvalóan a likelihood függvény deriválásával tudjuk meghatározni. A likelihood függvény
 egy sok tagból álló szorzatfüggvény így deriválása nehéz.
@@ -72,7 +71,7 @@ $$
 
 
 :::example[Példa (4.4/a)]
-Van $n$ mintánk. Adjunk ML becslést $\mathrm{Bin}(m,p)$ eloszlás $p$ paraméterére!
+Legyen $X$ egy $n$ elemből álló minta. Adjunk ML becslést $\mathrm{Bin}(m,p)$ eloszlás $p$ paraméterére!
 
 Ekkor a log-likelihood függvény:
 
@@ -102,7 +101,8 @@ $$
 \end{align*}
 $$
 
-Legyen $\bar{x} = \frac{1}{n} \sum_{i=0}^{n}{x_i}$\, ekkor $p$ becsléséhez a következő egyenletet kell megoldanunk:
+Vegyük észre hogy az előbb kapott egyenletben a mintaáltag $\overline{x}$ szerepel, ekkor $p$ becsléséhez a következő
+egyenletet kell megoldanunk:
 
 $$
 \begin{align*}
@@ -113,16 +113,8 @@ n \cdot \bar{x} &= p \cdot nm \\
 \bar{x} &= pm \\
 p &= \frac{\bar{x}}{m} \\
 
-\frac{}{}
-
 \end{align*}
 $$
 
-Tehát $p$-re az
-
-$$
-p = \frac{1}{n} \cdot \frac{\sum x_i}{m}
-$$
-
-becslést tudjuk adni.
+Tehát $p$-re a $\frac{\bar{x}}{m}$ becslést tudjuk adni.
 :::

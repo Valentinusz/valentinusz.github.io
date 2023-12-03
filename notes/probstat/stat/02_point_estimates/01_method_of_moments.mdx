@@ -1,34 +1,33 @@
 # Momentum módszer
 
-::::info[Definíció (momentum becslés)]
-
 Adottak az, $X_1, X_2, \dots, X_n$ független és azonos eloszlású valószínűségi változók. Mivel azonos eloszlásúak minden
-$k \in \mathbb{N}+$ esetén
+$k \in \mathbb{N}+$ esetén a tapasztalati momentumok megegyeznek, azaz:
 
 $$
-\E(x_1^k) = \E(x_2^k) = \dots = \E(x_n^k)
+\E(X_1^k) = \E(X_2^k) = \dots = \E(X_n^k)
 $$
 
-Ekkor az eloszlás $k$ db paraméterére az alábbi egyenletrendszer megoldásával adhatunk becslést
+Ekkor az eloszlás $k$ db paraméterére a következő ($k$ egyenletből álló) egyenletrendszer megoldásával adhatunk becslést
 
 $$
 \left\lbrace\begin{align*}
 \E(X_1) & = \frac{x_1 + \dots + x_n}{n} \\
 \E(X_1^2) & = \frac{x_1^2 + \dots + x_n^2}{n} \\
 & \,\,\, \vdots \\
-\E(x_1^k) & = \frac{x_1^k + \dots + x_n^k}{n}
+\E(X_1^k) & = \frac{x_1^k + \dots + x_n^k}{n}
 \end{align*}\right.
 $$
 
 :::tip
 Az eloszlások nagy része maximum két paraméterrel rendelkezik, ezért sokszor csak egy kétismeretlenes egyenletrendszert
-kell megoldanunk, melyben $\E(x^2)$-et könnyen kifejezhetjük szórásnégyzet definíciójából:
+kell megoldanunk, melyben $\E(X^2)$-et könnyen kifejezhetjük szórásnégyzet definíciójából:
 
 $$
 \E(X^2) = \D^2(X) + \E^2(X)
 $$
 :::
-::::
+
+Tehát azt használjuk ki, hogy a különböző eloszlások esetén adottak az első két momentum képlete.
 
 :::example
 Adott a következő diszkrét eloszlás:
@@ -37,7 +36,7 @@ $$
 \pr(X_i = -1) = c, \quad \pr(X_i = 1) = 3c, \quad \pr(X_i = 2) = 1 - 4c
 $$
 
-Az eloszlásból egy 20 elemű mintát veszünk
+Az eloszlásból egy 20 elemű mintát veszünk:
 
 <div className="show-table">
     | Érték | Gyakoriság |
@@ -49,22 +48,30 @@ Az eloszlásból egy 20 elemű mintát veszünk
 
 Adjunk becslést a $c$ paraméterre momentum módszerrel!
 
-Tudjuk, hogy diszkrét eloszlás esetén a várható értéke:
-$$
-\E(X) = 4 \cdot c + 1 \cdot 3c + (1- 4c) \cdot 2 = 2 - 6c
-$$
-
 Mivel csak egy ismeretlenünk van, egy elsőfokú egyenletet kell megoldanunk.
 
 $$
+\E(X_1) = \frac{4 \cdot (-1) + 10 \cdot 1 + 6 \cdot 2}{20} = \frac{9}{10}
+$$
+
+A várható érték definíciójából következik, hogy:
+
+$$
+\E(X_1) = -1 \cdot c + 1 \cdot 3c + (1- 4c) \cdot 2 = 2 - 6c
+$$
+
+Így:
+
+$$
 \begin{align*}
-\E(X_1) = 2 - 6c &= \frac{4 \cdot (-1) + 10 \cdot 1 + 6 \cdot 2}{20} = \frac{9}{10} \\
+\E(X_1) = 2 - 6c &= \frac{9}{10} \\
 6c &= 2 - \frac{9}{10} \\
 c &= \frac{2 - \frac{9}{10}}{6} = \frac{11}{60}
 \end{align*}
 $$
 
-Így tehát $c$-re a $\frac{11}{60}$ becslést tudjuk adni.
+
+Tehát $c$-re a $\frac{11}{60}$ becslést tudjuk adni.
 :::
 
 

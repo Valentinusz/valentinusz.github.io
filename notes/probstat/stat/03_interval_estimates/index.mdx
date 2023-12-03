@@ -2,29 +2,33 @@
 
 Az eddig látott becsléseink mindegyike ún. pontbecslés volt, hiszen egyetlen értékkel közelítettük az ismeretlen
 paraméter értékét. Most viszont olyan becsléseket fogunk alkalmazni, amik elég nagy valószínűséggel beszorítják egy zárt
-intervallumra az ismeretlen paraméter értékét.
+intervallumra az eloszlás ismeretlen paraméterének értékét.
 
-Adott, véges sok, ugyanazon eloszlásból származó, független elemekből álló minta. Célunk az **eloszlás** egy vagy több
-**ismeretlen paramétereinek becslése** a minta alapján.
+Az paraméter értékére állításokat, ún. hipotéziseket teszünk.
 
 ## Hipotézisvizsgálat
 
 Egy $H_0$ **nullhipotézist** állítunk fel az ismeretlen paraméterekre, melynek **igazságtartalmát** egy **statisztikai
-próbán keresztül vizsgáljuk**.
+függvényen (másszóval statisztikai próba vagy próbastasztika) keresztül vizsgáljuk**.
 
-Emelett felállítunk egy $H_1$ **ellenhipotézist**, amit akkor fogadunk el, ha a nullhipotézist elutasítjuk.
+Emellé felállítunk egy $H_1$ **ellenhipotézist** is, amit a nullhipotézis elutasítása esetén fogadunk el.
 
-A **próbák eredménye** valamilyen érték lesz, melynek **segítségével eldönthetjük** elfogadjuk, vagy elutasítjuk a
-nullhipotézist.
+A **próbástatisztika kiértékelése** valamilyen érték lesz, melynek **segítségével eldönthetjük** elfogadjuk, vagy
+elutasítjuk a nullhipotézist.
 
-Ehhez szükséges annak a definiálása is, hogy milyen értékek esetén fogadjuk el a nullhipotézist, amit 
-**szignifikanciaszint**nek nevezünk és $\alpha$-val jelölünk.
+Ehhez szükséges annak a definiálása is, hogy milyen intervallumba eső értékek esetén fogadjuk el a nullhipotézist.
+
+## Konfidenciaintervallum
+
+Az elfogadott értékek az eloszlás valamely intervallumáról kerülnek ki, amit **konfidenciaintervallumnak** nevezünk.
+
+Az ezen kívüli értékeket halmazát pedig **kritikus tartomány(oknak)** nevezzük.
+
+A konfidenciaintervallumot, mindig úgy definiáljuk, hogy a lehetséges értékek egy adott százalékát tartalmazzák. Ezt az
+általunk definiált határt **szignifikanciaszint**nek nevezünk és $\alpha$-val jelölünk.
 
 Az $\alpha$ szignifikanciaszint azt fejezi ki, hogy a lehetséges értékek $(1-\alpha) \cdot 100\%$-át fogadjuk el. Azt,
-hogy az eloszlás mely részeit fogadjuk el a nullhipotézis-ben szereplő relációtól függ.
-
-Ezt elfogadott értékek invervallumát **konfidenciaintervallumnak**, az **ezen kívüli** értékek halmazát
-**kritikus tartományoknak** nevezzük.
+hogy az eloszlás mely részeit fogadjuk el, általában a nullhipotézis relációja alapján döntjük el.
 
 ### Egyenlőség
 
@@ -48,7 +52,6 @@ $.
     <img src="/img/probstat/u_test_equality.svg" alt="drawing"/>
     <figcaption>Az $m=m_0$ nullhipotézis kritikus tartományai </figcaption>
 </figure>
-
 
 ### Kisebb, nagyobb
 
