@@ -1,0 +1,114 @@
+---
+sidebar_position: 0
+---
+
+# Objektumelvű programozási nyelvek
+
+## Osztály, objektum, egységbe zárás, tagok, konstruktor, információ elrejtés
+
+Az objektumelvű programozási nyelvek az objektumok koncepciója köré épül, melyek az adat és az azt használó műveletek
+egysége. Az objektumok formátumát szebb szóval típusát definiálják az osztályok. Az adott típussal rendelkező objektumot
+az adott osztály egy példányának nevezzük.
+
+Az objektumok egységbe zárják, azaz egy közös helyen, egységben tartalmazzák az adatot
+(ezeket mezőknek vagy attribútumoknak nevezzük) és az azon értelmezett műveleteket (metódusok).
+
+Sokszor az adatintegritás kikényszerítése miatt elengedhetetlen, hogy a tagokhoz ne lehessen közvetlenükl hozzáférni.
+Erre a célra sok programozási nyelv elérési módosítókat definiál, melyek korlátozzák az adott taghoz való hozzáférést.
+Például a Java nyelv a következő módosítókat definiálja:
+- `private`: csak az osztályon belül érhető el
+- `public`: bárhol elérhető
+- `protected`: csak az osztályon és azok leszármazottjaiban érhető el
+- nincs (`package private`): a csomagon belül elérhető
+
+:::note
+Más nyelvek csak konvenciókkal rendelkeznek. Például az `_` prefixum jelöli, hogy ezt a tagot nem kéne használni.
+:::
+
+A konstruktor egy speciális metódus, melynek feladata az objektum példányok előállítása. A konstruktoroknak tetszőleges
+számú és jellegű paramétere lehet. Alapértelmezett konstruktornak nevezzük a paraméter nélküli konstruktort.
+A programozási nyelvek általában automatikusan generálnak egy üres törzsű alapértelmezett konstruktort, ha más
+konstruktort nem definiálunk.
+
+## Túlterhelés
+
+Az osztályokban több azonos nevű metódus is lehet, amíg azok típusszignatúrája eltér. A metódushíváskor automatikusan
+a típusszignatúrára legjobban illő metódus fut le.
+
+
+## Memóriakezelés
+
+Az objektumok allokálása nyelvtől függően eltérő lehet.
+
+### Szemétgyűjtés
+
+ Ezekben a nyelvekben a háttérben egy
+szemétgyűjtő (Garbage Collector - GC) algoritmus dolgozik, mely automatikusan felszabadítja a már el nem érhető
+objektumokat.
+
+Jogos kérdés, hogy mi történik akkor, ha több objektum egymásra hivatkozik.
+
+![img.png](/img/final/oop/gc.png)
+
+Az ilyen eseteket kezelni kell, a teljes hivatkozási láncot fel kell szabadítani.
+
+Egy lehetséges statégia a mark and sweep szemétgyűjtés. Végighaladunk a vermen lévő referenciákon, megjelöljük az ezen
+referenciák által elért objektumokat majd a megjelöltekből elérhető objektumokat és így tovább, amíg nem tudunk újabb
+objektumot megjelölni. Az eljárás végén nem megjelölt objektumok felszabadíthatók.
+
+
+## Öröklődés, altípusosság
+
+## Statitikus és dinamikus típus
+
+## Felüldefiniálás, dinamikus kötés
+
+## Generikusok
+
+Programozás során sokszor előfordul, hogy egy osztályt (általában egy adatszerkezetet) több különböző típusra is
+definiálni szeretnénk. A dinamikus nyelvekben ez nem okoz gondot, probléma nélkül tudunk a változóknak bármilyen típusú
+értéket adni. Statikus típusrendszerében ezt azonban nem tudjuk megtenni.
+
+A generikusok egy olyan nyelvi funkciók, mely lehetővé teszik, hogy egy osztályban szereplő típusokat
+később a példányosításkor paraméterként adjuk meg.
+
+```java
+// típusparaméterek
+class Pair<T1, T2> {
+  T1 elem1;
+  T2 elem2;
+
+  T1 getElem1() {
+      return this.elem1;
+  }
+
+  public void setElem1(T1 elem1) {
+      this.elem1 = elem1;
+  }
+}
+```
+
+A generikusokat több módon is lehet implementálni, például a Java típustörlést használ. Ez azt jelenti hogy fordítási
+időben a típusparaméterek egyszerű típuskonverziókká alakulnak át.
+
+## Altípusos és parametrikus polimorfizmus
+
+
+## Objektumok összehasonlítása és másolása
+
+Mivel az objektumok referenciatípusok, ezért a legtöbb nyelven az egyenlőségvizsgálat operátor nem az objektumok
+tartalmi egyezését, hanem a referenciák egyezését vizsgálja. Erre lehetséges megoldás például Java-ban az `equals`
+metódus, mely az öröklődéshierarchia tetején található `java.lang.Object` osztály definiál.
+
+```java
+public boolean equals(Object that) {
+  ...
+}
+```
+
+Az egyenlőségvizsgálatnak a következő tulajdonságokkal kell rendelkeznie:
+- determinisztikus
+- ekvivalenciareláció:
+  - reflexív: ha `a.equals(b)`, akkor `b.equals(a)`
+  -
+

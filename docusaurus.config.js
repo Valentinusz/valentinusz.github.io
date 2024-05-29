@@ -8,9 +8,11 @@ export default {
         mdx1Compat: {
             comments: false,
             admonitions: false,
-            headingIds: false
-        }
+            headingIds: false,
+        },
+        mermaid: true
     },
+    themes: ['@docusaurus/theme-mermaid'],
 
     title: 'Boda Bálint',
     favicon: 'img/favicon.svg',
