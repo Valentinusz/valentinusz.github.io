@@ -6,6 +6,7 @@ import AdmonitionTypeWarning from '@theme/Admonition/Type/Warning';
 import AdmonitionTypeDanger from '@theme/Admonition/Type/Danger';
 import AdmonitionTypeCaution from '@theme/Admonition/Type/Caution';
 import AdmonitionTypeExample from "./Type/Example";
+import AdmonitionTypeDefinition from "./Type/Definition";
 
 const admonitionTypes = {
   note: AdmonitionTypeNote,
@@ -13,7 +14,8 @@ const admonitionTypes = {
   info: AdmonitionTypeInfo,
   warning: AdmonitionTypeWarning,
   danger: AdmonitionTypeDanger,
-  example: AdmonitionTypeExample
+  example: AdmonitionTypeExample,
+  definition: AdmonitionTypeDefinition
 };
 // Undocumented legacy admonition type aliases
 // Provide hardcoded/untranslated retrocompatible label

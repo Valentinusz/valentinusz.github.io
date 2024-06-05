@@ -11,6 +11,10 @@
     "message": "példa",
     "description": "The default label used for the Example admonition (:::example)"
   },
+  "theme.admonition.definition": {
+    "message": "definíció",
+    "description": "The default label used for the Definition admonition (:::definition)"
+  },
   "theme.admonition.info": {
     "message": "információ",
     "description": "The default label used for the Info admonition (:::info)"

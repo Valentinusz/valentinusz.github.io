@@ -42,7 +42,7 @@ export default {
                     routeBasePath: 'notes',
                     sidebarPath: './sidebars.js',
                     admonitions: {
-                        keywords: ['example'],
+                        keywords: ['example', 'definition'],
                         extendDefaults: true
                     },
                     showLastUpdateAuthor: true,

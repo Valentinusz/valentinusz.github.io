@@ -1,0 +1,25 @@
+# SQL
+
+Az SQL egy nagyon magas szintű deklaratív programozási nyelv. Az SQL utasításokat az adatbázis-kezelő rendszer értelmezi
+optimalizálja és hajtja végre. Egy tipikus lekérdezés:
+
+```sql
+SELECT *
+FROM KOCSMA
+WHERE NEV = 'ASD'
+```
+
+A `SELECT` záradék felelős az eredményhalmaz vetítéséért, az itt megadott attribútumok fognak csak a végeredményben
+megjelenni. A speciális csillag karakter az összes attribútum kiválasztására használható.
+
+A `FROM` záradék adja meg a relációt melyre a továbbá záradékok alkalmazódnak.
+
+A `WHERE` záradékban van leehetőségünk az eredmény soraira megkötéseket tenni.
+
+Az attribútumok átnevezhetők az `AS` utasítással.
+
+```sql
+SELECT név AS tea, gyártó
+FROM Teák
+WHERE gyártó = 'Lipton';
+```

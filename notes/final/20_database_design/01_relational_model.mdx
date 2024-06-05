@@ -1,2 +1,22 @@
 # Relációs adatmodell, egyed-kapcsolat model
 
+Adatmodellnek nevezzük az adatok leírására használt jelölést, melynek részei:
+- adatok struktúrája
+- adatokon végezhető műveletek
+- adatokra vonatkozó megszorítások
+
+A relációs adatmodell az adatokat kétdimenziós táblákban (relációkban) tárolja. A táblának oszlopai (attribútumai) és
+sorai vannak. Az attribútumoknak saját értékkészlete van.
+
+A reláció neve és attribútumai együtt alkotják a reláció-sémát (attribútumok sorrendje nem számít).
+
+Egy reláció soroknak egy halmaza. A reláció sorainak halmazát előfordulásnak nevezzük.
+
+:::definition[Definíció - kulcs]
+Az attribútumok egy halmaza **kulcsot** alkot egy relációra nézve, ha a reláció bármely előfordulásában nincs két olyan
+sor, amelyek a kulcs összes attribútumának értékein megegyeznének.
+:::
+
+Egy kulcs akár több attribútumból állhat, például: Kocsma(<u>név</u>, <u>város</u>, tulaj).
+
+

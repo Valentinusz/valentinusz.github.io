@@ -27,7 +27,14 @@
   --ifm-alert-border-color: var(--valentinusz-color-example-dark);
 }
 
-html[data-theme='dark'] .alert--example {
+.alert--definition {
+  --ifm-alert-background-color: var(--valentinusz-color-example-contrast-background);
+  --ifm-alert-background-color-highlight: #7c4dff1a;
+  --ifm-alert-foreground-color: var(--valentinusz-color-example-contrast-foreground);
+  --ifm-alert-border-color: var(--valentinusz-color-example-dark);
+}
+
+html[data-theme='dark'] .alert--example, html[data-theme='dark'] .alert--definition {
   --ifm-alert-foreground-color: rgb(255,255,255);
 }
 
