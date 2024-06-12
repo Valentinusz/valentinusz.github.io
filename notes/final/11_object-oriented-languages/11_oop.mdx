@@ -63,52 +63,9 @@ objektumot megjelölni. Az eljárás végén nem megjelölt objektumok felszabad
 
 ## Felüldefiniálás, dinamikus kötés
 
-## Generikusok
 
-Programozás során sokszor előfordul, hogy egy osztályt (általában egy adatszerkezetet) több különböző típusra is
-definiálni szeretnénk. A dinamikus nyelvekben ez nem okoz gondot, probléma nélkül tudunk a változóknak bármilyen típusú
-értéket adni. Statikus típusrendszerében ezt azonban nem tudjuk megtenni.
-
-A generikusok egy olyan nyelvi funkciók, mely lehetővé teszik, hogy egy osztályban szereplő típusokat
-később a példányosításkor paraméterként adjuk meg.
-
-```java
-// típusparaméterek
-class Pair<T1, T2> {
-  T1 elem1;
-  T2 elem2;
-
-  T1 getElem1() {
-      return this.elem1;
-  }
-
-  public void setElem1(T1 elem1) {
-      this.elem1 = elem1;
-  }
-}
-```
-
-A generikusokat több módon is lehet implementálni, például a Java típustörlést használ. Ez azt jelenti hogy fordítási
-időben a típusparaméterek egyszerű típuskonverziókká alakulnak át.
 
 ## Altípusos és parametrikus polimorfizmus
 
 
-## Objektumok összehasonlítása és másolása
-
-Mivel az objektumok referenciatípusok, ezért a legtöbb nyelven az egyenlőségvizsgálat operátor nem az objektumok
-tartalmi egyezését, hanem a referenciák egyezését vizsgálja. Erre lehetséges megoldás például Java-ban az `equals`
-metódus, mely az öröklődéshierarchia tetején található `java.lang.Object` osztály definiál.
-
-```java
-public boolean equals(Object that) {
-  ...
-}
-```
-
-Az egyenlőségvizsgálatnak a következő tulajdonságokkal kell rendelkeznie:
-- determinisztikus
-- ekvivalenciareláció:
-  - reflexív: ha `a.equals(b)`, akkor `b.equals(a)`
-  -
 

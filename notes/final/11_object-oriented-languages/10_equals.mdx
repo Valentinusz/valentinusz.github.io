@@ -1,0 +1,24 @@
+# Objektumok összehasonlítása
+
+Mivel az objektumok referenciatípusok, ezért a legtöbb nyelven az egyenlőségvizsgálat operátor nem az objektumok
+tartalmi egyezését, hanem a referenciák egyezését vizsgálja. Erre lehetséges megoldás például Java-ban az `equals`
+metódus, mely az öröklődéshierarchia tetején található `java.lang.Object` osztály definiál.
+
+```java
+public boolean equals(Object that) {
+  ...
+}
+```
+
+Ezt az egyes osztályokban felül tudjuk definiálni. A műveletnek azonban a be kell tartania a következő szerződést:
+- determinisztikus
+- ekvivalenciareláció:
+- reflexív: ha `a.equals(b)`, akkor `b.equals(a)`
+-
+
+Az egyenlőségvizsgálat részét képezi egy egyedi kódot definiáló metódus a `hashCode` implementálása is, melnyek
+konzistensnek kell lennie az egyenlőségvizsgálattal, azaz
+
+## Egyenlőségvizsgálat alapú adatszerkezetek
+
+Bizonyos adatsz

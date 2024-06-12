@@ -1,0 +1,36 @@
+# Generikusok
+
+Programozás során sokszor előfordul, hogy egy osztályt több különböző típusra is definiálni szeretnénk. A dinamikusan
+típusos nyelvekben ez nem okoz különösebb problémát, a statikus típusrendszer esetében, azonban
+
+A generikusok egy olyan nyelvi funkciók, mely lehetővé teszik, hogy egy osztályban szereplő típusokat
+később, példányosításkor adjuk meg.
+
+```java
+// típusparaméterek
+class Pair<T1, T2> {
+  T1 elem1;
+  T2 elem2;
+
+  T1 getElem1() {
+      return this.elem1;
+  }
+
+  public void setElem1(T1 elem1) {
+      this.elem1 = elem1;
+  }
+}
+
+// példányosítás
+Pair<Integer, String> p = new Pair<Integer, String>;
+```
+
+A generikusok öbb módon is implementálhatók. A Java nyelv például típustörlést használ. Ez azt jelenti, hogy fordítási
+időben a típusparaméterek egyszerű típuskonverziókká alakulnak át. Ezzel szemben a C# nyelv reifikációt végez, azaz
+külön típust hoz létre minden, a kódban példányosításnál használt típusparaméterezésre.
+
+## Altípusosság
+
+Java nyelv esetén generikusok altípusossági szempontból is érdekesek. Legyenek `A`, és `B` konkrét típusok, úgy, hogy `B` altípusa
+`A`-nak és `C` egy generikus típus, ekkor `C<B>` nem altípusa `C<A>`-nak.
+
