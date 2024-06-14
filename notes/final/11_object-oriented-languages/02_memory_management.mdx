@@ -1,0 +1,19 @@
+# Memóriakezelés
+
+Az objektumok allokálása nyelvtől függően eltérő lehet.
+
+## Szemétgyűjtés
+
+Ezekben a nyelvekben a háttérben egy
+szemétgyűjtő (Garbage Collector - GC) algoritmus dolgozik, mely automatikusan felszabadítja a már el nem érhető
+objektumokat.
+
+Jogos kérdés, hogy mi történik akkor, ha több objektum egymásra hivatkozik.
+
+![img.png](/img/final/oop/gc.png)
+
+Az ilyen eseteket kezelni kell, a teljes hivatkozási láncot fel kell szabadítani.
+
+Egy lehetséges statégia a mark and sweep szemétgyűjtés. Végighaladunk a vermen lévő referenciákon, megjelöljük az ezen
+referenciák által elért objektumokat majd a megjelöltekből elérhető objektumokat és így tovább, amíg nem tudunk újabb
+objektumot megjelölni. Az eljárás végén nem megjelölt objektumok felszabadíthatók.
