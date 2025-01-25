@@ -91,7 +91,11 @@ export default {
                     type: 'docSidebar',
                     sidebarId: 'notesSidebar',
                     position: 'left',
-                    label: 'Jegyzetek',
+                    label: 'Tananyagok',
+                },
+                {
+                    to: "experience",
+                    label: "Tapasztalat"
                 }
             ]
         },
