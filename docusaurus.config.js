@@ -96,6 +96,10 @@ export default {
                 {
                     to: "experience",
                     label: "Tapasztalat"
+                },
+                {
+                    to: "my-projects",
+                    label: "Projektek"
                 }
             ]
         },

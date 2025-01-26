@@ -1,0 +1,37 @@
+.card {
+  background-color: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  width: 20rem;
+  position: relative;
+  box-shadow: var(--ifm-global-shadow-md)
+}
+
+.cardImage {
+  object-fit: cover;
+
+  $radius: var(--ifm-card-border-radius);
+
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+.cardContent {
+  padding: 0 var(--ifm-card-vertical-spacing) var(--ifm-card-horizontal-spacing) var(--ifm-card-vertical-spacing);
+}
+
+.cardLinks {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.cardLink {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
