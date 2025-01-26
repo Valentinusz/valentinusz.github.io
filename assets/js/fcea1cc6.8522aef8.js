@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkvalentinusz_github_io=self.webpackChunkvalentinusz_github_io||[]).push([[9607],{6675:(u,e,n)=>{n.r(e),n.d(e,{default:()=>s});var t=n(686),i=n(4848);function s(){return(0,i.jsx)(t.A,{})}}}]);
