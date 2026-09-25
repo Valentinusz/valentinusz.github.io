@@ -17,8 +17,7 @@
     "lucide-react": "^1.47.0",
     "next": "16.3.5",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "algoliasearch": "^5.59.0"
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -26,10 +25,11 @@
     "@types/node": "^26.6.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "oxfmt": "^0.70.0",
+    "oxlint": "^1.83.0",
     "postcss": "^8.5.28",
     "serve": "^14.2.6",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2",
-    "oxlint": "^1.83.0"
+    "typescript": "^7.0.2"
   }
 }
