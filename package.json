@@ -3,7 +3,7 @@
   "version": "0.0.32",
   "private": true,
   "scripts": {
-    "build": "next build && node --env-file-if-exists=.env.local scripts/sync-content.ts .next/server/app/static.json.body",
+    "build": "next build",
     "dev": "next dev",
     "start": "serve out",
     "types:check": "next typegen && tsc --noEmit",
