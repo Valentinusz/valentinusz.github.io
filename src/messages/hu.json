@@ -1,0 +1,33 @@
+{
+  "home": {
+    "name": "Boda Bálint",
+    "title": "Full-Stack fejlesztő",
+    "about": {
+      "heading": "Rólam",
+      "cv": {
+        "heading": "Önéletrajz",
+        "description": "Ha toborzóként dolgozol, valószínűleg ez érdekel."
+      },
+      "projects": {
+        "heading": "Projektjeim",
+        "description": "Néhány szó azokról a saját projektekről, amelyekre büszke vagyok."
+      }
+    },
+    "learning": {
+      "heading": "Tanulási segédanyagok",
+      "note": "Többnyire magyar nyelven",
+      "bsc": {
+        "heading": "ELTE IK BSc",
+        "description": "Az alapképzésem során készített vagy összegyűjtött segédanyagok többsége."
+      },
+      "bscGuides": {
+        "heading": "Részletes ELTE IK BSc-útmutatók",
+        "description": "Egy-egy egyetemi tantárgy felépítését és témaköreit követő, dokumentációszerű útmutatók."
+      },
+      "guides": {
+        "heading": "Útmutatók",
+        "description": "Különféle témákról szóló, dokumentációszerű útmutatók."
+      }
+    }
+  }
+}

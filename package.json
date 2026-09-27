@@ -10,6 +10,7 @@
     "lint": "oxlint"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "cn": "^0.3.0",
     "fumadocs-core": "16.15.13",
     "fumadocs-mdx": "15.4.3",

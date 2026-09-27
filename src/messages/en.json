@@ -1,0 +1,33 @@
+{
+  "home": {
+    "name": "Bálint Boda",
+    "title": "Full-Stack Developer",
+    "about": {
+      "heading": "About me",
+      "cv": {
+        "heading": "CV",
+        "description": "If you are a recruiter you are probably interested in this."
+      },
+      "projects": {
+        "heading": "My Projects",
+        "description": "Some words about personal projects I am proud of."
+      }
+    },
+    "learning": {
+      "heading": "Learning resources",
+      "note": "Mostly in Hungarian",
+      "bsc": {
+        "heading": "ELTE IK BSc",
+        "description": "Most of resources I made or gathered during my bachelor's degree."
+      },
+      "bscGuides": {
+        "heading": "In-depth ELTE IK BSc Guides",
+        "description": "Documentation-like guides that follow the structure and theme of a given university subject."
+      },
+      "guides": {
+        "heading": "Guides",
+        "description": "Documentation-like guides on varying subjects."
+      }
+    }
+  }
+}

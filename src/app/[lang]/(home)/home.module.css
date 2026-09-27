@@ -1,0 +1,19 @@
+.sphere {
+  width: 200px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 30% 25%,
+    #fff 0%,
+    #bde7ff 8%,
+    #3b9de9 35%,
+    #1763a5 65%,
+    #092b4c 100%
+  );
+
+  box-shadow:
+    inset -25px -20px 40px rgb(0 0 0 / 35%),
+    inset 15px 15px 25px rgb(255 255 255 / 35%),
+    20px 25px 30px rgb(0 0 0 / 25%);
+}
