@@ -29,5 +29,113 @@
         "description": "Különféle témákról szóló, dokumentációszerű útmutatók."
       }
     }
+  },
+  "cv": {
+    "about": "Rólam",
+    "aboutText": "Szenvedélyes full-stack fejlesztő vagyok, több mint két év tapasztalattal. Szeretek igényes szoftvereket készíteni, és másokat is hozzásegíteni ehhez. Számos frontend- és backendtechnológiában van gyakorlati tapasztalatom, és mindig szívesen tanulok és próbálok ki újakat.",
+    "experience": "Szakmai tapasztalat",
+    "developerRole": "Full-stack fejlesztő",
+    "exportPdf": "PDF letöltése",
+    "education": "Tanulmányok",
+    "other": "Egyéb tapasztalat",
+    "knowledge": "Ismeretek",
+    "learning": "Tanulás alatt",
+    "languages": "Nyelvek",
+    "english": "Angol",
+    "hungarian": "Magyar",
+    "native": "Anyanyelvi",
+    "period": "2024. február – jelenleg",
+    "location": "Budapest",
+    "projects": [
+      {
+        "name": "Kockázatértékelő eszköz",
+        "details": [
+          "Spring Boot, React",
+          "Többek között RTK Query és React Hook Form bevezetésével jelentősen támogattam a fejlesztést."
+        ]
+      },
+      {
+        "name": "Komponens- és dizájnrendszer",
+        "details": [
+          "Spring Boot, React",
+          "A kezdeti DevOps-eszközök és projektstruktúra kialakítása.",
+          "Az első másfél hónapban egyedüli fejlesztőként dolgoztam."
+        ]
+      },
+      {
+        "name": "Harmadik feles logisztikai költségkezelő",
+        "details": [
+          "Spring Boot, React",
+          "A kezdeti DevOps-eszközök és projektstruktúra kialakítása."
+        ]
+      },
+      {
+        "name": "Részlegpanaszokat kezelő komponenskönyvtár",
+        "details": [
+          "Megterveztem és elkészítettem a részleg React-alapú komponenskönyvtárát.",
+          "Modern komponens-API-kat alakítottam ki, többek között a Mantine mintáiból merítve.",
+          "Storybook-dokumentációt és projektvázakat létrehozó CI-eszközt készítettem."
+        ]
+      },
+      {
+        "name": "Frontend Chapter",
+        "details": [
+          "2024 óta társszakmai vezető, 2026 óta szakmai vezető.",
+          "Konvenciókat alakítottam ki, és egységesítettem a formázást, lintelést, buildelést és csomagkezelést."
+        ]
+      },
+      {
+        "name": "Feladatértékelő keretrendszer",
+        "details": [
+          "Újraírtam egy korábban legacy technológiákkal készült alkalmazást.",
+          "Az alkalmazást MUI-ról a belső komponenskönyvtárra migráltam."
+        ]
+      }
+    ],
+    "educationEntry": {
+      "degree": "Programtervező informatikus BSc",
+      "institution": "Eötvös Loránd Tudományegyetem",
+      "period": "2021. szeptember – 2024. június",
+      "grade": "Osztályzat: 5"
+    },
+    "otherEntry": {
+      "role": "Demonstrátor",
+      "institution": "Eötvös Loránd Tudományegyetem",
+      "period": "2023. szeptember – 2025. február",
+      "teaching": "Oktatási feladatok",
+      "subjects": [
+        "Webprogramozás (JavaScript- és PHP-alapok)",
+        "Kliensoldali programozás (Web Components, React, Redux)"
+      ],
+      "background": "Szakmai háttértámogatás",
+      "backgroundSubjects": ["Szerveroldali programozás (Laravel, Node.js)"]
+    },
+    "knowledgeSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Redux",
+      "Redux Toolkit",
+      "AG Grid",
+      "React Hook Form",
+      "Java",
+      "Spring Boot",
+      "JUnit",
+      "Mockito",
+      "Node.js",
+      "NestJS",
+      "OpenAPI",
+      "PHP",
+      "Laravel",
+      "Python",
+      "SQL",
+      "Git",
+      ".NET",
+      "Office"
+    ],
+    "learningSkills": ["Angular", "Vue", "Quarkus", "C#", "ASP.NET Core", "GraphQL"],
+    "englishLevel": "C1"
   }
 }

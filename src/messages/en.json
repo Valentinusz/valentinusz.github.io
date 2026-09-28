@@ -29,5 +29,110 @@
         "description": "Documentation-like guides on varying subjects."
       }
     }
+  },
+  "cv": {
+    "about": "About me",
+    "aboutText": "I am a passionate full-stack developer with over two years of experience. I enjoy creating well-crafted software and enabling others to do the same. I have working knowledge of a wide range of frontend and backend technologies, and I am always open to learning and trying new ones.",
+    "experience": "Experience",
+    "developerRole": "Full-stack developer",
+    "exportPdf": "Download PDF",
+    "education": "Education",
+    "other": "Other",
+    "knowledge": "Knowledge",
+    "learning": "Learning",
+    "languages": "Languages",
+    "english": "English",
+    "hungarian": "Hungarian",
+    "native": "Native",
+    "period": "February 2024 – Present",
+    "location": "Budapest",
+    "projects": [
+      {
+        "name": "Risk Assessment Tool",
+        "details": [
+          "Spring Boot, React",
+          "Introduced technologies such as RTK Query and React Hook Form that significantly improved development."
+        ]
+      },
+      {
+        "name": "Component Design System",
+        "details": [
+          "Spring Boot, React",
+          "Set up initial DevOps tools and project structure.",
+          "Worked as the sole developer for the first 1.5 months."
+        ]
+      },
+      {
+        "name": "Third-party Logistics Cost Manager",
+        "details": ["Spring Boot, React", "Set up initial DevOps tools and project structure."]
+      },
+      {
+        "name": "Department Complaint Library",
+        "details": [
+          "Planned and developed a React component library for the department.",
+          "Designed modern component APIs, with patterns informed by Mantine.",
+          "Created Storybook documentation and a CI tool for project scaffolding."
+        ]
+      },
+      {
+        "name": "Frontend Chapter",
+        "details": [
+          "Co-lead since 2024; lead since 2026.",
+          "Established conventions and standardized formatting, linting, builds, and package management."
+        ]
+      },
+      {
+        "name": "Task Assessment Framework",
+        "details": [
+          "Rewrote an application originally built on a legacy stack.",
+          "Migrated it from MUI to the in-house component library."
+        ]
+      }
+    ],
+    "educationEntry": {
+      "degree": "Bachelor of Computer Science",
+      "institution": "Eötvös Loránd University",
+      "period": "September 2021 – June 2024",
+      "grade": "Grade: 5"
+    },
+    "otherEntry": {
+      "role": "Demonstrator",
+      "institution": "Eötvös Loránd University",
+      "period": "September 2023 – February 2025",
+      "teaching": "Teaching assistance",
+      "subjects": [
+        "Web programming (JavaScript and PHP basics)",
+        "Client-side programming (Web Components, React, Redux)"
+      ],
+      "background": "Background assistance",
+      "backgroundSubjects": ["Server-side programming (Laravel, Node.js)"]
+    },
+    "knowledgeSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Redux",
+      "Redux Toolkit",
+      "AG Grid",
+      "React Hook Form",
+      "Java",
+      "Spring Boot",
+      "JUnit",
+      "Mockito",
+      "Node.js",
+      "NestJS",
+      "OpenAPI",
+      "PHP",
+      "Laravel",
+      "Python",
+      "SQL",
+      "Git",
+      ".NET",
+      "Office"
+    ],
+    "learningSkills": ["Angular", "Vue", "Quarkus", "C#", "ASP.NET Core", "GraphQL"],
+    "englishLevel": "C1"
   }
 }

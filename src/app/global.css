@@ -10,3 +10,63 @@ html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  #nd-nav,
+  .cv-print-hide {
+    display: none !important;
+  }
+
+  #nd-home-layout {
+    display: block !important;
+  }
+
+  #cv-print-root {
+    display: grid !important;
+    grid-template-columns: 48mm minmax(0, 1fr) !important;
+    gap: 6mm !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111 !important;
+    font-size: 9pt !important;
+  }
+
+  #cv-print-root > header {
+    grid-column: 1 / -1 !important;
+  }
+
+  #cv-print-root aside,
+  #cv-print-root main {
+    gap: 5mm !important;
+  }
+
+  #cv-print-root h1,
+  #cv-print-root h2,
+  #cv-print-root h3,
+  #cv-print-root p,
+  #cv-print-root li,
+  #cv-print-root dt,
+  #cv-print-root dd,
+  #cv-print-root span {
+    color: #111 !important;
+  }
+
+  #cv-print-root aside > section,
+  #cv-print-root main > section:not(:nth-of-type(2)),
+  #cv-print-root .cv-print-item {
+    break-inside: avoid;
+  }
+}
