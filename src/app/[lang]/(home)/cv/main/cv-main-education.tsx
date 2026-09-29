@@ -1,9 +1,11 @@
 import { CvSectionHeading } from "@/app/[lang]/(home)/cv/cv-section-heading";
-import {useCvContext} from "@/app/[lang]/(home)/cv/use-cv-context";
+import { CvEducation } from "@/app/[lang]/(home)/cv/cv-model";
 
-export function CvMainEducation() {
-  const {} = useCvContext()
+interface CvMainEducationProps {
+  education: CvEducation[];
+}
 
+export function CvMainEducation({ education }: CvMainEducationProps) {
   return (
     <section>
       <CvSectionHeading>Education</CvSectionHeading>

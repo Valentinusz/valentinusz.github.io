@@ -1,16 +1,18 @@
 import { CvSectionHeading } from "@/app/[lang]/(home)/cv/cv-section-heading";
-import { useCvContext } from "@/app/[lang]/(home)/cv/use-cv-context";
+import { CvLanguage } from "@/app/[lang]/(home)/cv/cv-model";
 
-export function CvAsideLanguages() {
-  const { languages } = useCvContext();
+interface CvAsideLanguagesProps {
+  languages: CvLanguage[];
+}
 
+export function CvAsideLanguages({ languages }: CvAsideLanguagesProps) {
   return (
     <section>
       <CvSectionHeading>Language knowledge</CvSectionHeading>
 
-      <ol>
+      <ol className="space-y-2 text-sm">
         {languages.map((language) => (
-          <li key={language.name}>
+          <li className="text-fd-muted-foreground" key={language.name}>
             {language.name} - {language.proficiency}
           </li>
         ))}

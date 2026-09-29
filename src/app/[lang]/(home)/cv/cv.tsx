@@ -2,7 +2,6 @@ import { CvHeader } from "@/app/[lang]/(home)/cv/header/cv-header";
 import { CvAside } from "@/app/[lang]/(home)/cv/aside/cv-aside";
 import { CvMain } from "@/app/[lang]/(home)/cv/main/cv-main";
 import { CvModel } from "@/app/[lang]/(home)/cv/cv-model";
-import { CvContext } from "@/app/[lang]/(home)/cv/cv-context";
 
 const cv: CvModel = {
   firstName: "Bálint",
@@ -109,19 +108,18 @@ const cv: CvModel = {
       location: "Budapest, Hungary",
     },
   ],
+  experience: []
 };
 
 export function Cv() {
   return (
-    <CvContext value={cv}>
-      <div>
-        <CvHeader />
+    <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-8 md:px-6">
+      <CvHeader cv={cv} />
 
-        <div>
-          <CvAside />
-          <CvMain />
-        </div>
+      <div className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)]">
+        <CvAside cv={cv} />
+        <CvMain cv={cv} />
       </div>
-    </CvContext>
+    </div>
   );
 }

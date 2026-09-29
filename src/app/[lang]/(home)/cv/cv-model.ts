@@ -1,22 +1,22 @@
 import { ReactElement } from "react";
 
-interface CvSkill {
+export interface CvSkill {
   name: string;
 }
 
-interface CvLanguage {
+export interface CvLanguage {
   name: string;
   proficiency: "beginner" | "elementary" | "intermediate" | "advanced" | "native";
 }
 
-interface CvContact {
+export interface CvContact {
   name: string;
   type: "email" | "phone" | "link";
   value: string;
   icon: ReactElement;
 }
 
-interface BaseEducation {
+interface CvBaseEducation {
   institution: string;
   degree: string;
   startDate: string;
@@ -24,17 +24,22 @@ interface BaseEducation {
   location: string;
 }
 
-interface OngoingEducation extends BaseEducation {
+export interface CvOngoingEducation extends CvBaseEducation {
   ongoing: true;
 }
 
-interface FinishedEducation extends BaseEducation {
+export interface CvFinishedEducation extends CvBaseEducation {
   ongoing: false;
   endDate: string;
   gpa: number;
 }
 
-type Education = OngoingEducation | FinishedEducation;
+export type CvEducation = CvOngoingEducation | CvFinishedEducation;
+
+export interface CvExperience {
+  company: string;
+  position: string;
+}
 
 export interface CvModel {
   firstName: string;
@@ -43,6 +48,6 @@ export interface CvModel {
   skills: CvSkill[];
   languages: CvLanguage[];
   contacts: CvContact[];
-  education: Education[];
-
+  education: CvEducation[];
+  experience: CvExperience[];
 }

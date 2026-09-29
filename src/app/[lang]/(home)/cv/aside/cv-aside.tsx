@@ -1,11 +1,16 @@
 import { CvAsideSkills } from "@/app/[lang]/(home)/cv/aside/cv-aside-skills";
 import { CvAsideLanguages } from "@/app/[lang]/(home)/cv/aside/cv-aside-languages";
+import { CvModel } from "@/app/[lang]/(home)/cv/cv-model";
 
-export function CvAside() {
+interface CvAsideProps {
+  cv: CvModel;
+}
+
+export function CvAside({ cv: { skills, languages } }: CvAsideProps) {
   return (
-    <aside>
-      <CvAsideSkills />
-      <CvAsideLanguages />
+    <aside className="space-y-6">
+      <CvAsideSkills skills={skills} />
+      <CvAsideLanguages languages={languages} />
     </aside>
   );
 }
